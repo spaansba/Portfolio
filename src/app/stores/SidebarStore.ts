@@ -1,17 +1,18 @@
 import { create } from "zustand"
 
-type SidebarAction = {
+type SidebarActions = {
   toggleSidebarOpen: () => void
 }
 
 type SidebarStore = {
   isSidebarOpen: boolean
-  actions: SidebarAction
+  actions: SidebarActions
 }
 
 const useSidebarStore = create<SidebarStore>((set) => ({
   name: "sidebar-store",
   isSidebarOpen: true,
+
   actions: {
     toggleSidebarOpen: () => {
       set((state) => ({

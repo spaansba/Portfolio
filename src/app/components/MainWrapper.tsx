@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+import React, { useLayoutEffect } from "react"
 import Sidebar from "./Sidebar/Sidebar"
 
 function MainWrapper() {
