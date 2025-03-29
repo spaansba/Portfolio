@@ -1,12 +1,6 @@
-import React, { useEffect, useLayoutEffect, useState } from "react"
-import Navigation from "./Navigation"
+import { useIsSidebarOpen } from "@/stores/SidebarStore"
 import { motion } from "framer-motion"
-import {
-  useIsSidebarForcedClosed,
-  useIsSidebarOpen,
-  useSidebarActions,
-} from "@/app/stores/SidebarStore"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import Navigation from "./Navigation"
 import SidebarToggleButton from "./SidebarToggle/SidebarToggleButton"
 
 export const SIDEBAR_OPEN_WIDTH = "205px"

@@ -1,7 +1,5 @@
 "use client"
-
-import MainWrapper from "./components/MainWrapper"
-
+import { redirect } from "next/navigation"
 export default function Home() {
-  return <MainWrapper />
+  redirect("/about")
 }

@@ -1,9 +1,8 @@
-import { useIsSidebarOpen } from "@/app/stores/SidebarStore"
+import useDynamicHeight from "@/hooks/useDynamicHeight"
+import { useIsSidebarOpen } from "@/stores/SidebarStore"
 import { motion } from "framer-motion"
-import React, { useEffect, useState } from "react"
-import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../Sidebar"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import useDynamicHeight from "@/app/hooks/useDynamicHeight"
+import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../Sidebar"
 type SidebarToggleHemisphereProps = {
   isHovered: boolean
 }

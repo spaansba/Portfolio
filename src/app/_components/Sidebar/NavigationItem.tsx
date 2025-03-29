@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { useIsSidebarOpen } from "@/app/stores/SidebarStore"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
-import { useNavigationSelectedPage } from "@/app/stores/NavigationListStore"
+import { useNavigationSelectedPage } from "@/stores/NavigationListStore"
+import { useIsSidebarOpen } from "@/stores/SidebarStore"
 
 type NaviationItemProps = {
   page: NavigationPageItem

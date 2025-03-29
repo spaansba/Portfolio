@@ -1,6 +1,6 @@
 import React from "react"
 import NavigationSection from "./NavigationSection"
-import { useNavigationActions, useNavigationPageList } from "@/app/stores/NavigationListStore"
+import { useNavigationActions, useNavigationPageList } from "@/stores/NavigationListStore"
 
 function Navigation() {
   const pages = useNavigationPageList()

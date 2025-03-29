@@ -1,4 +1,4 @@
-import { useSidebarActions } from "@/app/stores/SidebarStore"
+import { useSidebarActions } from "@/stores/SidebarStore"
 import SidebarToggleHemisphere from "./SidebarToggleHemisphere"
 import SidebarToggleLine from "./SidebarToggleLine"
 import { useState } from "react"

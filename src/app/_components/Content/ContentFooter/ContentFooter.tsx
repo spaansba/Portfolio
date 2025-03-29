@@ -1,6 +1,4 @@
-import React, { use } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useNavigationActions, useNavigationSelectedPage } from "@/app/stores/NavigationListStore"
+import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
 import FooterButton from "./ContentFooterButton"
 
 function Footer() {

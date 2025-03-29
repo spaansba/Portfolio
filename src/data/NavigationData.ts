@@ -10,7 +10,7 @@ import {
   PuzzleIcon,
   Rss,
 } from "lucide-react"
-import type { NavigationPageItem } from "../../../types/NavigationListItem"
+import type { NavigationPageItem } from "../../types/NavigationListItem"
 
 export const aboutList: NavigationPageItem[] = [
   {

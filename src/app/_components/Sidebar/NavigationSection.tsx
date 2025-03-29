@@ -1,4 +1,4 @@
-import { useIsSidebarOpen } from "@/app/stores/SidebarStore"
+import { useIsSidebarOpen } from "@/stores/SidebarStore"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
 import NavigationItem from "./NavigationItem"
 
