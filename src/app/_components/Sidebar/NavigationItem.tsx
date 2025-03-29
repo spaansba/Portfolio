@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
-import { useNavigationSelectedPage } from "@/stores/NavigationListStore"
+import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
 import { useIsSidebarOpen } from "@/stores/SidebarStore"
 
 type NaviationItemProps = {
@@ -13,10 +13,17 @@ function NavigationItem({ page }: NaviationItemProps) {
   const [isHovered, setIsHovered] = useState(false)
   const selectedPage = useNavigationSelectedPage()
   const isSelected = selectedPage.id == page.id
+  const navigationActions = useNavigationActions()
+
+  const handleOnMouseDown = (page: NavigationPageItem) => {
+    navigationActions.setSelectedPage(page)
+    page.onMouseDown(page)
+  }
+
   return (
     <li
       title={isSidebarOpen ? "" : page.name}
-      onMouseDown={() => page.onMouseDown(page)}
+      onMouseDown={() => handleOnMouseDown(page)}
       className={`p-2 font-bold h-[40px] rounded cursor-pointer flex items-center border-[1px] ${
         isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"
       } `}
@@ -32,7 +39,7 @@ function NavigationItem({ page }: NaviationItemProps) {
             } transition-colors duration-300`}
           />
         </div>
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false} mode="wait">
           {isSidebarOpen && (
             <motion.span
               className={`${

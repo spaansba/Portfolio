@@ -1,4 +1,3 @@
-import useDynamicHeight from "@/hooks/useDynamicHeight"
 import { useIsSidebarOpen } from "@/stores/SidebarStore"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -12,15 +11,15 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
   const SIDEBAR_PADDING = "13px"
   const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${SIDEBAR_OPEN_WIDTH} + ${SIDEBAR_PADDING})`
   const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${SIDEBAR_CLOSED_WIDTH} + ${SIDEBAR_PADDING})`
-  const { height, isVisible } = useDynamicHeight({
-    scaleFactor: 0.1,
-    minHeight: 20,
-    maxHeight: 100,
-    minScreenHeight: 200,
-  })
+  // const { height, isVisible } = useDynamicHeight({
+  //   scaleFactor: 0.1,
+  //   minHeight: 20,
+  //   maxHeight: 100,
+  //   minScreenHeight: 200,
+  // })
 
   // Don't render anything if not visible
-  if (!isVisible) return null
+  // if (!isVisible) return null
 
   return (
     <motion.button
@@ -38,7 +37,7 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
         className={`${
           isHovered ? "bg-SecondaryGray" : "bg-TertiaryGray"
         } shadow-md rounded-r-full flex items-center justify-center w-3 cursor-pointer`}
-        style={{ height: height }}
+        style={{ height: 90 }}
       >
         {isSidebarOpen ? (
           <ChevronLeft className="w-3 h-3 text-TextGray" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 type DynamicHeightOptions = {
   /** Percentage of viewport height to use for calculation (e.g., 0.15 means 15% of screen height) */
@@ -27,7 +27,8 @@ function useDynamicHeight({
   maxHeight,
   minScreenHeight,
 }: DynamicHeightOptions): DynamicHeightResult {
-  const [height, setHeight] = useState("40px")
+  // Use null as initial state to indicate "not calculated yet"
+  const [height, setHeight] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
@@ -43,7 +44,11 @@ function useDynamicHeight({
     return () => window.removeEventListener("resize", calculateDimensions)
   }, [scaleFactor, minHeight, maxHeight, minScreenHeight])
 
-  return { height, isVisible }
+  // If height hasn't been calculated yet, return a sensible default
+  return {
+    height: height || `${maxHeight}px`,
+    isVisible,
+  }
 }
 
 export default useDynamicHeight
