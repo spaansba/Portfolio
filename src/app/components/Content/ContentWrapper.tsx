@@ -1,7 +1,7 @@
 import React from "react"
 import ContentFooter from "./ContentFooter/ContentFooter"
 
-function Content() {
+function ContentWrapper() {
   return (
     <div className="h-full flex flex-col">
       <div className="flex-1 overflow-y-auto overflow-x-hidden webkit-overflow-scrolling-touch">
@@ -12,4 +12,4 @@ function Content() {
   )
 }
 
-export default Content
+export default ContentWrapper

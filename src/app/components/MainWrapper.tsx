@@ -1,13 +1,9 @@
 "use client"
 import React, { useEffect } from "react"
 import Sidebar from "./Sidebar/Sidebar"
-import Content from "./Content/Content"
-import {
-  useIsSidebarForcedClosed,
-  useIsSidebarOpen,
-  useSidebarActions,
-} from "../stores/SidebarStore"
+import { useIsSidebarForcedClosed, useSidebarActions } from "../stores/SidebarStore"
 import Header from "./Content/Header/Header"
+import ContentWrapper from "./Content/ContentWrapper"
 
 function MainWrapper() {
   const sidebarActions = useSidebarActions()
@@ -44,7 +40,7 @@ function MainWrapper() {
       <div className="flex-1 flex min-h-0">
         <Sidebar />
         <div className="flex-1 relative scrollable-content">
-          <Content />
+          <ContentWrapper />
         </div>
       </div>
     </div>

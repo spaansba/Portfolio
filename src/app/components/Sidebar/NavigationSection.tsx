@@ -1,3 +1,4 @@
+import { useIsSidebarOpen } from "@/app/stores/SidebarStore"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
 import NavigationItem from "./NavigationItem"
 
@@ -7,9 +8,17 @@ type NavigationSectionProps = {
 }
 
 function NavigationSection({ title, pages }: NavigationSectionProps) {
+  const isSidebarOpen = useIsSidebarOpen()
   return (
     <li>
-      <h3 className="text-xs font-semibold uppercase text-TextGray mb-2 px-2">{title}</h3>
+      <h3
+        className={`text-md font-semibold uppercase text-TextGray mb-[4px] ${
+          isSidebarOpen ? "px-[2px]" : "pl-[6px]"
+        }`}
+        title={isSidebarOpen ? "" : title.charAt(0).toUpperCase() + title.slice(1)}
+      >
+        {isSidebarOpen ? title : `-${title.charAt(0)}-`}
+      </h3>
       <ul className="space-y-1">
         {pages.map((page) => (
           <NavigationItem page={page} key={page.id} />

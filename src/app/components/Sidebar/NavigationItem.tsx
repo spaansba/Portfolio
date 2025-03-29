@@ -15,6 +15,7 @@ function NavigationItem({ page }: NaviationItemProps) {
   const isSelected = selectedPage.id == page.id
   return (
     <li
+      title={isSidebarOpen ? "" : page.name}
       onMouseDown={() => page.onMouseDown(page)}
       className={`p-2 font-bold h-[40px] rounded cursor-pointer flex items-center border-[1px] ${
         isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"
@@ -25,7 +26,7 @@ function NavigationItem({ page }: NaviationItemProps) {
       <div className={`flex items-center gap-2 w-full overflow-hidden`}>
         <div className="flex-shrink-0">
           <page.icon
-            size={20}
+            size={19}
             className={`${
               isHovered || isSelected ? "text-white" : "text-TextGray"
             } transition-colors duration-300`}
