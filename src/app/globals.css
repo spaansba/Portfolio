@@ -5,6 +5,9 @@
   --color-SecondaryGray: #1c1c1c;
   --color-TertiaryGray: #2b2b2b;
   --color-TextGray: #555554;
+  --scrollbar-track: #1c1c1c;
+  --scrollbar-thumb: #2b2b2b;
+  --scrollbar-thumb-hover: #3d3d3d;
 }
 
 html,
@@ -12,7 +15,51 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* For Webkit-based browsers (Chrome, Safari and Opera) */
+/* Base scrollbar styling - minimal opacity when not hovered */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+/* Content areas with scrollbars - target specific containers */
+.scrollable-content {
+  overflow: auto;
+}
+
+/* Show full-opacity scrollbar when hovering the content area */
+.scrollable-content:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+  background: var(--scrollbar-thumb);
+}
+
+.scrollable-content:hover::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar */
+.scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.scrollable-content:hover {
+  scrollbar-color: var(--scrollbar-thumb-hover) var(--scrollbar-track);
+}
+
+/* For specific scrollbar hiding case */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

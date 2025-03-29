@@ -9,8 +9,8 @@ function Footer() {
   const { previousPage, nextPage } = navigationActions.getAdjacentPages(selectedPage)
 
   return (
-    <footer className="border-t border-TertiaryGray bg-SecondaryGray">
-      <div className="py-6 md:py-4 px-8 flex justify-between items-center mt-auto min-h-[80px] md:min-h-[60px]">
+    <footer className=" bg-PrimaryGray">
+      <div className="pt-4 pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
         <FooterButton
           direction="previous"
           isDisabled={!previousPage}

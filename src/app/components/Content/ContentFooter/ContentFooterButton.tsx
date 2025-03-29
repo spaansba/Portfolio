@@ -18,23 +18,24 @@ function FooterButton({ onMouseDown, isDisabled, direction, name }: FooterButton
       onMouseLeave={() => setIsHovered(false)}
       onMouseDown={onMouseDown}
       disabled={isDisabled}
-      className={`flex flex-row justify-center transition-colors duration-300 items-center gap-2 ${
-        isHovered ? "text-white" : "text-TextGray"
+      className={`flex flex-row justify-center transition-colors text-TextGray duration-300 items-center gap-2 ${
+        isHovered ? "md:text-white" : ""
       } `}
     >
       {direction === "previous" && (
         <ChevronLeft
-          className={`${isHovered ? "text-white" : "text-TextGray"} transition-colors duration-300`}
+          className={`${
+            isHovered ? "md:text-white" : ""
+          } text-TextGray transition-colors duration-300`}
           size={16}
         />
       )}
       <span>{name}</span>
       {direction === "next" && (
         <ChevronRight
-          className={`${isHovered ? "text-white" : "text-TextGray"} transition-colors duration-300`}
-          style={{
-            color: isHovered ? "white" : "",
-          }}
+          className={`${
+            isHovered ? "md:text-white" : ""
+          } text-TextGray transition-colors duration-300`}
           size={16}
         />
       )}

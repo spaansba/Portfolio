@@ -38,18 +38,12 @@ function MainWrapper() {
 
   return (
     <div className="fixed inset-0 flex flex-col bg-PrimaryGray overflow-hidden">
-      {/* Header - spans full width at top */}
       <div className="flex-shrink-0 w-full">
         <Header />
       </div>
-
-      {/* Main area with sidebar and content */}
       <div className="flex-1 flex min-h-0">
-        {/* Fixed Sidebar */}
         <Sidebar />
-
-        {/* Main content area */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative scrollable-content">
           <Content />
         </div>
       </div>
