@@ -11,25 +11,32 @@ import {
   Rss,
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
+import { redirect } from "next/navigation"
 
 export const aboutList: NavigationPageItem[] = [
   {
     id: "about-10",
     name: "About me",
     icon: Info,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/about")
+    },
   },
   {
     id: "about-20",
     name: "Work Experience",
     icon: Briefcase,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/about")
+    },
   },
   {
     id: "about-30",
     name: "Study",
     icon: GraduationCap,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/about")
+    },
   },
 ]
 
@@ -38,19 +45,25 @@ export const projectList: NavigationPageItem[] = [
     id: "project-10",
     name: "Websites",
     icon: Globe,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/projects")
+    },
   },
   {
     id: "project-20",
     name: "Extensions",
     icon: PuzzleIcon,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/projects")
+    },
   },
   {
     id: "project-30",
     name: "Other",
     icon: Package,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/projects")
+    },
   },
 ]
 
@@ -59,7 +72,9 @@ export const resourcesList: NavigationPageItem[] = [
     id: "resources-10",
     name: "Feed",
     icon: Rss,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/resources")
+    },
   },
 ]
 
@@ -68,18 +83,24 @@ export const connectList: NavigationPageItem[] = [
     id: "connect-10",
     name: "Mail",
     icon: Mail,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/connect")
+    },
   },
   {
     id: "connect-20",
     name: "Github",
     icon: Github,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/connect")
+    },
   },
   {
     id: "connect-30",
     name: "LinkedIn",
     icon: Linkedin,
-    onMouseDown: () => {},
+    onMouseDown: () => {
+      redirect("/connect")
+    },
   },
 ]

@@ -2,8 +2,12 @@
 import React from "react"
 import ContentWrapper from "../_components/Content/ContentWrapper"
 
-function page() {
-  return <ContentWrapper />
+function AboutPage() {
+  return (
+    <ContentWrapper>
+      <div>About</div>
+    </ContentWrapper>
+  )
 }
 
-export default page
+export default AboutPage
