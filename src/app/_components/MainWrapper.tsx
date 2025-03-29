@@ -28,9 +28,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="fixed inset-0 flex flex-col bg-PrimaryGray overflow-hidden">
-      <div className="flex-shrink-0 w-full">
-        <Header />
-      </div>
+      <div className="flex-shrink-0 w-full">{/* <Header /> */}</div>
 
       {/* This should be a single flex container with both sidebar and content */}
       <div className="flex-1 flex min-h-0 overflow-hidden">
