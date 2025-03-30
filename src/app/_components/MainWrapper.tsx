@@ -32,12 +32,8 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
         <Header />
       </div>
 
-      {/* This should be a single flex container with both sidebar and content */}
-      <div className="flex-1 flex min-h-0 overflow-hidden">
-        {/* Sidebar */}
+      <div className="flex-1 flex overflow-hidden">
         <Sidebar />
-
-        {/* Main content area */}
         <div className="flex-1 overflow-auto">{children}</div>
       </div>
     </div>

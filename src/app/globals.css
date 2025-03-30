@@ -10,6 +10,10 @@
   --scrollbar-thumb-hover: #3d3d3d;
 }
 
+/* const x = "Hi, my name is Bart"
+
+const y = "" */
+
 html,
 body {
   font-family: var(--font-inter), system-ui, sans-serif;

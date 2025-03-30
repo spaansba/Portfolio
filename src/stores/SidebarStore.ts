@@ -3,6 +3,7 @@ import { create } from "zustand"
 type SidebarActions = {
   toggleSidebarOpen: () => void
   setForceCloseSidebar: (shouldForceClose: boolean) => void
+  getSidebarWidth: (isMobile: boolean) => { open: string; closed: string }
 }
 
 type SidebarStore = {
@@ -11,7 +12,7 @@ type SidebarStore = {
   actions: SidebarActions
 }
 
-const useSidebarStore = create<SidebarStore>((set) => ({
+const useSidebarStore = create<SidebarStore>((set, get) => ({
   name: "sidebar-store",
   isSidebarOpen: true,
   isForcedClosed: false,
@@ -25,6 +26,19 @@ const useSidebarStore = create<SidebarStore>((set) => ({
       set(() => ({
         isForcedClosed: shouldForceClose,
       }))
+    },
+    getSidebarWidth: (isMobile: boolean) => {
+      if (isMobile) {
+        return {
+          open: "320px",
+          closed: "49px",
+        }
+      } else {
+        return {
+          open: "205px",
+          closed: "49px",
+        }
+      }
     },
   },
 }))

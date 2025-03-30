@@ -1,25 +1,21 @@
-import { useIsSidebarOpen } from "@/stores/SidebarStore"
+import useIsMobileDevice from "@/hooks/useIsMobileDevice"
+import { useIsSidebarOpen, useSidebarActions } from "@/stores/SidebarStore"
+import { useWindowSize } from "@uidotdev/usehooks"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../Sidebar"
+
 type SidebarToggleHemisphereProps = {
   isHovered: boolean
 }
 
 function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
   const isSidebarOpen = useIsSidebarOpen()
+  const isMobile = useIsMobileDevice()
+  const sidebarActions = useSidebarActions()
+  const sidebarSize = sidebarActions.getSidebarWidth(isMobile)
   const SIDEBAR_PADDING = "13px"
-  const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${SIDEBAR_OPEN_WIDTH} + ${SIDEBAR_PADDING})`
-  const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${SIDEBAR_CLOSED_WIDTH} + ${SIDEBAR_PADDING})`
-  // const { height, isVisible } = useDynamicHeight({
-  //   scaleFactor: 0.1,
-  //   minHeight: 20,
-  //   maxHeight: 100,
-  //   minScreenHeight: 200,
-  // })
-
-  // Don't render anything if not visible
-  // if (!isVisible) return null
+  const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${sidebarSize.open} + ${SIDEBAR_PADDING})`
+  const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${sidebarSize.closed} + ${SIDEBAR_PADDING})`
 
   return (
     <motion.button

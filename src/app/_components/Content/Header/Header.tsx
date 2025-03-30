@@ -8,13 +8,12 @@ function Header() {
     <>
       <div className="px-[10px] py-3 bg-SecondaryGray border-b-[1px] border-r-[1px] border-TertiaryGray">
         <div className="flex items-center gap-3">
-          <div className="relative size-12 rounded-sm overflow-hidden ring-2 ring-TertiaryGray flex-shrink-0">
+          <div className="relative size-12  overflow-hidden ring-[1px] ring-TertiaryGray flex-shrink-0">
             <Image
               src="/images/BartSpaans.jpg"
               alt="Profile picture"
               fill
               className="object-cover"
-              sizes="48px"
               priority
             />
           </div>

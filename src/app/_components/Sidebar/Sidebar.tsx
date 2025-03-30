@@ -1,12 +1,14 @@
-import { useIsSidebarOpen } from "@/stores/SidebarStore"
+import { useIsSidebarOpen, useSidebarActions } from "@/stores/SidebarStore"
 import { motion } from "framer-motion"
 import Navigation from "./Navigation"
 import SidebarToggleButton from "./SidebarToggle/SidebarToggleButton"
-
-export const SIDEBAR_OPEN_WIDTH = "205px"
-export const SIDEBAR_CLOSED_WIDTH = "49px"
+import { useWindowSize } from "@uidotdev/usehooks"
+import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 
 function Sidebar() {
+  const isMobile = useIsMobileDevice()
+  const sidebarActions = useSidebarActions()
+  const sidebarSize = sidebarActions.getSidebarWidth(isMobile)
   const isSidebarOpen = useIsSidebarOpen()
   return (
     <>
@@ -14,8 +16,8 @@ function Sidebar() {
         <motion.div
           layout
           initial={false}
-          className="flex flex-col bg-SecondaryGray "
-          animate={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
+          className={`flex flex-col bg-SecondaryGray `}
+          animate={{ width: isSidebarOpen ? sidebarSize.open : sidebarSize.closed }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <div className="ml-[10px] pt-3 overflow-x-hidden scrollbar-hide">
