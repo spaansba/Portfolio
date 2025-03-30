@@ -19,7 +19,7 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
 
   return (
     <motion.button
-      className="fixed top-[50%] z-[99] translate-y-[-50%]"
+      className="fixed top-[50%] z-[99] translate-y-[-50%] select-none"
       initial={false}
       animate={{
         left: isSidebarOpen ? SIDEBAR_TOGGLE_OPEN_LEFT : SIDEBAR_TOGGLE_CLOSED_LEFT,

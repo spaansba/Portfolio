@@ -1,6 +1,6 @@
 import { create } from "zustand"
-import type { NavigationPageItem } from "../../../types/NavigationListItem"
 import { aboutList, connectList, projectList, resourcesList } from "../data/NavigationData"
+import type { NavigationPageItem } from "../../types/NavigationListItem"
 
 type NavigationListActions = {
   setSelectedPage: (page: NavigationPageItem) => void

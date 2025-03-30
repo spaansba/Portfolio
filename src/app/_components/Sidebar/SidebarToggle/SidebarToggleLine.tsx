@@ -6,7 +6,7 @@ type SidebarToggleLineProps = {
 
 function SidebarToggleLine({ isHovered }: SidebarToggleLineProps) {
   return (
-    <div className="cursor-pointer h-full flex group relative">
+    <div className="cursor-pointer h-full flex group relative select-none">
       <div className="bg-SecondaryGray w-[12px] h-full" />
       <div className={`${isHovered ? "bg-SecondaryGray" : "bg-TertiaryGray"}  w-[1px] h-full`} />
     </div>

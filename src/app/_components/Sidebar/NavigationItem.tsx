@@ -2,20 +2,25 @@ import React, { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
 import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
-import { useIsSidebarOpen } from "@/stores/SidebarStore"
+import { useIsSidebarOpen, useSidebarActions } from "@/stores/SidebarStore"
+import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 
 type NaviationItemProps = {
   page: NavigationPageItem
 }
 
 function NavigationItem({ page }: NaviationItemProps) {
+  const isMobile = useIsMobileDevice()
   const isSidebarOpen = useIsSidebarOpen()
   const [isHovered, setIsHovered] = useState(false)
   const selectedPage = useNavigationSelectedPage()
   const isSelected = selectedPage.id == page.id
   const navigationActions = useNavigationActions()
-
+  const sidebarActions = useSidebarActions()
   const handleOnMouseDown = (page: NavigationPageItem) => {
+    if (isMobile) {
+      sidebarActions.toggleSidebarOpen(false)
+    }
     navigationActions.setSelectedPage(page)
     page.onMouseDown(page)
   }

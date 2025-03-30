@@ -1,8 +1,7 @@
 import { create } from "zustand"
 
 type SidebarActions = {
-  toggleSidebarOpen: () => void
-  setForceCloseSidebar: (shouldForceClose: boolean) => void
+  toggleSidebarOpen: (shouldSidebarBeOpen?: boolean) => void
   getSidebarWidth: (isMobile: boolean) => { open: string; closed: string }
 }
 
@@ -17,20 +16,16 @@ const useSidebarStore = create<SidebarStore>((set, get) => ({
   isSidebarOpen: true,
   isForcedClosed: false,
   actions: {
-    toggleSidebarOpen: () => {
+    toggleSidebarOpen: (shouldSidebarBeOpen?: boolean) => {
       set((state) => ({
-        isSidebarOpen: !state.isSidebarOpen,
-      }))
-    },
-    setForceCloseSidebar: (shouldForceClose: boolean) => {
-      set(() => ({
-        isForcedClosed: shouldForceClose,
+        isSidebarOpen:
+          shouldSidebarBeOpen !== undefined ? shouldSidebarBeOpen : !state.isSidebarOpen,
       }))
     },
     getSidebarWidth: (isMobile: boolean) => {
       if (isMobile) {
         return {
-          open: "320px",
+          open: "205px",
           closed: "49px",
         }
       } else {
