@@ -50,7 +50,7 @@ export const workExperience: WorkExperience[] = [
     ],
   },
   {
-    employer: "Hilti Nederland BV",
+    employer: "Hilti",
     icon: "hilti_logo", // Placeholder for the actual icon
     location: {
       countryCode: "NL",
@@ -58,11 +58,18 @@ export const workExperience: WorkExperience[] = [
     },
     positions: [
       {
-        jobTitle: "Afstuderen",
-        startYear: 2018,
+        jobTitle: "Master Thesis ",
+        startYear: 2019,
         endYear: 2020,
         extraInfo:
-          "Researched what self-employed builders need and how they prefer to be contacted by companies like Hilti. Created suggestions that helped Hilti talk to these customers better. Used the research to help the company connect with more builders.",
+          "Successfully completed my master's thesis on why existing clients prefer to buy through traditional offline channels rather than more modern online channels.",
+      },
+      {
+        jobTitle: "Bachelor Thesis",
+        startYear: 2018,
+        endYear: 2019,
+        extraInfo:
+          "Successfully finished my bachelor thesis about innovative ways to connect digitally with the growing market of independent builders",
       },
     ],
   },
