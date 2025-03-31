@@ -30,19 +30,22 @@ export const workExperience: WorkExperience[] = [
         jobTitle: "Subject Matter Expert",
         startYear: 2023,
         endYear: "present",
-        extraInfo: "Subject matter expert responsibilities",
+        extraInfo:
+          "Created, developed and maintained multiple big VBA projects serving over 600 internal clients from 12 different countries. Also served as the main contact point between the NL Flex team and the retail department.",
       },
       {
         jobTitle: "Senior Catalog Associate",
         startYear: 2022,
         endYear: 2023,
-        extraInfo: "Senior catalog management responsibilities",
+        extraInfo:
+          "Gathered and analyzed sales data to identify growth opportunities across multiple marketplaces. Implemented solutions that enhanced product visibility and improve customer experience.",
       },
       {
         jobTitle: "Catalog Associate",
         startYear: 2021,
         endYear: 2022,
-        extraInfo: "Catalog management and maintenance responsibilities",
+        extraInfo:
+          "Managed catalog operations including product page updates, content creation, and data maintenance for multiple Amazon marketplaces.",
       },
     ],
   },
@@ -59,7 +62,7 @@ export const workExperience: WorkExperience[] = [
         startYear: 2018,
         endYear: 2020,
         extraInfo:
-          "Onderzoek verrichtingen naar de behoeftes en de manier van aanspreken van zzp'ers in de bouw.",
+          "Researched what self-employed builders need and how they prefer to be contacted by companies like Hilti. Created suggestions that helped Hilti talk to these customers better. Used the research to help the company connect with more builders.",
       },
     ],
   },
