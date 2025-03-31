@@ -31,14 +31,14 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
     >
       <div
         className={`${
-          isHovered ? "bg-SecondaryGray" : "bg-TertiaryGray"
-        } shadow-md rounded-r-full flex items-center justify-center w-3 cursor-pointer`}
+          isHovered ? "opacity-70" : ""
+        } shadow-md rounded-r-full bg-white flex items-center justify-center w-3 cursor-pointer`}
         style={{ height: 90 }}
       >
         {isSidebarOpen ? (
-          <ChevronLeft className="w-3 h-3 text-TextGray" />
+          <ChevronLeft size={20} className=" text-TextGray" />
         ) : (
-          <ChevronRight className="w-3 h-3 text-TextGray" />
+          <ChevronRight size={20} className=" text-TextGray" />
         )}
       </div>
     </motion.button>

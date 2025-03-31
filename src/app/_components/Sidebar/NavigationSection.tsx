@@ -12,7 +12,7 @@ function NavigationSection({ title, pages }: NavigationSectionProps) {
   return (
     <li>
       <h3
-        className={`text-md font-semibold uppercase text-TextGray mb-[4px] ${
+        className={`text-md font-semibold uppercase text-TextGrayWhite mb-[4px] ${
           isSidebarOpen ? "px-[2px]" : "pl-[6px]"
         }`}
         title={isSidebarOpen ? "" : title.charAt(0).toUpperCase() + title.slice(1)}

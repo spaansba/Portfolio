@@ -11,15 +11,18 @@ function OpenSidebarMobileFilter() {
     hidden: {
       opacity: 0,
       backdropFilter: "blur(0px)",
+      backgroundColor: "rgba(255, 255, 255, 0)",
     },
     visible: {
       opacity: 1,
       backdropFilter: "blur(16px)",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       transition: { duration: 0.3 },
     },
     exit: {
       opacity: 0,
       backdropFilter: "blur(0px)",
+      backgroundColor: "rgba(255, 255, 255, 0)",
       transition: { duration: 0.5 }, // Slower exit animation
     },
   }
@@ -28,7 +31,7 @@ function OpenSidebarMobileFilter() {
     <AnimatePresence>
       {isMobile && isSidebarOpen && (
         <motion.div
-          className="absolute inset-0 backdrop-blur-xl bg-white/10 pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           variants={blurVariants}
           initial="hidden"
           animate="visible"
