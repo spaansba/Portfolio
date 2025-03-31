@@ -12,7 +12,6 @@ type WorkLocation = {
 
 export type WorkExperience = {
   employer: string
-  icon: string
   location: WorkLocation
   positions: WorkPositions[]
 }
@@ -20,7 +19,6 @@ export type WorkExperience = {
 export const workExperience: WorkExperience[] = [
   {
     employer: "Amazon",
-    icon: "amazon_logo", // Placeholder for the actual icon
     location: {
       countryCode: "NL",
       city: "Den Haag",
@@ -50,8 +48,7 @@ export const workExperience: WorkExperience[] = [
     ],
   },
   {
-    employer: "Hilti",
-    icon: "hilti_logo", // Placeholder for the actual icon
+    employer: "Hilti", // Placeholder for the actual icon
     location: {
       countryCode: "NL",
       city: "Berkel en Rodenrijs",
