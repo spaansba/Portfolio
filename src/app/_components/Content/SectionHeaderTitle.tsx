@@ -6,7 +6,11 @@ type SectionHeaderTitleProps = {
 }
 
 function SectionHeaderTitle({ title }: SectionHeaderTitleProps) {
-  return <div className="text-white font-bold text-center text-5xl pt-30">{title}</div>
+  return (
+    <div className="text-white font-bold text-center text-3xl md:text-5xl pt-10 pb-5 md:pb-20 md:pt-30">
+      {title}
+    </div>
+  )
 }
 
 export default SectionHeaderTitle
