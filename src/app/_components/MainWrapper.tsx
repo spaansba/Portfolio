@@ -1,19 +1,22 @@
 "use client"
-import React, { useEffect } from "react"
-import Sidebar from "./Sidebar/Sidebar"
+import React from "react"
 import Header from "./Content/Header/Header"
-import { useSidebarActions, useIsSidebarForcedClosed } from "@/stores/SidebarStore"
+import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigation"
+import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigation"
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 flex flex-col bg-PrimaryGray overflow-hidden">
+    <div className="fixed inset-0 flex flex-col bg-PrimaryGray">
       <div className="flex-shrink-0 w-full">
         <Header />
       </div>
 
       <div className="flex-1 flex overflow-hidden">
-        <Sidebar />
-        <div className="flex-1 overflow-auto">{children}</div>
+        <DesktopNavigation />
+        <div className="flex-1 relative">
+          <div className="h-full overflow-y-auto overflow-x-auto">{children}</div>
+          <MobileNavigation />
+        </div>
       </div>
     </div>
   )

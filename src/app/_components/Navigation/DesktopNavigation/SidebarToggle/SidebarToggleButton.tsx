@@ -1,15 +1,15 @@
-import { useSidebarActions } from "@/stores/SidebarStore"
+import { useDesktopSidebarActions } from "@/stores/DesktopSidebarStore"
 import SidebarToggleHemisphere from "./SidebarToggleHemisphere"
 import SidebarToggleLine from "./SidebarToggleLine"
 import { useState } from "react"
 
 function SidebarToggleButton() {
-  const sidebarActions = useSidebarActions()
+  const sidebarActions = useDesktopSidebarActions()
   const [isSidebarResizerHovered, setIsSidebarResizerHovered] = useState(false)
   return (
     <div
       onMouseDown={() => {
-        sidebarActions.toggleSidebarOpen()
+        sidebarActions.toggleDesktopSidebarOpen()
         setIsSidebarResizerHovered(false)
       }}
       onMouseEnter={() => setIsSidebarResizerHovered(true)}

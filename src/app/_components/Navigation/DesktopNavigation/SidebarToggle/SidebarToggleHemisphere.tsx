@@ -1,21 +1,19 @@
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
-import { useIsSidebarOpen, useSidebarActions } from "@/stores/SidebarStore"
 import { useWindowSize } from "@uidotdev/usehooks"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
+import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../DesktopNavigation"
 
 type SidebarToggleHemisphereProps = {
   isHovered: boolean
 }
 
 function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
-  const isSidebarOpen = useIsSidebarOpen()
-  const isMobile = useIsMobileDevice()
-  const sidebarActions = useSidebarActions()
-  const sidebarSize = sidebarActions.getSidebarWidth(isMobile)
+  const isSidebarOpen = useIsDesktopSidebarOpen()
   const SIDEBAR_PADDING = "13px"
-  const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${sidebarSize.open} + ${SIDEBAR_PADDING})`
-  const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${sidebarSize.closed} + ${SIDEBAR_PADDING})`
+  const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${SIDEBAR_OPEN_WIDTH} + ${SIDEBAR_PADDING})`
+  const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${SIDEBAR_CLOSED_WIDTH} + ${SIDEBAR_PADDING})`
 
   return (
     <motion.button

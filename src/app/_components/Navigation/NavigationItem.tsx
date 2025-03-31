@@ -2,24 +2,25 @@ import React, { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
 import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
-import { useIsSidebarOpen, useSidebarActions } from "@/stores/SidebarStore"
+import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
+import { useMobileSidebarActions } from "@/stores/MobileSidebarStore"
 
 type NaviationItemProps = {
   page: NavigationPageItem
 }
 
 function NavigationItem({ page }: NaviationItemProps) {
+  const isSidebarOpen = useIsDesktopSidebarOpen()
   const isMobile = useIsMobileDevice()
-  const isSidebarOpen = useIsSidebarOpen()
+  const isMobileSidebarAction = useMobileSidebarActions()
   const [isHovered, setIsHovered] = useState(false)
   const selectedPage = useNavigationSelectedPage()
   const isSelected = selectedPage.id == page.id
   const navigationActions = useNavigationActions()
-  const sidebarActions = useSidebarActions()
   const handleOnMouseDown = (page: NavigationPageItem) => {
     if (isMobile) {
-      sidebarActions.toggleSidebarOpen(false)
+      isMobileSidebarAction.toggleMobileSidebarOpen(false)
     }
     navigationActions.setSelectedPage(page)
     page.onMouseDown(page)
@@ -45,7 +46,7 @@ function NavigationItem({ page }: NaviationItemProps) {
           />
         </div>
         <AnimatePresence initial={false} mode="wait">
-          {isSidebarOpen && (
+          {(isSidebarOpen || isMobile) && (
             <motion.span
               className={`${
                 isHovered || isSelected ? "text-white" : "text-TextGray"
