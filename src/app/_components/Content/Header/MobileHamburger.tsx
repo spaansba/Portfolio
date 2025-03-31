@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 import { Cross as Hamburger } from "hamburger-react"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"

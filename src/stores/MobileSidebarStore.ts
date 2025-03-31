@@ -11,7 +11,7 @@ type MobileSidebarStore = {
 
 const useMobileSidebarStore = create<MobileSidebarStore>((set) => ({
   name: "mobile-sidebar-store",
-  isMobileSidebarOpen: true,
+  isMobileSidebarOpen: false,
   actions: {
     toggleMobileSidebarOpen: (shouldSidebarBeOpen?: boolean) => {
       set((state) => ({

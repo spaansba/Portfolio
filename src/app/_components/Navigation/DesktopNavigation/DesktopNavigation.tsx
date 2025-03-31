@@ -1,3 +1,4 @@
+"use client"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 import { motion } from "framer-motion"
 import Navigation from "../Navigation"
@@ -9,6 +10,7 @@ export const SIDEBAR_CLOSED_WIDTH = "49px"
 function DesktopNavigation() {
   const isMobile = useIsMobileDevice()
   const isSidebarOpen = useIsDesktopSidebarOpen()
+  console.log(isMobile)
   return (
     <>
       {!isMobile && (

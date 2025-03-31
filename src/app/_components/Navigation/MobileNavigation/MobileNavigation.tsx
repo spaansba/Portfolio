@@ -1,3 +1,4 @@
+"use client"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore"
 import React from "react"

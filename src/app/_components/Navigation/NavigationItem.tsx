@@ -13,6 +13,7 @@ type NaviationItemProps = {
 function NavigationItem({ page }: NaviationItemProps) {
   const isSidebarOpen = useIsDesktopSidebarOpen()
   const isMobile = useIsMobileDevice()
+
   const isMobileSidebarAction = useMobileSidebarActions()
   const [isHovered, setIsHovered] = useState(false)
   const selectedPage = useNavigationSelectedPage()
