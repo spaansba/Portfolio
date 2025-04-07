@@ -41,7 +41,7 @@ function SmallProjectNavigation({
             <button
               key={index}
               onClick={() => goToProject(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
+              className={`w-2 h-2  transition-all ${
                 activeIndex === index
                   ? "bg-white w-4"
                   : "bg-TertiaryGray hover:bg-white hover:opacity-30"

@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { aboutList, connectList, projectList, resourcesList } from "../data/NavigationData"
+import { aboutList, careerList, connectList, resourcesList } from "../data/NavigationData"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 
 type NavigationListActions = {
@@ -18,7 +18,7 @@ type NavigationListStore = {
 
 type NavigationList = {
   about: NavigationPageItem[]
-  projects: NavigationPageItem[]
+  career: NavigationPageItem[]
   resources: NavigationPageItem[]
   connect: NavigationPageItem[]
 }
@@ -27,7 +27,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
   name: "navigation-list-store",
   pages: {
     about: aboutList,
-    projects: projectList,
+    career: careerList,
     resources: resourcesList,
     connect: connectList,
   },

@@ -19,7 +19,7 @@ function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
         <div
           className={`${
             isLeftAlign ? "left-[-5px]" : "right-[-5px]"
-          } mb-3 px-2 py-2 rounded-md inline-flex h-6 w-36 translate-y-0.5 items-center justify-center text-xs font-semibold uppercase sm:absolute sm:mb-0 bg-black text-white`}
+          } mb-3 px-2 py-2  inline-flex h-6 w-36 translate-y-0.5 items-center justify-center text-xs font-semibold uppercase sm:absolute sm:mb-0 bg-black text-white`}
         >
           {position.startYear} - {position.endYear}
         </div>

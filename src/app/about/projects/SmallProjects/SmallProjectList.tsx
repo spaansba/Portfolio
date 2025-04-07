@@ -41,7 +41,7 @@ function SmallProjectList() {
             whileTap={{ cursor: "grabbing" }}
           >
             <div
-              className="bg-PrimaryGray border border-TertiaryGray rounded-lg p-6 md:p-8 shadow-md cursor-grab h-full"
+              className="bg-PrimaryGray border border-TertiaryGray p-6 md:p-8 shadow-md cursor-grab h-full"
               style={{
                 display: "flex",
                 flexDirection: "column",

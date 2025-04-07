@@ -1,15 +1,4 @@
-import {
-  Briefcase,
-  Github,
-  Globe,
-  GraduationCap,
-  Info,
-  Linkedin,
-  Mail,
-  Package,
-  PuzzleIcon,
-  Rss,
-} from "lucide-react"
+import { Briefcase, Github, Globe, Info, Linkedin, Mail, PuzzleIcon, Rss } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 import { redirect } from "next/navigation"
 
@@ -24,45 +13,29 @@ export const aboutList: NavigationPageItem[] = [
   },
   {
     id: "about-20",
-    name: "Work Experience",
+    name: "Projects",
     icon: Briefcase,
-    onMouseDown: () => {
-      redirect("/about")
-    },
-  },
-  {
-    id: "about-30",
-    name: "Study",
-    icon: GraduationCap,
     onMouseDown: () => {
       redirect("/about")
     },
   },
 ]
 
-export const projectList: NavigationPageItem[] = [
+export const careerList: NavigationPageItem[] = [
   {
-    id: "project-10",
-    name: "Websites",
+    id: "career-10",
+    name: "Work Experience",
     icon: Globe,
     onMouseDown: () => {
-      redirect("/projects")
+      redirect("/career")
     },
   },
   {
-    id: "project-20",
-    name: "Extensions",
+    id: "career-20",
+    name: "Studies",
     icon: PuzzleIcon,
     onMouseDown: () => {
-      redirect("/projects")
-    },
-  },
-  {
-    id: "project-30",
-    name: "Other",
-    icon: Package,
-    onMouseDown: () => {
-      redirect("/projects")
+      redirect("/career")
     },
   },
 ]
