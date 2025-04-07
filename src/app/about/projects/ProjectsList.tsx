@@ -7,8 +7,12 @@ function ProjectsList() {
 
   return (
     <>
-      {projects.map((project) => (
-        <ProjectsMain key={project.title} project={project}></ProjectsMain>
+      {projects.map((project, index) => (
+        <ProjectsMain
+          key={project.title}
+          project={project}
+          isLast={index === projects.length - 1}
+        ></ProjectsMain>
       ))}
     </>
   )
