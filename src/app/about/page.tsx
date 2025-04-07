@@ -11,7 +11,7 @@ function AboutPage() {
   return (
     <ContentWrapper>
       <AboutHeader />
-      <SectionHeaderTitle title="Projects." />
+      <SectionHeaderTitle title="Main Projects." />
       <BigProjectsList />
       <SectionHeaderTitle title="Smaller Projects." />
       <SmallProjectList />

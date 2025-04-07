@@ -2,14 +2,15 @@ import { ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
 import React from "react"
 
-type SmallProjectLinks = {
+type ProjectLinksProps = {
   link: string | undefined
   gitHubLink: string | undefined
+  isRightalign: boolean
 }
 
-function SmallProjectLinks({ link, gitHubLink }: SmallProjectLinks) {
+function ProjectLinks({ link, gitHubLink, isRightalign }: ProjectLinksProps) {
   return (
-    <div className="flex flex-wrap gap-4 mt-4">
+    <div className={`flex flex-wrap gap-4 ${isRightalign ? "justify-end" : ""}`}>
       {link && (
         <Link
           href={link}
@@ -37,4 +38,4 @@ function SmallProjectLinks({ link, gitHubLink }: SmallProjectLinks) {
   )
 }
 
-export default SmallProjectLinks
+export default ProjectLinks

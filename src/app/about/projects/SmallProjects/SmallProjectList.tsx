@@ -2,8 +2,8 @@
 import { SmallProjects } from "@/data/ProjectData"
 import { AnimatePresence, motion, useMotionValue, type PanInfo } from "framer-motion"
 import { useState } from "react"
+import ProjectLinks from "../ProjectLinks"
 import TechnologyBadge from "../TechnologyBadge"
-import SmallProjectLinks from "./SmallProjectLinks"
 import SmallProjectNavigation from "./SmallProjectNavigation"
 
 function SmallProjectList() {
@@ -69,9 +69,10 @@ function SmallProjectList() {
               <div className="overflow-y-auto" style={{ flex: "1 1 auto" }}>
                 <p className="text-TextGrayWhite">{SmallProjects[activeIndex].description[0]}</p>
               </div>
-              <SmallProjectLinks
+              <ProjectLinks
                 link={SmallProjects[activeIndex].link}
                 gitHubLink={SmallProjects[activeIndex].gitHubLink}
+                isRightalign={false}
               />
             </div>
           </motion.div>

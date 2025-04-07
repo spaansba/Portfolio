@@ -1,20 +1,27 @@
 import { BigProjects } from "@/data/ProjectData"
-import ProjectsMain from "../ProjectsMain"
+import BigProjectsMobile from "./BigProjectsMobile"
+import BigProjectsDesktop from "./BigProjectsDesktop"
+import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 
 function BigProjectsList() {
   const projects = BigProjects
+  const isMobile = useIsMobileDevice()
 
   return (
-    <>
+    <div className="px-4 md:px-0">
       {projects.map((project, index) => (
-        <ProjectsMain
+        <div
           key={project.title}
-          project={project}
-          isLast={index === projects.length - 1}
-          isLeftAlign={(index + 1) % 2 === 1}
-        />
+          className={`${index === projects.length - 1 ? "mb-0" : "mb-[80px] md:mb-[150px]"}`}
+        >
+          {isMobile ? (
+            <BigProjectsMobile project={project} />
+          ) : (
+            <BigProjectsDesktop project={project} isLeftAlign={(index + 1) % 2 === 1} />
+          )}
+        </div>
       ))}
-    </>
+    </div>
   )
 }
 
