@@ -26,24 +26,24 @@ function ProjectsMain({ project, isLast, isLeftAlign }: ProjectsMainProps) {
         <ProjectTitle title={project.title} isLeftAlign={isLeftAlign} />
 
         <div
-          className={`flex flex-col md:flex-row gap-4 md:gap-3 mt-6 md:mt-8 ${
-            isLeftAlign ? "ml-2 sm:ml-4 md:ml-8" : "mr-2 sm:mr-4 md:mr-8 items-end md:items-start"
-          }`}
+          className={`flex flex-col md:flex-row gap-4 md:gap-8 mt-6 md:mt-8 ${
+            isLeftAlign ? "ml-2 sm:ml-4 md:ml-8" : "mr-2 sm:mr-4 md:mr-8"
+          } ${!isLeftAlign ? "items-end md:items-start" : ""}`}
         >
           <div className={`w-full md:w-3/5 ${!isLeftAlign && "md:order-2"}`}>
             <div className={`flex flex-wrap gap-2 mb-3 md:mb-4 ${!isLeftAlign && "justify-end"}`}>
               {project.technologies.map((technology) => (
-                <TechnologyBadge name={technology} key={technology}></TechnologyBadge>
+                <TechnologyBadge name={technology} key={technology} />
               ))}
             </div>
 
-            <div className={`${!isLeftAlign ? "ml-auto" : ""} max-w-xl`}>
+            <div className={`max-w-2xl ${!isLeftAlign ? "md:ml-auto" : ""}`}>
               <ProjectDescription description={project.description} />
             </div>
           </div>
 
           <div
-            className={`w-full md:w-2/5 relative h-40 sm:h-48 md:h-64 overflow-hidden  ${
+            className={`w-full md:w-2/5 relative h-40 sm:h-48 md:h-56 overflow-hidden rounded-lg ${
               !isLeftAlign && "md:order-1"
             }`}
           >

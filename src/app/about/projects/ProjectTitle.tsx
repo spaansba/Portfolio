@@ -11,14 +11,14 @@ function ProjectTitle({ title, isLeftAlign }: ProjectTitleProps) {
       <div
         className={`${
           isLeftAlign ? "left-0" : "right-0"
-        } absolute  w-[1px] top-0 bottom-0 bg-TertiaryGray`}
+        } absolute w-[1px] top-0 bottom-0 bg-TertiaryGray`}
       />
       <div
         className={`relative flex items-center w-full my-6 md:my-8 ${
           isLeftAlign ? "" : "justify-end"
         }`}
       >
-        <div className="w-xl h-[1px] bg-TertiaryGray" />
+        <div className="w-full h-[1px] bg-TertiaryGray" />
 
         <div
           className={`absolute ${
