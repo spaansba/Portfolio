@@ -46,7 +46,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
             <div className={`w-2/5 ${!isLeftAlign && "order-1"}`}>
               <div className="relative w-full h-60 overflow-hidden border border-TertiaryGray">
                 <Link
-                  href={project.link}
+                  href={project.link ?? ""}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full h-full"
@@ -68,6 +68,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
           <ProjectLinks
             link={project.link}
             gitHubLink={project.gitHubLink}
+            downloadLink={project.downloadLink}
             isRightalign={!isLeftAlign}
           />
         </div>

@@ -2,7 +2,8 @@ export type Project = {
   title: string
   description: string[]
   technologies: string[]
-  link: string
+  link?: string
+  downloadLink?: string
   gitHubLink?: string
   image?: string
 }
@@ -73,7 +74,7 @@ export const SmallProjects: Project[] = [
     title: "Maestro",
     description: ["VBA & XML based add-in for Excel users providing over 50 productivity tools."],
     technologies: ["VBA", "XML"],
-    link: "https://www.filmiliar.nl/",
+    downloadLink: "asdas",
     image: "/images/Filmiliar.jpg",
   },
 ]

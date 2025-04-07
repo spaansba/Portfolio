@@ -22,7 +22,7 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
           <div className="mb-4">
             <div className="relative w-full h-48 overflow-hidden border border-TertiaryGray rounded-md">
               <Link
-                href={project.link}
+                href={project.link ?? ""}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full h-full"
@@ -50,7 +50,12 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
           <ProjectDescription description={project.description} />
         </div>
 
-        <ProjectLinks link={project.link} gitHubLink={project.gitHubLink} isRightalign={false} />
+        <ProjectLinks
+          link={project.link}
+          gitHubLink={project.gitHubLink}
+          downloadLink={project.downloadLink}
+          isRightalign={false}
+        />
       </div>
     </>
   )

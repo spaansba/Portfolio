@@ -22,12 +22,10 @@ function SmallProjectList() {
     dragX.set(0)
   }
 
-  const fixedHeight = 350
-
   return (
     <div className="relative">
-      {/* Absolutely fixed height container */}
-      <div className="mx-4 md:mx-auto md:max-w-2xl relative" style={{ height: `${fixedHeight}px` }}>
+      {/* Responsive height container */}
+      <div className="mx-4 md:mx-auto md:max-w-4xl relative h-[350px] md:h-[250px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
@@ -35,20 +33,16 @@ function SmallProjectList() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="absolute inset-0 w-full"
+            className="absolute inset-0 w-full h-full"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
-            style={{
-              x: dragX,
-              height: `${fixedHeight}px`,
-            }}
+            style={{ x: dragX }}
             whileTap={{ cursor: "grabbing" }}
           >
             <div
-              className="bg-PrimaryGray border border-TertiaryGray rounded-lg p-6 md:p-8 shadow-md cursor-grab"
+              className="bg-PrimaryGray border border-TertiaryGray rounded-lg p-6 md:p-8 shadow-md cursor-grab h-full"
               style={{
-                height: `${fixedHeight}px`,
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -72,6 +66,7 @@ function SmallProjectList() {
               <ProjectLinks
                 link={SmallProjects[activeIndex].link}
                 gitHubLink={SmallProjects[activeIndex].gitHubLink}
+                downloadLink={SmallProjects[activeIndex].downloadLink}
                 isRightalign={false}
               />
             </div>
