@@ -3,7 +3,7 @@ import { Copy, Check } from "lucide-react"
 
 type SectionHeaderTitleProps = {
   title: string
-  urlHash: string
+  urlHash?: string
   showPaddingTop: boolean
 }
 
@@ -12,7 +12,7 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
 
   const handleClick = () => {
     navigator.clipboard
-      .writeText(window.location.origin + urlHash)
+      .writeText(window.location.origin + window.location.pathname + urlHash)
       .then(() => {
         setIsCopied(true)
         setTimeout(() => setIsCopied(false), 2000)
@@ -20,7 +20,9 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
       .catch((err) => {
         console.error("Failed to copy hash:", err)
       })
-
+    if (!urlHash) {
+      return
+    }
     const targetElement = document.querySelector(urlHash)
 
     if (targetElement) {

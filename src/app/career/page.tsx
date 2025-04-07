@@ -8,11 +8,7 @@ function page() {
   return (
     <ContentWrapper>
       <div id="workexperience">
-        <SectionHeaderTitle
-          title="Work Experience."
-          urlHash="#workexperience"
-          showPaddingTop={false}
-        />
+        <SectionHeaderTitle title="Work Experience." urlHash="" showPaddingTop={false} />
         <WorkExperienceTimeline />
       </div>
       <div id="studies">

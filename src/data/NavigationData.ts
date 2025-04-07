@@ -35,7 +35,7 @@ export const careerList: NavigationPageItem[] = [
     name: "Work Experience",
     icon: Globe,
     onMouseDown: () => {
-      redirect("/career#workexperience")
+      redirect("/career")
     },
   },
   {
