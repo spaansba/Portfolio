@@ -1,8 +1,6 @@
-import useIsMobileDevice from "@/hooks/useIsMobileDevice"
-import { useWindowSize } from "@uidotdev/usehooks"
+import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../DesktopNavigation"
 
 type SidebarToggleHemisphereProps = {
