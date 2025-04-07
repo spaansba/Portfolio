@@ -15,9 +15,9 @@ function AboutPage() {
       <BigProjectsList />
       <SectionHeaderTitle title="Smaller Projects." />
       <SmallProjectList />
-      <SectionHeaderTitle title="Work Experience." />
+      {/* <SectionHeaderTitle title="Work Experience." />
       <WorkExperienceTimeline />
-      <SectionHeaderTitle title="Study." />
+      <SectionHeaderTitle title="Study." /> */}
     </ContentWrapper>
   )
 }
