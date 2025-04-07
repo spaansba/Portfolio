@@ -12,7 +12,7 @@ function MobileNavigation() {
   }
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-TertiaryGray z-[20000]">
+    <div className=" w-full h-full bg-TertiaryGray z-[20000]">
       <nav className="h-full flex flex-col px-4">
         <Navigation />
       </nav>
