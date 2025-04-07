@@ -15,11 +15,11 @@ function DesktopNavigation() {
         <motion.div
           layout
           initial={false}
-          className={`flex flex-col bg-SecondaryGray `}
+          className={`flex flex-col bg-SecondaryGray h-[calc(100vh-73px)]`}
           animate={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          <div className="ml-[10px] overflow-x-hidden scrollbar-hide">
+          <div className="ml-[10px] overflow-x-hidden scrollbar-hide h-full">
             <Navigation />
           </div>
         </motion.div>

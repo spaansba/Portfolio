@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased bg-SecondaryGray overflow-hidden`}>
+      <body className={`${inter.variable} antialiased bg-SecondaryGray`}>
         <MainWrapper> {children} </MainWrapper>
       </body>
     </html>
