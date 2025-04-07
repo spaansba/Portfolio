@@ -16,7 +16,15 @@ export const aboutList: NavigationPageItem[] = [
     name: "Projects",
     icon: Briefcase,
     onMouseDown: () => {
-      redirect("/about")
+      redirect("/about#mainprojects")
+    },
+  },
+  {
+    id: "about-30",
+    name: "Small Projects",
+    icon: Briefcase,
+    onMouseDown: () => {
+      redirect("/about#smallprojects")
     },
   },
 ]
@@ -27,7 +35,7 @@ export const careerList: NavigationPageItem[] = [
     name: "Work Experience",
     icon: Globe,
     onMouseDown: () => {
-      redirect("/career")
+      redirect("/career#workexperience")
     },
   },
   {
@@ -35,7 +43,7 @@ export const careerList: NavigationPageItem[] = [
     name: "Studies",
     icon: PuzzleIcon,
     onMouseDown: () => {
-      redirect("/career")
+      redirect("/career#studies")
     },
   },
 ]

@@ -29,7 +29,7 @@ function SmallProjectNavigation({
     <>
       <div className="flex justify-center items-center mt-6 gap-2">
         <button
-          onClick={goToPreviousProject}
+          onMouseDown={goToPreviousProject}
           aria-label="Previous project"
           className="transition-colors"
         >
@@ -40,7 +40,7 @@ function SmallProjectNavigation({
           {projectIndices.map((index) => (
             <button
               key={index}
-              onClick={() => goToProject(index)}
+              onMouseDown={() => goToProject(index)}
               className={`w-2 h-2  transition-all ${
                 activeIndex === index
                   ? "bg-white w-4"
@@ -50,7 +50,11 @@ function SmallProjectNavigation({
           ))}
         </div>
 
-        <button onClick={goToNextProject} aria-label="Next project" className="transition-colors">
+        <button
+          onMouseDown={goToNextProject}
+          aria-label="Next project"
+          className="transition-colors"
+        >
           <ChevronRight className="text-white hover:opacity-50" size={20} />
         </button>
       </div>

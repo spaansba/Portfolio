@@ -2,10 +2,22 @@ import React from "react"
 import Image from "next/image"
 import MobileHamburger from "./MobileHamburger"
 function Header() {
+  const handleHeaderClick = () => {
+    const currentPath = window.location.pathname
+    // If we are on about page scroll smoothly up, otherwise go to about page
+    if (currentPath.endsWith("/about")) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    } else {
+      window.location.href = window.location.origin + "/about"
+    }
+  }
   return (
     <>
       <div className="px-[10px] py-3 bg-SecondaryGray border-b-[1px] border-r-[1px] flex items-center justify-between border-TertiaryGray">
-        <div className="flex items-center gap-3">
+        <button className="flex items-center gap-3 cursor-pointer" onMouseDown={handleHeaderClick}>
           <div className="relative size-12  overflow-hidden ring-[1px] ring-TertiaryGray flex-shrink-0">
             <Image
               src="/images/BartSpaans.jpg"
@@ -26,7 +38,7 @@ function Header() {
               </h2>
             </div>
           </div>
-        </div>
+        </button>
         <MobileHamburger />
       </div>
     </>

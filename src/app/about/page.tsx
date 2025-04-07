@@ -1,9 +1,8 @@
 "use client"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import ContentWrapper from "../_components/Content/ContentWrapper"
 import AboutHeader from "./AboutHeader"
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle"
-import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline"
 import BigProjectsList from "./projects/BigProjects/BigProjectsList"
 import SmallProjectList from "./projects/SmallProjects/SmallProjectList"
 
@@ -11,13 +10,19 @@ function AboutPage() {
   return (
     <ContentWrapper>
       <AboutHeader />
-      <SectionHeaderTitle title="Main Projects." />
-      <BigProjectsList />
-      <SectionHeaderTitle title="Smaller Projects." />
-      <SmallProjectList />
-      {/* <SectionHeaderTitle title="Work Experience." />
-      <WorkExperienceTimeline />
-      <SectionHeaderTitle title="Study." /> */}
+      <div id="mainprojects">
+        <SectionHeaderTitle title="Main Projects." urlHash="#mainprojects" showPaddingTop={true} />
+        <BigProjectsList />
+      </div>
+
+      <div id="smallprojects">
+        <SectionHeaderTitle
+          title="Smaller Projects."
+          urlHash="#smallprojects"
+          showPaddingTop={true}
+        />
+        <SmallProjectList />
+      </div>
     </ContentWrapper>
   )
 }

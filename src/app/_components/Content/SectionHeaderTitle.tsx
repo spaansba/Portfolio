@@ -1,14 +1,56 @@
-import { title } from "process"
-import React from "react"
+import React, { useState } from "react"
+import { Copy, Check } from "lucide-react"
 
 type SectionHeaderTitleProps = {
   title: string
+  urlHash: string
+  showPaddingTop: boolean
 }
 
-function SectionHeaderTitle({ title }: SectionHeaderTitleProps) {
+function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTitleProps) {
+  const [isCopied, setIsCopied] = useState(false)
+
+  const handleClick = () => {
+    navigator.clipboard
+      .writeText(window.location.origin + urlHash)
+      .then(() => {
+        setIsCopied(true)
+        setTimeout(() => setIsCopied(false), 2000)
+      })
+      .catch((err) => {
+        console.error("Failed to copy hash:", err)
+      })
+
+    const targetElement = document.querySelector(urlHash)
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  }
+
   return (
-    <div className="text-white font-bold text-center text-3xl md:text-5xl pt-8 md:pt-30 pb-4 sm:pb-5 md:pb-10">
-      {title}
+    <div
+      className={`flex items-center justify-center ${
+        showPaddingTop ? "pt-8 md:pt-30" : ""
+      }  pb-4 sm:pb-5 md:pb-10`}
+    >
+      <div
+        className="relative inline-flex items-center group cursor-pointer"
+        onMouseDown={handleClick}
+        role="button"
+        aria-label={`Navigate to ${title} section`}
+      >
+        <div className="text-white font-bold text-center text-3xl md:text-5xl mr-5">{title}</div>
+        <div
+          className="opacity-0 group-hover:opacity-100 text-white/50 hover:text-white"
+          aria-label="Copy section URL"
+        >
+          {isCopied ? <Check className="size-5" /> : <Copy className="size-5" />}
+        </div>
+      </div>
     </div>
   )
 }

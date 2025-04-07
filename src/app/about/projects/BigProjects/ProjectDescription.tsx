@@ -24,7 +24,7 @@ function ProjectDescription({ description }: ProjectDescriptionProps) {
           )}
 
           <button
-            onClick={() => setExpanded(!expanded)}
+            onMouseDown={() => setExpanded(!expanded)}
             className="mt-2 text-blue-400 hover:text-blue-300 text-sm font-medium focus:outline-none"
           >
             {expanded ? "Show Less" : "Read More"}
