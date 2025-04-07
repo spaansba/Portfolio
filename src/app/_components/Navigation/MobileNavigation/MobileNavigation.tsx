@@ -5,10 +5,9 @@ import React from "react"
 import Navigation from "../Navigation"
 
 function MobileNavigation() {
-  const isMobile = useIsMobileDevice()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
 
-  if (!isMobile || !isMobileSidebarOpen) {
+  if (!isMobileSidebarOpen) {
     return null
   }
 
