@@ -16,7 +16,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
         <div className="flex-1 flex overflow-hidden">
           <DesktopNavigation />
           <div className="flex-1 relative">
-            <div className="h-full overflow-y-auto overflow-x-auto">{children}</div>
+            <div className="h-full overflow-y-auto w-full max-w-full">{children}</div>
             <MobileNavigation />
           </div>
         </div>

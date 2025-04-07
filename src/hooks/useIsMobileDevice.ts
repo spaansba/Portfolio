@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react"
  * Custom hook to detect if the current device is a mobile device based on screen width
  * Only triggers state updates when crossing the breakpoint threshold
  */
-function useIsMobileDevice(breakpoint = 680): boolean | undefined {
+function useIsMobileDevice(breakpoint = 768): boolean | undefined {
   const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined)
   const currentWidth = useRef(typeof window !== "undefined" ? window.innerWidth : 0)
   useLayoutEffect(() => {
