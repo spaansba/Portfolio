@@ -6,7 +6,7 @@ import AboutParagraph from "./AboutParagraph"
 function AboutHeader() {
   const isMobile = useIsMobileDevice(500)
   return (
-    <div className="md:px-[20px] pt-6 md:pt-10 max-w-6xl mx-auto ">
+    <div className="md:px-[20px] pt-6 md:pt-10">
       <div className="flex flex-row gap-1 md:gap-10 lg:gap-20 items-start">
         <div className="w-full pt-2.5 md:pt-0 md:max-w-[500px] ">
           <h1 className="text-TextGray text-xs md:text-sm mb-0.5 md:mb-2">Hi, my name is</h1>

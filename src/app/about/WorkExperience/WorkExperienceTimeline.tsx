@@ -5,7 +5,7 @@ import TimelineEmployer from "./TimelineEmployer"
 
 function WorkExperienceTimeline() {
   return (
-    <div className="mx-auto max-w-4xl ">
+    <div className="">
       <div className="flex justify-center flex-col gap-12 mx-5">
         {workExperience.map((experience, index) => (
           <TimelineEmployer

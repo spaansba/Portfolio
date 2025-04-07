@@ -1,5 +1,7 @@
+import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import type { NavigationPageItem } from "../../../../types/NavigationListItem"
 import NavigationItem from "./NavigationItem"
+import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 
 type NavigationSectionProps = {
   title: string
@@ -7,9 +9,9 @@ type NavigationSectionProps = {
 }
 
 function NavigationSection({ title, pages }: NavigationSectionProps) {
-  // const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
-  // const isMobile = useIsMobileDevice()
-  const isShortenedTitle = true || true
+  const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
+  const isMobile = useIsMobileDevice()
+  const isShortenedTitle = isDesktopSidebarOpen || isMobile
   return (
     <li>
       <h3
