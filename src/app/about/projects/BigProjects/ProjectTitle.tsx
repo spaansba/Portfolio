@@ -22,7 +22,7 @@ function ProjectTitle({ title, isLeftAlign }: ProjectTitleProps) {
 
         <div
           className={`absolute ${
-            isLeftAlign ? "left-0 ml-2 sm:ml-4 md:ml-10" : "right-0 mr-2 sm:mr-4 md:mr-10"
+            isLeftAlign ? "left-0 ml-4 md:ml-10" : "right-0 mr-4 md:mr-10"
           } px-3 md:px-4 bg-SecondaryGray`}
         >
           <h2 className="font-semibold text-lg md:text-3xl text-white">{title}</h2>

@@ -1,8 +1,8 @@
-import { Projects } from "@/data/ProjectData"
-import ProjectsMain from "./ProjectsMain"
+import { BigProjects } from "@/data/ProjectData"
+import ProjectsMain from "../ProjectsMain"
 
-function ProjectsList() {
-  const projects = Projects
+function BigProjectsList() {
+  const projects = BigProjects
 
   return (
     <>
@@ -18,4 +18,4 @@ function ProjectsList() {
   )
 }
 
-export default ProjectsList
+export default BigProjectsList
