@@ -1,5 +1,4 @@
 import { Projects } from "@/data/ProjectData"
-import React, { useState, useRef, useEffect } from "react"
 import ProjectsMain from "./ProjectsMain"
 
 function ProjectsList() {
@@ -12,7 +11,8 @@ function ProjectsList() {
           key={project.title}
           project={project}
           isLast={index === projects.length - 1}
-        ></ProjectsMain>
+          isLeftAlign={(index + 1) % 2 === 1}
+        />
       ))}
     </>
   )

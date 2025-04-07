@@ -10,7 +10,7 @@ function WorkExperienceTimeline() {
         {workExperience.map((experience, index) => (
           <TimelineEmployer
             key={`experience-${experience.employer}`}
-            leftAlign={(index + 1) % 2 === 1}
+            isLeftAlign={(index + 1) % 2 === 1}
             workExperience={experience}
           />
         ))}
