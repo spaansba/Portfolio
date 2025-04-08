@@ -1,19 +1,16 @@
+import { GoToPageOrScroll } from "@/helpers/GoToPageOrScroll"
 import {
+  BriefcaseBusiness,
+  Github,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  Package,
+  Rss,
   UserCircle,
   Workflow,
-  Package,
-  FolderKanban,
-  GraduationCap,
-  Globe,
-  Rss,
-  Mail,
-  Github,
-  Linkedin,
-  BriefcaseBusiness,
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
-import { redirect } from "next/navigation"
-import { GoToPageOrScroll } from "@/helpers/GoToPageOrScroll"
 
 export const aboutList: NavigationPageItem[] = [
   {
@@ -25,6 +22,7 @@ export const aboutList: NavigationPageItem[] = [
     },
     isOutsideLink: false,
     path: "/about",
+    hash: "#intro",
   },
   {
     id: "about-20",
@@ -35,11 +33,11 @@ export const aboutList: NavigationPageItem[] = [
     },
     isOutsideLink: false,
     path: "/about",
-    hash: "#mainprojects",
+    hash: "#projects",
   },
   {
     id: "about-30",
-    name: "Small Projects",
+    name: "Smaller Projects",
     icon: Workflow,
     onMouseDown: (item: NavigationPageItem) => {
       GoToPageOrScroll(item.hash, item.path)

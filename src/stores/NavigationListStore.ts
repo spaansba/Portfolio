@@ -3,11 +3,12 @@ import { aboutList, careerList, connectList, resourcesList } from "../data/Navig
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 
 type NavigationListActions = {
-  setSelectedPage: (page: NavigationPageItem) => void
-  getAdjacentPages: (page: NavigationPageItem) => {
-    previousPage?: NavigationPageItem
-    nextPage?: NavigationPageItem
+  setSelectedPage: (page: NavigationPageItem | CategoryType) => void
+  getAdjacentCategories: (page: NavigationPageItem) => {
+    previousCategory?: CategoryType
+    nextCategory?: CategoryType
   }
+  getPageBasedOnHash: (hash: string) => NavigationPageItem
 }
 
 type NavigationListStore = {
@@ -16,11 +17,11 @@ type NavigationListStore = {
   pages: NavigationList
 }
 
+const categoryOrder = ["about", "career", "resources", "connect"] as const
+type CategoryType = (typeof categoryOrder)[number]
+
 type NavigationList = {
-  about: NavigationPageItem[]
-  career: NavigationPageItem[]
-  resources: NavigationPageItem[]
-  connect: NavigationPageItem[]
+  [K in CategoryType]: NavigationPageItem[]
 }
 
 const useNavigationListStore = create<NavigationListStore>((set, get) => ({
@@ -34,27 +35,49 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
   selectedPage: aboutList[0],
   actions: {
     setSelectedPage: (page) => {
+      // If a category string is passed
+      if (typeof page === "string") {
+        const firstPageInCategory = get().pages[page as CategoryType][0]
+        set(() => ({
+          selectedPage: firstPageInCategory,
+        }))
+        return
+      }
+
+      // If a page object is passed
       if (page.isOutsideLink) {
         return
       }
+
       set(() => ({
         selectedPage: page,
       }))
     },
-    getAdjacentPages: (page) => {
+    getAdjacentCategories: (page) => {
       const { pages } = get()
-      const flattenedPages = [...pages.about, ...pages.resources, ...pages.connect]
-      const pageIndex = flattenedPages.findIndex((item) => item.id === page.id)
 
-      if (pageIndex === -1) {
+      const currentCategory = categoryOrder.find((category) =>
+        pages[category].some((item) => item.id === page.id)
+      )
+
+      if (!currentCategory) {
         return {}
       }
-      const previousPage = pageIndex > 0 ? flattenedPages[pageIndex - 1] : undefined
-      const nextPage = pageIndex < flattenedPages.length ? flattenedPages[pageIndex + 1] : undefined
-      return {
-        previousPage: previousPage,
-        nextPage: nextPage,
-      }
+
+      const currentIndex = categoryOrder.indexOf(currentCategory)
+
+      const previousCategory = currentIndex > 0 ? categoryOrder[currentIndex - 1] : undefined
+      const nextCategory =
+        currentIndex < categoryOrder.length - 1 ? categoryOrder[currentIndex + 1] : undefined
+
+      return { previousCategory, nextCategory }
+    },
+    getPageBasedOnHash: (hash: string) => {
+      const { pages } = get()
+      const flattenedPages = [...pages.about, ...pages.career, ...pages.resources, ...pages.connect]
+      const pageIndex = flattenedPages.findIndex((item) => item.hash === hash)
+
+      return flattenedPages[pageIndex]
     },
   },
 }))

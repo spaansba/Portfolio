@@ -8,15 +8,16 @@ import { useScrollToHash } from "@/hooks/useScrollToHash"
 
 function CareerPage() {
   useScrollToHash()
+
   return (
     <ContentWrapper>
       <div id="workexperience">
-        <SectionHeaderTitle title="Work Experience." urlHash="#workexperience" pathName="/career" />
+        <SectionHeaderTitle title="Work Experience." urlHash="#workexperience" />
         <WorkExperienceTimeline />
       </div>
 
       <div id="studies">
-        <SectionHeaderTitle title="Studies." urlHash="#studies" pathName="/career" />
+        <SectionHeaderTitle title="Studies." urlHash="#studies" />
         <StudiesShowcase />
       </div>
     </ContentWrapper>

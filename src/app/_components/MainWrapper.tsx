@@ -16,6 +16,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobileDevice(900)
   const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
+
   return (
     <div className="flex flex-col min-h-screen">
       {isMobileSidebarOpen && isMobile ? (

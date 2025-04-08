@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import MainWrapper from "./_components/MainWrapper"
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
