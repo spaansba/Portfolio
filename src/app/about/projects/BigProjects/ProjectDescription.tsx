@@ -26,6 +26,7 @@ function ProjectDescription({ description }: ProjectDescriptionProps) {
           <button
             onMouseDown={() => setExpanded(!expanded)}
             className="mt-2 text-blue-400 hover:text-blue-300 text-sm font-medium focus:outline-none"
+            aria-label={`${expanded ? "Show Less" : "Read More"}`}
           >
             {expanded ? "Show Less" : "Read More"}
           </button>

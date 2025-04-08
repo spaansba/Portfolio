@@ -18,7 +18,11 @@ function Header() {
   return (
     <>
       <div className="px-[10px] py-3 bg-SecondaryGray border-b-[1px] border-r-[1px] flex items-center justify-between border-TertiaryGray">
-        <button className="flex items-center gap-3 cursor-pointer" onMouseDown={handleHeaderClick}>
+        <button
+          aria-label="Go to about me"
+          className="flex items-center gap-3 cursor-pointer"
+          onMouseDown={handleHeaderClick}
+        >
           <div className="relative size-12  overflow-hidden ring-[1px] ring-TertiaryGray flex-shrink-0">
             <Image
               draggable={false}

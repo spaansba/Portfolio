@@ -46,6 +46,7 @@ function SmallProjectNavigation({
                   ? "bg-white w-4"
                   : "bg-TertiaryGray hover:bg-white hover:opacity-30"
               }`}
+              aria-label={`Check out project ${index}`}
             />
           ))}
         </div>

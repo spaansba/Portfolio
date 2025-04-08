@@ -22,7 +22,6 @@ function StringWithLink({
     <button
       className="relative inline-flex items-center group cursor-pointer"
       onMouseDown={handleMouseDown}
-      role="button"
       aria-label={ariaLabel || `Navigate to ${title} section`}
     >
       <div className={titleStyles}>{title}</div>

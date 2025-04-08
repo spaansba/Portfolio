@@ -14,6 +14,7 @@ function StudiesTabSelector({ activeIndex, setActiveIndex, studies }: StudiesTab
       {studies.map((study, index) => (
         <button
           key={study.institution}
+          aria-label={`Go to ${study.institution}`}
           onClick={() => setActiveIndex(index)}
           className={`py-2 px-4 md:px-6  transition-all duration-300 flex items-center gap-2 border-b-2 border-transparent
               ${

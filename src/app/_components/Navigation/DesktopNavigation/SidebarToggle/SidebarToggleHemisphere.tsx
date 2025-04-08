@@ -24,6 +24,7 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
         duration: 0.4,
         ease: "easeInOut",
       }}
+      aria-label={`${isSidebarOpen ? "close" : "open"} navigation sidebar`}
     >
       <div
         className={`${
