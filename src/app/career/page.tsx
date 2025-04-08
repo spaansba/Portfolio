@@ -1,11 +1,13 @@
 "use client"
-import React from "react"
+import React, { useEffect } from "react"
 import ContentWrapper from "../_components/Content/ContentWrapper"
 import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline"
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle"
 import StudiesShowcase from "./studies/StudiesShowcase"
+import { useScrollToHash } from "@/hooks/useScrollToHash"
 
-function page() {
+function CareerPage() {
+  useScrollToHash()
   return (
     <ContentWrapper>
       <div id="workexperience">
@@ -17,6 +19,7 @@ function page() {
         />
         <WorkExperienceTimeline />
       </div>
+
       <div id="studies">
         <SectionHeaderTitle
           title="Studies."
@@ -30,4 +33,4 @@ function page() {
   )
 }
 
-export default page
+export default CareerPage

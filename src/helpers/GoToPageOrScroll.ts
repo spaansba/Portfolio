@@ -21,9 +21,8 @@ export function GoToPageOrScroll(urlHash?: string, desiredPathName?: string) {
     }
   } else {
     if (urlHash) {
-      redirect(`${desiredPathName}${urlHash}`)
-    } else {
-      redirect(`${desiredPathName}`)
+      localStorage.setItem("scrollToHash", urlHash)
     }
+    redirect(`${desiredPathName}`)
   }
 }
