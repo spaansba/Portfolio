@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import MobileHamburger from "./MobileHamburger"
+import HeaderNavigationDisplay from "./HeaderNavigationDisplay"
 function Header() {
   const handleHeaderClick = () => {
     const currentPath = window.location.pathname
@@ -40,7 +41,11 @@ function Header() {
             </div>
           </div>
         </button>
-        <MobileHamburger />
+
+        <div className="flex gap-3 md:gap-8 items-center">
+          <HeaderNavigationDisplay />
+          <MobileHamburger />
+        </div>
       </div>
     </>
   )

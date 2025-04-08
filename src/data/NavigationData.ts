@@ -60,7 +60,7 @@ export const careerList: NavigationPageItem[] = [
     },
     isOutsideLink: false,
     path: "/career",
-    // hash: "#workexperience",
+    hash: "#workexperience",
   },
   {
     id: "career-20",

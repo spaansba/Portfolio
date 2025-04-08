@@ -13,22 +13,12 @@ function AboutPage() {
     <ContentWrapper>
       <AboutHeader />
       <div id="mainprojects">
-        <SectionHeaderTitle
-          title="Main Projects."
-          urlHash="#mainprojects"
-          showPaddingTop={true}
-          pathName="/about"
-        />
+        <SectionHeaderTitle title="Main Projects." urlHash="#mainprojects" pathName="/about" />
         <BigProjectsList />
       </div>
 
       <div id="smallprojects">
-        <SectionHeaderTitle
-          title="Smaller Projects."
-          urlHash="#smallprojects"
-          showPaddingTop={true}
-          pathName="/about"
-        />
+        <SectionHeaderTitle title="Smaller Projects." urlHash="#smallprojects" pathName="/about" />
         <SmallProjectList />
       </div>
     </ContentWrapper>

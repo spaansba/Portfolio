@@ -8,7 +8,8 @@ function MobileHamburger() {
   const mobileSidebarActions = useMobileSidebarActions()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
   return (
-    <>
+    //dont remove empty div
+    <div>
       {isMobile && (
         <Hamburger
           color="white"
@@ -17,7 +18,7 @@ function MobileHamburger() {
           direction="left"
         />
       )}
-    </>
+    </div>
   )
 }
 
