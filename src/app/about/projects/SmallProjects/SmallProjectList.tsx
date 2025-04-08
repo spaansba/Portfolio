@@ -73,6 +73,7 @@ function SmallProjectList() {
           </motion.div>
         </AnimatePresence>
       </div>
+
       <SmallProjectNavigation
         projectCount={SmallProjects.length}
         setActiveIndex={setActiveIndex}

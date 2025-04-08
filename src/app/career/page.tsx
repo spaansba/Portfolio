@@ -3,6 +3,7 @@ import React from "react"
 import ContentWrapper from "../_components/Content/ContentWrapper"
 import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline"
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle"
+import StudiesShowcase from "./studies/StudiesShowcase"
 
 function page() {
   return (
@@ -13,7 +14,7 @@ function page() {
       </div>
       <div id="studies">
         <SectionHeaderTitle title="Studies." urlHash="#studies" showPaddingTop={true} />
-        <WorkExperienceTimeline />
+        <StudiesShowcase />
       </div>
     </ContentWrapper>
   )

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Copy, Check } from "lucide-react"
+import { Copy, Check, CheckCheck } from "lucide-react"
+import StringWithLink from "./StringWithLink"
 
 type SectionHeaderTitleProps = {
   title: string
@@ -40,20 +41,13 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
         showPaddingTop ? "pt-8 md:pt-30" : ""
       }  pb-4 sm:pb-5 md:pb-10`}
     >
-      <div
-        className="relative inline-flex items-center group cursor-pointer"
-        onMouseDown={handleClick}
-        role="button"
-        aria-label={`Navigate to ${title} section`}
-      >
-        <div className="text-white font-bold text-center text-3xl md:text-5xl mr-5">{title}</div>
-        <button
-          className="opacity-0 group-hover:opacity-100 text-TextGray hover:text-white"
-          aria-label="Copy section URL"
-        >
-          {isCopied ? <Check size={20} /> : <Copy size={20} />}
-        </button>
-      </div>
+      <StringWithLink
+        titleStyles="text-white font-bold text-center text-3xl md:text-5xl"
+        title={title}
+        Icon={isCopied ? Check : Copy}
+        handleMouseDown={handleClick}
+        ariaLabel={`Navigate to ${title} section`}
+      />
     </div>
   )
 }

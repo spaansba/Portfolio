@@ -1,3 +1,4 @@
+import StringWithLink from "@/app/_components/Content/StringWithLink"
 import type { WorkExperience } from "@/data/WorkExperience"
 import { ExternalLink } from "lucide-react"
 import React, { useState } from "react"
@@ -18,18 +19,14 @@ function TimelineEmployerHeader({ workExperience, isLeftAlign }: TimelineEmploye
             {workExperience.location.city}, {workExperience.location.countryCode}
           </h3>
         </div>
-        <button
-          className="flex gap-3 items-center relative cursor-pointer"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onMouseDown={() => window.open(workExperience.url, "_blank")}
-          aria-label={`Go to ${workExperience.employer}'s website`}
-        >
-          <h2 className="text-white text-2xl font-bold leading-tight">{workExperience.employer}</h2>
-          {isHovered && (
-            <ExternalLink size={18} className="text-TextGray transition-opacity duration-300" />
-          )}
-        </button>
+        <StringWithLink
+          title={workExperience.employer}
+          iconSize={18}
+          Icon={ExternalLink}
+          handleMouseDown={() => window.open(workExperience.url, "_blank")}
+          titleStyles="text-white text-2xl font-bold leading-tight"
+          ariaLabel={`Go to ${workExperience.employer}'s website`}
+        />
       </div>
     </div>
   )
