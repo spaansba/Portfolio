@@ -1,8 +1,6 @@
 import { redirect } from "next/navigation"
 
 export function GoToPageOrScroll(urlHash?: string, desiredPathName?: string) {
-  console.log(urlHash)
-  console.log(desiredPathName)
   const currentPathName = window.location.pathname
   if (currentPathName == desiredPathName) {
     if (!urlHash) {
@@ -22,6 +20,10 @@ export function GoToPageOrScroll(urlHash?: string, desiredPathName?: string) {
       }
     }
   } else {
-    redirect(`${desiredPathName}`)
+    if (urlHash) {
+      redirect(`${desiredPathName}${urlHash}`)
+    } else {
+      redirect(`${desiredPathName}`)
+    }
   }
 }
