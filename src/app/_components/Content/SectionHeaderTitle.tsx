@@ -36,7 +36,7 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
 
   return (
     <div
-      className={`flex items-center justify-center ${
+      className={`flex items-center justify-center select-none ${
         showPaddingTop ? "pt-8 md:pt-30" : ""
       }  pb-4 sm:pb-5 md:pb-10`}
     >

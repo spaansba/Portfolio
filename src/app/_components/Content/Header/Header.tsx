@@ -20,6 +20,7 @@ function Header() {
         <button className="flex items-center gap-3 cursor-pointer" onMouseDown={handleHeaderClick}>
           <div className="relative size-12  overflow-hidden ring-[1px] ring-TertiaryGray flex-shrink-0">
             <Image
+              draggable={false}
               src="/images/BartSpaans.jpg"
               alt="Profile picture"
               fill

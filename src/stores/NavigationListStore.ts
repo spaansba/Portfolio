@@ -31,9 +31,12 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
     resources: resourcesList,
     connect: connectList,
   },
-  selectedPage: aboutList[0], // Default to first item in about list
+  selectedPage: aboutList[0],
   actions: {
     setSelectedPage: (page) => {
+      if (page.isOutsideLink) {
+        return
+      }
       set(() => ({
         selectedPage: page,
       }))

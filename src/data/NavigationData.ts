@@ -1,4 +1,16 @@
-import { Briefcase, Github, Globe, Info, Linkedin, Mail, PuzzleIcon, Rss } from "lucide-react"
+import {
+  UserCircle,
+  Workflow,
+  Package,
+  FolderKanban,
+  GraduationCap,
+  Globe,
+  Rss,
+  Mail,
+  Github,
+  Linkedin,
+  BriefcaseBusiness,
+} from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 import { redirect } from "next/navigation"
 
@@ -6,26 +18,29 @@ export const aboutList: NavigationPageItem[] = [
   {
     id: "about-10",
     name: "About me",
-    icon: Info,
+    icon: UserCircle,
     onMouseDown: () => {
       redirect("/about")
     },
+    isOutsideLink: false,
   },
   {
     id: "about-20",
     name: "Projects",
-    icon: Briefcase,
+    icon: Package,
     onMouseDown: () => {
       redirect("/about#mainprojects")
     },
+    isOutsideLink: false,
   },
   {
     id: "about-30",
     name: "Small Projects",
-    icon: Briefcase,
+    icon: Workflow,
     onMouseDown: () => {
       redirect("/about#smallprojects")
     },
+    isOutsideLink: false,
   },
 ]
 
@@ -33,18 +48,20 @@ export const careerList: NavigationPageItem[] = [
   {
     id: "career-10",
     name: "Work Experience",
-    icon: Globe,
+    icon: BriefcaseBusiness,
     onMouseDown: () => {
       redirect("/career")
     },
+    isOutsideLink: false,
   },
   {
     id: "career-20",
     name: "Studies",
-    icon: PuzzleIcon,
+    icon: GraduationCap,
     onMouseDown: () => {
       redirect("/career#studies")
     },
+    isOutsideLink: false,
   },
 ]
 
@@ -56,32 +73,34 @@ export const resourcesList: NavigationPageItem[] = [
     onMouseDown: () => {
       redirect("/resources")
     },
+    isOutsideLink: false,
   },
 ]
 
 export const connectList: NavigationPageItem[] = [
   {
     id: "connect-10",
-    name: "Mail",
+    name: "Contact",
     icon: Mail,
-    onMouseDown: () => {
-      redirect("/connect")
-    },
+    onMouseDown: () => {},
+    isOutsideLink: false,
   },
   {
     id: "connect-20",
     name: "Github",
     icon: Github,
     onMouseDown: () => {
-      redirect("/connect")
+      window.open("https://github.com/spaansba", "_blank")
     },
+    isOutsideLink: true,
   },
   {
     id: "connect-30",
     name: "LinkedIn",
     icon: Linkedin,
     onMouseDown: () => {
-      redirect("/connect")
+      window.open("https://www.linkedin.com/in/bart-spaans", "_blank")
     },
+    isOutsideLink: true,
   },
 ]

@@ -5,6 +5,7 @@ import { useNavigationActions, useNavigationSelectedPage } from "@/stores/Naviga
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 import { useMobileSidebarActions } from "@/stores/MobileSidebarStore"
+import { ExternalLink } from "lucide-react"
 
 type NaviationItemProps = {
   page: NavigationPageItem
@@ -13,6 +14,7 @@ type NaviationItemProps = {
 function NavigationItem({ page }: NaviationItemProps) {
   const isSidebarOpen = useIsDesktopSidebarOpen()
   const isMobile = useIsMobileDevice()
+  const showFullContent = isSidebarOpen || isMobile
 
   const isMobileSidebarAction = useMobileSidebarActions()
   const [isHovered, setIsHovered] = useState(false)
@@ -29,15 +31,15 @@ function NavigationItem({ page }: NaviationItemProps) {
 
   return (
     <li
-      title={isSidebarOpen ? "" : page.name}
+      title={showFullContent ? "" : page.name}
       onMouseDown={() => handleOnMouseDown(page)}
-      className={`p-2 font-bold h-[40px] cursor-pointer flex items-center border-[1px] ${
+      className={`p-2 font-bold h-[40px] cursor-pointer flex items-center justify-between border-[1px] ${
         isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"
       } `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`flex items-center gap-2 w-full overflow-hidden`}>
+      <div className={`flex items-center gap-2 overflow-hidden`}>
         <div className="flex-shrink-0">
           <page.icon
             size={19}
@@ -47,7 +49,7 @@ function NavigationItem({ page }: NaviationItemProps) {
           />
         </div>
         <AnimatePresence initial={false} mode="wait">
-          {(isSidebarOpen || isMobile) && (
+          {showFullContent && (
             <motion.span
               className={`${
                 isHovered || isSelected ? "text-white" : "text-TextGray"
@@ -62,6 +64,12 @@ function NavigationItem({ page }: NaviationItemProps) {
           )}
         </AnimatePresence>
       </div>
+      {showFullContent && page.isOutsideLink && (
+        <ExternalLink
+          size={19}
+          className={`${isHovered ? "text-white" : "text-TextGray"} transition-colors duration-300`}
+        />
+      )}
     </li>
   )
 }

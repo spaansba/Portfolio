@@ -22,9 +22,10 @@ function AboutHeader() {
 
         <div className="ml-4 md:ml-0 relative size-[100px] sm:size-[150px] md:size-[200px] lg:size-[300px] flex-shrink-0 mb-6 md:mb-0 ">
           <div
-            className={`absolute right-[-10px] top-[10px] md:right-[-30px] md:top-[30px] size-full border-TertiaryGray transition-colors group-hover:border-white border-[1px]`}
+            className={`absolute right-[-10px] top-[10px] md:right-[-30px] md:top-[30px] size-full border-TertiaryGray transition-colors group-hover:border-TextGrayWhite opacity-60 border-[1px]`}
           />
           <Image
+            draggable={false}
             src="/images/BartSpaans.jpg"
             alt="Profile picture"
             fill
