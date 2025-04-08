@@ -47,12 +47,12 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
         aria-label={`Navigate to ${title} section`}
       >
         <div className="text-white font-bold text-center text-3xl md:text-5xl mr-5">{title}</div>
-        <div
-          className="opacity-0 group-hover:opacity-100 text-white/50 hover:text-white"
+        <button
+          className="opacity-0 group-hover:opacity-100 text-TextGray hover:text-white"
           aria-label="Copy section URL"
         >
-          {isCopied ? <Check className="size-5" /> : <Copy className="size-5" />}
-        </div>
+          {isCopied ? <Check size={20} /> : <Copy size={20} />}
+        </button>
       </div>
     </div>
   )

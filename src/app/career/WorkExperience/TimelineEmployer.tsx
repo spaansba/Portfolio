@@ -10,14 +10,14 @@ type TimelineEmployerType = {
 
 function TimelineEmployer({ workExperience, isLeftAlign }: TimelineEmployerType) {
   return (
-    <div className="flex flex-col  gap-6">
+    <div className="flex flex-col gap-6">
       <TimelineEmployerHeader isLeftAlign={isLeftAlign} workExperience={workExperience} />
       <div>
         {workExperience.positions.map((position) => (
           <div
             key={`${workExperience.employer}-${position.jobTitle}`}
             className={`relative pb-8 group ${
-              isLeftAlign ? "pl-8 sm:pl-44" : "pr-8 sm:pr-44 pl-0"
+              isLeftAlign ? "pl-8 sm:pl-45" : "pr-8 sm:pr-45 pl-0"
             }`}
           >
             <TimelinePosition isLeftAlign={isLeftAlign} position={position} />
