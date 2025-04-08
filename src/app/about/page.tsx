@@ -11,7 +11,12 @@ function AboutPage() {
     <ContentWrapper>
       <AboutHeader />
       <div id="mainprojects">
-        <SectionHeaderTitle title="Main Projects." urlHash="#mainprojects" showPaddingTop={true} />
+        <SectionHeaderTitle
+          title="Main Projects."
+          urlHash="#mainprojects"
+          showPaddingTop={true}
+          pathName="/about"
+        />
         <BigProjectsList />
       </div>
 
@@ -20,6 +25,7 @@ function AboutPage() {
           title="Smaller Projects."
           urlHash="#smallprojects"
           showPaddingTop={true}
+          pathName="/about"
         />
         <SmallProjectList />
       </div>

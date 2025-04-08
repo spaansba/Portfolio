@@ -9,11 +9,21 @@ function page() {
   return (
     <ContentWrapper>
       <div id="workexperience">
-        <SectionHeaderTitle title="Work Experience." urlHash="" showPaddingTop={false} />
+        <SectionHeaderTitle
+          title="Work Experience."
+          urlHash=""
+          showPaddingTop={false}
+          pathName="/career"
+        />
         <WorkExperienceTimeline />
       </div>
       <div id="studies">
-        <SectionHeaderTitle title="Studies." urlHash="#studies" showPaddingTop={true} />
+        <SectionHeaderTitle
+          title="Studies."
+          urlHash="#studies"
+          showPaddingTop={true}
+          pathName="/career"
+        />
         <StudiesShowcase />
       </div>
     </ContentWrapper>

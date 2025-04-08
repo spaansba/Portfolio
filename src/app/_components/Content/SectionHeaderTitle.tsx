@@ -1,14 +1,16 @@
 import React, { useState } from "react"
 import { Copy, Check, CheckCheck } from "lucide-react"
 import StringWithLink from "./StringWithLink"
+import { GoToPageOrScroll } from "@/helpers/GoToPageOrScroll"
 
 type SectionHeaderTitleProps = {
   title: string
   urlHash?: string
+  pathName?: string
   showPaddingTop: boolean
 }
 
-function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTitleProps) {
+function SectionHeaderTitle({ title, urlHash, showPaddingTop, pathName }: SectionHeaderTitleProps) {
   const [isCopied, setIsCopied] = useState(false)
 
   // Copy the url + has to the clipboard and go to the selection
@@ -22,17 +24,10 @@ function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTit
       .catch((err) => {
         console.error("Failed to copy hash:", err)
       })
-    if (!urlHash) {
+    if (!urlHash || !pathName) {
       return
     }
-    const targetElement = document.querySelector(urlHash)
-
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
+    GoToPageOrScroll(urlHash, pathName)
   }
 
   return (

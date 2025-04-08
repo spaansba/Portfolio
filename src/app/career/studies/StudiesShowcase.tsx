@@ -99,7 +99,7 @@ function StudiesShowcase() {
             </div>
           </div>
 
-          <div className="h-1 w-full bg-gradient-to-r from-SecondaryGray via-TextGrayWhite to-TertiaryGray opacity-30"></div>
+          {/* <div className="h-1 w-full bg-gradient-to-r from-SecondaryGray via-TextGrayWhite to-TertiaryGray opacity-30"></div> */}
         </motion.div>
       </AnimatePresence>
     </div>

@@ -33,7 +33,7 @@ function NavigationItem({ page }: NaviationItemProps) {
     <li
       title={showFullContent ? "" : page.name}
       onMouseDown={() => handleOnMouseDown(page)}
-      className={`p-2 font-bold h-[40px] cursor-pointer flex items-center justify-between border-[1px] ${
+      className={`p-2 font-bold h-[40px] cursor-pointer flex items-center justify-between border-[1px] transition-colors ${
         isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"
       } `}
       onMouseEnter={() => setIsHovered(true)}
