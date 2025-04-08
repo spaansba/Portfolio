@@ -21,6 +21,7 @@ function FooterButton({ onMouseDown, isDisabled, direction, name }: FooterButton
       className={`flex flex-row justify-center transition-colors text-TextGray duration-300 items-center gap-2 ${
         isHovered ? "md:text-white" : ""
       } `}
+      aria-label={`Go to ${direction} page`}
     >
       {direction === "previous" && (
         <ChevronLeft
@@ -30,7 +31,7 @@ function FooterButton({ onMouseDown, isDisabled, direction, name }: FooterButton
           size={16}
         />
       )}
-      <span>{name}</span>
+      <span className="text-lg">{name}</span>
       {direction === "next" && (
         <ChevronRight
           className={`${

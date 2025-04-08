@@ -1,29 +1,44 @@
 import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
 import FooterButton from "./ContentFooterButton"
 
-function Footer() {
+function ContentFooter() {
   const selectedPage = useNavigationSelectedPage()
   const navigationActions = useNavigationActions()
-  const { previousCategory, nextCategory } = navigationActions.getAdjacentCategories(selectedPage)
-
+  const { previousCategoryPage, previousCategoryPageName, nextCategoryPage, nextCategoryPageName } =
+    navigationActions.getAdjacentCategoryPages(selectedPage)
+  console.log(previousCategoryPage)
+  console.log(nextCategoryPage)
+  const CapitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
   return (
     <footer className=" bg-SecondaryGray pt-10">
       <div className="pt-4 pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
         <FooterButton
           direction="previous"
-          isDisabled={!previousCategory}
-          onMouseDown={() => navigationActions.setSelectedPage(previousCategory!)}
-          name={previousCategory}
+          isDisabled={!previousCategoryPage}
+          onMouseDown={() => {
+            if (previousCategoryPage) {
+              navigationActions.setSelectedPage(previousCategoryPage)
+              previousCategoryPage?.onMouseDown(previousCategoryPage)
+            }
+          }}
+          name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
         />
         <FooterButton
           direction="next"
-          isDisabled={!nextCategory}
-          onMouseDown={() => navigationActions.setSelectedPage(nextCategory!)}
-          name={nextCategory}
+          isDisabled={!nextCategoryPage}
+          onMouseDown={() => {
+            if (nextCategoryPage) {
+              navigationActions.setSelectedPage(nextCategoryPage!)
+              nextCategoryPage?.onMouseDown(nextCategoryPage)
+            }
+          }}
+          name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}
         />
       </div>
     </footer>
   )
 }
 
-export default Footer
+export default ContentFooter

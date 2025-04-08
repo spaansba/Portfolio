@@ -37,7 +37,6 @@ export const useScrollToHash = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        console.log(entries)
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isScrolling) {
             const id = entry.target.id
