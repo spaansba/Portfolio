@@ -4,7 +4,7 @@ import { Cross as Hamburger } from "hamburger-react"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 import { useIsMobileSidebarOpen, useMobileSidebarActions } from "@/stores/MobileSidebarStore"
 function MobileHamburger() {
-  const isMobile = useIsMobileDevice()
+  const isMobile = useIsMobileDevice(900)
   const mobileSidebarActions = useMobileSidebarActions()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
   return (

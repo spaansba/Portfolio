@@ -29,7 +29,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
 
         <ProjectTitle title={project.title} isLeftAlign={isLeftAlign} isHovered={isHovered} />
 
-        <div className={`flex flex-row gap-12 mt-10 ${isLeftAlign ? "ml-9" : "mr-9"}`}>
+        <div className={`flex flex-row gap-12 mt-11 ${isLeftAlign ? "ml-10" : "mr-10"}`}>
           <div className={`w-3/5 ${!isLeftAlign && "order-2"}`}>
             <div className={`flex flex-wrap gap-2 mb-4 ${!isLeftAlign && "justify-end"}`}>
               {project.technologies.map((technology) => (
@@ -64,7 +64,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
             </div>
           )}
         </div>
-        <div className={` ${isLeftAlign ? "ml-9" : "mr-9"}`}>
+        <div className={` ${isLeftAlign ? "ml-10" : "mr-10"}`}>
           <ProjectLinks
             link={project.link}
             gitHubLink={project.gitHubLink}

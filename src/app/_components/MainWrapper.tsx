@@ -13,7 +13,7 @@ import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore"
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
-  const isMobile = useIsMobileDevice()
+  const isMobile = useIsMobileDevice(900)
   const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
   return (
@@ -28,7 +28,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
       {isMobile != undefined && (
         <div className="flex flex-row pt-[73px]">
           {!isMobile && (
-            <div className="fixed top-[73px] left-0 bottom-0">
+            <div className="fixed top-[73px] left-0 bottom-0 z-[10000]">
               <DesktopNavigation />
             </div>
           )}

@@ -12,7 +12,7 @@ function MobileNavigation() {
   }
 
   return (
-    <nav className="h-full flex flex-col px-4">
+    <nav className="h-full flex flex-col px-4 py-5">
       <Navigation />
     </nav>
   )

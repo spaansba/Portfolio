@@ -11,11 +11,11 @@ function ProjectTitle({ title, isLeftAlign, isHovered }: ProjectTitleProps) {
     <>
       <div
         className={`${isLeftAlign ? "left-0" : "right-0"} absolute w-[1px]  top-0 bottom-0 ${
-          isHovered ? "bg-white" : "bg-TertiaryGray"
+          isHovered ? "bg-TextGrayWhite" : "bg-TertiaryGray"
         }`}
       />
       <div className={`relative flex items-center w-full   ${isLeftAlign ? "" : "justify-end"}`}>
-        <div className={`w-full h-[1px] ${isHovered ? "bg-white" : "bg-TertiaryGray"}`} />
+        <div className={`w-full h-[1px] ${isHovered ? "bg-TextGrayWhite" : "bg-TertiaryGray"}`} />
 
         <div
           className={`absolute ${

@@ -10,6 +10,7 @@ type SectionHeaderTitleProps = {
 function SectionHeaderTitle({ title, urlHash, showPaddingTop }: SectionHeaderTitleProps) {
   const [isCopied, setIsCopied] = useState(false)
 
+  // Copy the url + has to the clipboard and go to the selection
   const handleClick = () => {
     navigator.clipboard
       .writeText(window.location.origin + window.location.pathname + urlHash)
