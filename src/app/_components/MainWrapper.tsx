@@ -20,7 +20,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
       {isMobileSidebarOpen && isMobile ? (
-        <></>
+        <div></div>
       ) : (
         <div className="fixed top-0 left-0 z-[30] w-screen bg-SecondaryGray">
           <Header />
@@ -50,7 +50,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
               <MobileNavigation />
             </div>
           ) : (
-            <></>
+            <div></div>
           )}
         </div>
       )}
