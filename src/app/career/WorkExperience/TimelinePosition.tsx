@@ -28,7 +28,7 @@ function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
 
       <p
         className={`
-  ${!isLeftAlign ? "text-muted-foreground text-right" : "text-muted-foreground"} 
+  ${!isLeftAlign ? "text-muted-foreground text-right sm:ml-auto" : "text-muted-foreground"} 
   break-words sm:max-w-[600px]
 `}
       >

@@ -1,5 +1,6 @@
 import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
 import FooterButton from "./ContentFooterButton"
+import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
 
 function ContentFooter() {
   const selectedPage = useNavigationSelectedPage()
@@ -9,6 +10,7 @@ function ContentFooter() {
   const CapitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
+  const goToPage = useGoToPageOrScroll()
   return (
     <footer className=" bg-SecondaryGray pt-10">
       <div className="pt-4 pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
@@ -18,7 +20,7 @@ function ContentFooter() {
           onMouseDown={() => {
             if (previousCategoryPage) {
               navigationActions.setSelectedPage(previousCategoryPage)
-              // previousCategoryPage?.onMouseDown(previousCategoryPage)
+              goToPage(previousCategoryPage.hash, previousCategoryPage.path)
             }
           }}
           name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
@@ -29,7 +31,7 @@ function ContentFooter() {
           onMouseDown={() => {
             if (nextCategoryPage) {
               navigationActions.setSelectedPage(nextCategoryPage!)
-              // nextCategoryPage?.onMouseDown(nextCategoryPage)
+              goToPage(nextCategoryPage.hash, nextCategoryPage.path)
             }
           }}
           name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}

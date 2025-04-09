@@ -41,8 +41,6 @@ export const useScrollToHash = () => {
           if (entry.isIntersecting && !isScrolling) {
             const id = entry.target.id
             const page = navigationActions.getPageBasedOnHash(`#${id}`)
-            console.log(page)
-            console.log(id)
             navigationActions.setSelectedPage(page)
           }
         })
