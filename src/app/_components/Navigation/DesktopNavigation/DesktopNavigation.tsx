@@ -16,6 +16,7 @@ function DesktopNavigation() {
         // layout
         // initial={false}
         className="bg-SecondaryGray h-full overflow-hidden"
+        style={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
         // animate={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
         // transition={{ duration: 0.4, ease: "easeInOut" }}
       >
