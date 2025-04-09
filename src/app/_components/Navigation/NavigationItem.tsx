@@ -6,6 +6,7 @@ import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import useIsMobileDevice from "@/hooks/useIsMobileDevice"
 import { useMobileSidebarActions } from "@/stores/MobileSidebarStore"
 import { ExternalLink } from "lucide-react"
+import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
 
 type NaviationItemProps = {
   page: NavigationPageItem
@@ -16,7 +17,7 @@ function NavigationItem({ page }: NaviationItemProps) {
   // const isMobile = useIsMobileDevice()
   const isMobile = false
   const showFullContent = isSidebarOpen || isMobile
-
+  const goToPageOrScroll = useGoToPageOrScroll() // Get the function
   const isMobileSidebarAction = useMobileSidebarActions()
   const [isHovered, setIsHovered] = useState(false)
   const selectedPage = useNavigationSelectedPage()
@@ -27,7 +28,7 @@ function NavigationItem({ page }: NaviationItemProps) {
       isMobileSidebarAction.toggleMobileSidebarOpen(false)
     }
     navigationActions.setSelectedPage(page)
-    page.onMouseDown(page)
+    goToPageOrScroll(page.hash, page.path)
   }
 
   return (

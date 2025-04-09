@@ -1,4 +1,4 @@
-import { GoToPageOrScroll } from "@/helpers/GoToPageOrScroll"
+"use client"
 import {
   BriefcaseBusiness,
   Github,
@@ -11,15 +11,13 @@ import {
   Workflow,
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
+import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
 
 export const aboutList: NavigationPageItem[] = [
   {
     id: "about-10",
     name: "About me",
     icon: UserCircle,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/about",
     hash: "#intro",
@@ -28,9 +26,6 @@ export const aboutList: NavigationPageItem[] = [
     id: "about-20",
     name: "Projects",
     icon: Package,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/about",
     hash: "#projects",
@@ -39,9 +34,6 @@ export const aboutList: NavigationPageItem[] = [
     id: "about-30",
     name: "Smaller Projects",
     icon: Workflow,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/about",
     hash: "#smallprojects",
@@ -53,9 +45,6 @@ export const careerList: NavigationPageItem[] = [
     id: "career-10",
     name: "Work Experience",
     icon: BriefcaseBusiness,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/career",
     hash: "#workexperience",
@@ -64,9 +53,6 @@ export const careerList: NavigationPageItem[] = [
     id: "career-20",
     name: "Studies",
     icon: GraduationCap,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/career",
     hash: "#studies",
@@ -78,9 +64,6 @@ export const resourcesList: NavigationPageItem[] = [
     id: "resources-10",
     name: "Feed",
     icon: Rss,
-    onMouseDown: (item: NavigationPageItem) => {
-      GoToPageOrScroll(item.hash, item.path)
-    },
     isOutsideLink: false,
     path: "/resources",
     hash: "#studies",
@@ -92,7 +75,6 @@ export const connectList: NavigationPageItem[] = [
     id: "connect-10",
     name: "Contact",
     icon: Mail,
-    onMouseDown: () => {},
     isOutsideLink: false,
   },
   {

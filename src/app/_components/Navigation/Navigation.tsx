@@ -1,3 +1,4 @@
+"use client"
 import { useNavigationPageList } from "@/stores/NavigationListStore"
 import NavigationSection from "./NavigationSection"
 

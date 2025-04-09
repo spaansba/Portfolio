@@ -6,8 +6,6 @@ function ContentFooter() {
   const navigationActions = useNavigationActions()
   const { previousCategoryPage, previousCategoryPageName, nextCategoryPage, nextCategoryPageName } =
     navigationActions.getAdjacentCategoryPages(selectedPage)
-  console.log(previousCategoryPage)
-  console.log(nextCategoryPage)
   const CapitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
@@ -20,7 +18,7 @@ function ContentFooter() {
           onMouseDown={() => {
             if (previousCategoryPage) {
               navigationActions.setSelectedPage(previousCategoryPage)
-              previousCategoryPage?.onMouseDown(previousCategoryPage)
+              // previousCategoryPage?.onMouseDown(previousCategoryPage)
             }
           }}
           name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
@@ -31,7 +29,7 @@ function ContentFooter() {
           onMouseDown={() => {
             if (nextCategoryPage) {
               navigationActions.setSelectedPage(nextCategoryPage!)
-              nextCategoryPage?.onMouseDown(nextCategoryPage)
+              // nextCategoryPage?.onMouseDown(nextCategoryPage)
             }
           }}
           name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}

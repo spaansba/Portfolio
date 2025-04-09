@@ -18,12 +18,12 @@ function AboutPage() {
         <AboutHeader />
       </div>
       <div id="projects">
-        {/* <SectionHeaderTitle title="Projects." urlHash="#projects" /> */}
+        <SectionHeaderTitle title="Projects." urlHash="#projects" />
         <BigProjectsList />
       </div>
 
       <div id="smallprojects">
-        {/* <SectionHeaderTitle title="Smaller Projects." urlHash="#smallprojects" /> */}
+        <SectionHeaderTitle title="Smaller Projects." urlHash="#smallprojects" />
         <SmallProjectList />
       </div>
     </ContentWrapper>

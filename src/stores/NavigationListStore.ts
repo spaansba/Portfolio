@@ -1,3 +1,4 @@
+"use client"
 import { create } from "zustand"
 import { aboutList, careerList, connectList, resourcesList } from "../data/NavigationData"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
