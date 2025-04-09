@@ -17,7 +17,7 @@ function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectL
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
         >
           <ExternalLink size={16} />
           <span>Visit Project</span>
@@ -29,7 +29,7 @@ function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectL
           href={gitHubLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
         >
           <Github size={16} />
           <span>View Code</span>
@@ -42,7 +42,7 @@ function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectL
           download
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
         >
           <Download size={16} />
           <span>Download</span>

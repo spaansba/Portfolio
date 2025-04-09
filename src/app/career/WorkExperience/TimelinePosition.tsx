@@ -1,5 +1,7 @@
 import type { WorkPositions } from "@/data/WorkExperience"
-import React from "react"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import React, { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 type TimelinePositionProps = {
   position: WorkPositions
@@ -7,6 +9,15 @@ type TimelinePositionProps = {
 }
 
 function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
+  const [isInfoExpanded, setIsInfoExpanded] = useState(false)
+
+  // Ensure extraInfo is always an array
+  const extraInfoParagraphs = Array.isArray(position.extraInfo)
+    ? position.extraInfo
+    : [position.extraInfo]
+
+  const hasMultipleParagraphs = extraInfoParagraphs.length > 1
+
   return (
     <>
       <div
@@ -21,19 +32,74 @@ function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
             isLeftAlign ? "left-[-5px]" : "right-[-5px]"
           } mb-3 px-2 py-2  inline-flex h-6 w-36 translate-y-0.5 items-center justify-center text-xs font-semibold uppercase sm:absolute sm:mb-0 border-[1px] border-TertiaryGray text-white`}
         >
-          {position.startYear} - {position.endYear}
+          <span>
+            {position.startYear} - {position.endYear}
+          </span>
         </div>
-        <div className="text-white">{position.jobTitle}</div>
+        {hasMultipleParagraphs ? (
+          <button
+            className="text-white flex flex-row gap-2 items-center"
+            aria-label={`Show more information about ${position.jobTitle}`}
+            onMouseDown={() => setIsInfoExpanded(!isInfoExpanded)}
+          >
+            <span>{position.jobTitle}</span>
+            <motion.span
+              className="text-fgButton"
+              animate={{ rotate: isInfoExpanded ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {isInfoExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+            </motion.span>
+          </button>
+        ) : (
+          <div className="text-white">{position.jobTitle}</div>
+        )}
       </div>
 
-      <p
-        className={`
-  ${!isLeftAlign ? "text-muted-foreground text-right sm:ml-auto" : "text-muted-foreground"} 
-  break-words sm:max-w-[600px]
-`}
+      <div
+        className={`${
+          !isLeftAlign ? "text-muted-foreground text-right sm:ml-auto" : "text-muted-foreground"
+        } break-words sm:max-w-[650px]`}
       >
-        {position.extraInfo}
-      </p>
+        <div className="flex flex-col">
+          <p>{extraInfoParagraphs[0]}</p>
+
+          <AnimatePresence>
+            {isInfoExpanded && hasMultipleParagraphs && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{
+                  opacity: 1,
+                  height: "auto",
+                }}
+                exit={{
+                  opacity: 0,
+                  height: 0,
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                }}
+              >
+                {extraInfoParagraphs.slice(1).map((paragraph, index) => (
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.1,
+                      duration: 0.3,
+                    }}
+                    className="mt-2"
+                  >
+                    {paragraph}
+                  </motion.p>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
     </>
   )
 }
