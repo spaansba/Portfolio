@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import React, { useState } from "react"
+import React from "react"
 
 type FooterButtonProps = {
   onMouseDown: () => void
@@ -9,34 +9,25 @@ type FooterButtonProps = {
 }
 
 function FooterButton({ onMouseDown, isDisabled, direction, name }: FooterButtonProps) {
-  const [isHovered, setIsHovered] = useState(false)
   if (!name) return <div></div> // dont return null
 
   return (
     <button
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onMouseDown={onMouseDown}
       disabled={isDisabled}
-      className={`flex flex-row justify-center transition-colors text-TextGray duration-300 items-center gap-2 ${
-        isHovered ? "md:text-white" : ""
-      } `}
+      className="flex flex-row justify-center transition-colors text-TextGray duration-300 items-center gap-2 hover:md:text-white group/footer"
       aria-label={`Go to ${direction} page`}
     >
       {direction === "previous" && (
         <ChevronLeft
-          className={`${
-            isHovered ? "md:text-white" : ""
-          } text-TextGray transition-colors duration-300`}
+          className="text-TextGray transition-colors duration-300 group-hover/footer:md:text-white"
           size={16}
         />
       )}
       <span className="text-lg">{name}</span>
       {direction === "next" && (
         <ChevronRight
-          className={`${
-            isHovered ? "md:text-white" : ""
-          } text-TextGray transition-colors duration-300`}
+          className="text-TextGray transition-colors duration-300 group-hover/footer:md:text-white"
           size={16}
         />
       )}

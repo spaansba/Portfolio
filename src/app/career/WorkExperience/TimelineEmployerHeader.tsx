@@ -9,8 +9,6 @@ type TimelineEmployerHeaderProps = {
 }
 
 function TimelineEmployerHeader({ workExperience, isLeftAlign }: TimelineEmployerHeaderProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
     <div className={`flex items-center ${!isLeftAlign ? "justify-end" : ""} gap-4`}>
       <div className="flex flex-col gap-[2px]">

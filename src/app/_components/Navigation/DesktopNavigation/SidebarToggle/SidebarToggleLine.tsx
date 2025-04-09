@@ -1,18 +1,10 @@
 import React from "react"
 
-type SidebarToggleLineProps = {
-  isHovered: boolean
-}
-
-function SidebarToggleLine({ isHovered }: SidebarToggleLineProps) {
+function SidebarToggleLine() {
   return (
-    <div className="cursor-pointer h-full flex group relative select-none">
+    <div className="cursor-pointer h-full flex relative select-none">
       <div className="bg-SecondaryGray w-[12px] h-full" />
-      <div
-        className={`${
-          isHovered ? "bg-TextGrayWhite opacity-30" : "bg-TertiaryGray"
-        }  w-[1px] h-full`}
-      />
+      <div className="bg-TertiaryGray w-[1px] h-full group-hover/sidebar-toggle:bg-TextGrayWhite group-hover/sidebar-toggle:opacity-30" />
     </div>
   )
 }
