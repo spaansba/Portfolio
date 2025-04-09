@@ -5,7 +5,7 @@ import AboutParagraph from "./AboutParagraph"
 function AboutHeader() {
   const isMobile = useIsMobileDevice()
   return (
-    <div className="md:px-[20px] group">
+    <div className="md:px-[20px] group/intro">
       <div className="flex flex-row gap-1 md:gap-10 lg:gap-20 items-start">
         <div className="pt-2.5 md:pt-0 md:max-w-[500px] ">
           <h1 className="text-TextGray text-xs md:text-sm mb-0.5 md:mb-2">Hi, my name is</h1>
@@ -22,7 +22,7 @@ function AboutHeader() {
 
         <div className="ml-4 md:ml-0 relative size-[100px] sm:size-[150px] md:size-[200px] lg:size-[300px] flex-shrink-0 mb-6 md:mb-0 ">
           <div
-            className={`absolute right-[-10px] top-[10px] md:right-[-30px] md:top-[30px] size-full border-TertiaryGray transition-colors group-hover:border-TextGrayWhite opacity-60 border-[1px]`}
+            className={`absolute right-[-10px] top-[10px] md:right-[-30px] md:top-[30px] size-full border-TertiaryGray transition-colors group-hover/intro:border-TextGrayWhite opacity-60 border-[1px]`}
           />
           <Image
             draggable={false}

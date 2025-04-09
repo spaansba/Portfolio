@@ -33,7 +33,7 @@ function StudiesShowcase() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-PrimaryGray border border-TertiaryGray"
+          className="bg-PrimaryGray border border-TertiaryGray shadow-md"
         >
           <div className="p-6 md:p-8">
             <StudiesHeader study={activeStudy} />

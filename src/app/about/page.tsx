@@ -20,7 +20,7 @@ function AboutPage() {
       </div>
 
       <div id="smallprojects">
-        <SectionHeaderTitle title="Smaller Projects." urlHash="#smallprojects" />
+        <SectionHeaderTitle title="Tiny Projects." urlHash="#smallprojects" />
         <SmallProjectList />
       </div>
     </ContentWrapper>

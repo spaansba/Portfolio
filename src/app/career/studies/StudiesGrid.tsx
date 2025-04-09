@@ -14,7 +14,7 @@ function StudiesGrid() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="group relative bg-PrimaryGray overflow-hidden border border-TertiaryGray"
+            className="group relative overflow-hidden border border-TertiaryGray"
           >
             {/* Card Content */}
             <div className="p-6 md:p-8 flex flex-col h-full">
