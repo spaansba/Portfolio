@@ -47,7 +47,7 @@ function Header() {
         </button>
 
         <div className="flex gap-3 md:gap-8 items-center">
-          <HeaderNavigationDisplay />
+          {/* <HeaderNavigationDisplay /> */}
           <MobileHamburger />
         </div>
       </div>
