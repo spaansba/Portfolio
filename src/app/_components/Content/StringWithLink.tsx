@@ -8,6 +8,7 @@ type StringWithLinkProps = {
   titleStyles?: string
   iconSize?: number
   ariaLabel: string
+  isMirrored?: boolean
 }
 
 function StringWithLink({
@@ -17,6 +18,7 @@ function StringWithLink({
   titleStyles = "",
   iconSize = 20,
   ariaLabel,
+  isMirrored = false,
 }: StringWithLinkProps) {
   return (
     <button
@@ -24,9 +26,15 @@ function StringWithLink({
       onMouseDown={handleMouseDown}
       aria-label={ariaLabel || `Navigate to ${title} section`}
     >
-      <div className={titleStyles}>{title}</div>
-      <div className="absolute opacity-0 group-hover:opacity-100 text-TextGray hover:text-white left-full ml-3">
-        <Icon size={iconSize} />
+      <div className="flex items-center">
+        <span className={titleStyles}>{title}</span>
+        <div
+          className={`absolute opacity-0 group-hover:opacity-100 text-TextGray hover:text-white  ${
+            isMirrored ? "right-full mr-3" : "left-full ml-3"
+          } `}
+        >
+          <Icon size={iconSize} />
+        </div>
       </div>
     </button>
   )
