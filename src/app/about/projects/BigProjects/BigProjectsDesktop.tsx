@@ -56,7 +56,9 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    className={`object-cover transition-transform duration-300 ${
+                      isHovered ? "scale-105" : ""
+                    }`}
                     priority
                   />
                 </Link>
