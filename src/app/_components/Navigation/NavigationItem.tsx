@@ -50,21 +50,21 @@ function NavigationItem({ page }: NaviationItemProps) {
             } transition-colors duration-300`}
           />
         </div>
-        <AnimatePresence initial={false} mode="wait">
-          {showFullContent && (
-            <motion.span
-              className={`${
-                isHovered || isSelected ? "text-white" : "text-TextGray"
-              } text-TextGray whitespace-nowrap overflow-hidden transition-colors duration-300`}
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "auto" }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {page.name}
-            </motion.span>
-          )}
-        </AnimatePresence>
+        {/* <AnimatePresence initial={false} mode="wait"> */}
+        {showFullContent && (
+          <span
+            className={`${
+              isHovered || isSelected ? "text-white" : "text-TextGray"
+            } text-TextGray whitespace-nowrap overflow-hidden transition-colors duration-300`}
+            // initial={{ opacity: 0, width: 0 }}
+            // animate={{ opacity: 1, width: "auto" }}
+            // exit={{ opacity: 0, width: 0 }}
+            // transition={{ duration: 0.2 }}
+          >
+            {page.name}
+          </span>
+        )}
+        {/* </AnimatePresence> */}
       </div>
       {showFullContent && page.isOutsideLink && (
         <ExternalLink
