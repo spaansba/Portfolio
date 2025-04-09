@@ -12,11 +12,12 @@ function NavigationSection({ title, pages }: NavigationSectionProps) {
   const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
   const isMobile = useIsMobileDevice()
   const isShortenedTitle = isDesktopSidebarOpen || isMobile
+
   return (
     <li>
       <h3
-        className={`text-md font-semibold uppercase text-TextGrayWhite mb-[4px] ${
-          isShortenedTitle ? "px-[2px]" : "pl-[6px]"
+        className={`text-md font-semibold uppercase text-TextGrayWhite mb-[4px] transition-all duration-400 ease-in-out ${
+          isShortenedTitle ? "px-[2px]" : "pl-[5.5px]"
         }`}
         title={isShortenedTitle ? "" : title.charAt(0).toUpperCase() + title.slice(1)}
       >

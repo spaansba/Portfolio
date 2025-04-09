@@ -6,6 +6,7 @@ import { useState } from "react"
 function SidebarToggleButton() {
   const sidebarActions = useDesktopSidebarActions()
   const [isSidebarResizerHovered, setIsSidebarResizerHovered] = useState(false)
+
   return (
     <div
       onMouseDown={() => {
@@ -14,6 +15,7 @@ function SidebarToggleButton() {
       }}
       onMouseEnter={() => setIsSidebarResizerHovered(true)}
       onMouseLeave={() => setIsSidebarResizerHovered(false)}
+      className="flex h-full cursor-pointer"
     >
       <SidebarToggleLine isHovered={isSidebarResizerHovered} />
       <SidebarToggleHemisphere isHovered={isSidebarResizerHovered} />

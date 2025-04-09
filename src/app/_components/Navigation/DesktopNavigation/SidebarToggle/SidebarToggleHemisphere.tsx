@@ -1,5 +1,4 @@
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
-import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SIDEBAR_CLOSED_WIDTH, SIDEBAR_OPEN_WIDTH } from "../DesktopNavigation"
 
@@ -10,20 +9,10 @@ type SidebarToggleHemisphereProps = {
 function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
   const isSidebarOpen = useIsDesktopSidebarOpen()
   const SIDEBAR_PADDING = "13px"
-  const SIDEBAR_TOGGLE_OPEN_LEFT = `calc(${SIDEBAR_OPEN_WIDTH} + ${SIDEBAR_PADDING})`
-  const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${SIDEBAR_CLOSED_WIDTH} + ${SIDEBAR_PADDING})`
 
   return (
     <button
-      className="fixed top-[50%] z-[99] translate-y-[-50%] select-none"
-      // initial={false}
-      // animate={{
-      // left: isSidebarOpen ? SIDEBAR_TOGGLE_OPEN_LEFT : SIDEBAR_TOGGLE_CLOSED_LEFT,
-      // }}
-      // transition={{
-      // duration: 0.4,
-      // ease: "easeInOut",
-      // }}
+      className="select-none"
       aria-label={`${isSidebarOpen ? "close" : "open"} navigation sidebar`}
     >
       <div
@@ -33,9 +22,9 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
         style={{ height: 90 }}
       >
         {isSidebarOpen ? (
-          <ChevronLeft size={20} className=" text-TextGray" />
+          <ChevronLeft size={20} className="text-TextGray" />
         ) : (
-          <ChevronRight size={20} className=" text-TextGray" />
+          <ChevronRight size={20} className="text-TextGray" />
         )}
       </div>
     </button>

@@ -1,5 +1,4 @@
 "use client"
-import { motion } from "framer-motion"
 import Navigation from "../Navigation"
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import SidebarToggleButton from "./SidebarToggle/SidebarToggleButton"
@@ -12,18 +11,15 @@ function DesktopNavigation() {
 
   return (
     <nav className="h-full flex">
-      <motion.div
-        layout
-        initial={false}
-        className="bg-SecondaryGray h-full overflow-hidden"
+      {/* Main sidebar content with fixed navigation */}
+      <div
+        className="h-full bg-SecondaryGray transition-all duration-400 ease-in-out overflow-hidden"
         style={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
-        animate={{ width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        <div className="ml-[10px] h-full relative">
+        <div className="ml-3 h-full relative">
           <Navigation />
         </div>
-      </motion.div>
+      </div>
       <SidebarToggleButton />
     </nav>
   )

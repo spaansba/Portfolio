@@ -16,7 +16,7 @@ import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
 export const aboutList: NavigationPageItem[] = [
   {
     id: "about-10",
-    name: "About me",
+    name: "Intro",
     icon: UserCircle,
     isOutsideLink: false,
     path: "/about",
