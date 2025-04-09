@@ -40,8 +40,6 @@ export const useScrollToHash = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isScrolling) {
             const id = entry.target.id
-            const newUrl = `${window.location.pathname}${id ? `#${id}` : ""}`
-            window.history.replaceState(null, "", newUrl)
             const page = navigationActions.getPageBasedOnHash(`#${id}`)
             navigationActions.setSelectedPage(page)
           }
