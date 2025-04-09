@@ -7,17 +7,17 @@ import StudiesShowcase from "./studies/StudiesShowcase"
 import { useScrollToHash } from "@/hooks/useScrollToHash"
 
 function CareerPage() {
-  useScrollToHash()
+  // useScrollToHash()
 
   return (
     <ContentWrapper>
       <div id="workexperience">
-        <SectionHeaderTitle title="Work Experience." urlHash="#workexperience" />
+        {/* <SectionHeaderTitle title="Work Experience." urlHash="#workexperience" /> */}
         <WorkExperienceTimeline />
       </div>
 
       <div id="studies">
-        <SectionHeaderTitle title="Studies." urlHash="#studies" />
+        {/* <SectionHeaderTitle title="Studies." urlHash="#studies" /> */}
         <StudiesShowcase />
       </div>
     </ContentWrapper>
