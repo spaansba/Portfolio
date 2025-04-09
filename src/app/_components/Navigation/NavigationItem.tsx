@@ -48,7 +48,7 @@ function NavigationItem({ page }: NaviationItemProps) {
             } transition-colors duration-300`}
           />
         </div>
-        <AnimatePresence initial={false} mode="wait">
+        {/* <AnimatePresence initial={false} mode="wait">
           {showFullContent && (
             <motion.span
               className={`${
@@ -62,7 +62,7 @@ function NavigationItem({ page }: NaviationItemProps) {
               {page.name}
             </motion.span>
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
       {showFullContent && page.isOutsideLink && (
         <ExternalLink
