@@ -1,4 +1,3 @@
-"use client"
 import {
   BriefcaseBusiness,
   Github,
@@ -11,7 +10,6 @@ import {
   Workflow,
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
-import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
 
 export const aboutList: NavigationPageItem[] = [
   {

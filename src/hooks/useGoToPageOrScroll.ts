@@ -26,15 +26,9 @@ export function useGoToPageOrScroll() {
         }
       }
     } else {
-      // Different page navigation - use Next.js router
       if (urlHash) {
-        // Store the hash to handle after navigation
         sessionStorage.setItem("scrollToHash", urlHash)
-      } else {
-        sessionStorage.removeItem("scrollToHash")
       }
-
-      // Use Next.js router for navigation
       router.push(desiredPathName || "/")
     }
   }

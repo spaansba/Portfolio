@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react"
+import React from "react"
 import ContentWrapper from "../_components/Content/ContentWrapper"
 import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline"
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle"
@@ -7,7 +7,7 @@ import StudiesShowcase from "./studies/StudiesShowcase"
 import { useScrollToHash } from "@/hooks/useScrollToHash"
 
 function CareerPage() {
-  // useScrollToHash()
+  useScrollToHash()
 
   return (
     <ContentWrapper>
