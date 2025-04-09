@@ -8,7 +8,7 @@ function MobileNavigation() {
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
 
   if (!isMobileSidebarOpen) {
-    return null
+    return <div></div>
   }
 
   return (

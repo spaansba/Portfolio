@@ -14,16 +14,16 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
   const SIDEBAR_TOGGLE_CLOSED_LEFT = `calc(${SIDEBAR_CLOSED_WIDTH} + ${SIDEBAR_PADDING})`
 
   return (
-    <motion.button
+    <button
       className="fixed top-[50%] z-[99] translate-y-[-50%] select-none"
-      initial={false}
-      animate={{
-        left: isSidebarOpen ? SIDEBAR_TOGGLE_OPEN_LEFT : SIDEBAR_TOGGLE_CLOSED_LEFT,
-      }}
-      transition={{
-        duration: 0.4,
-        ease: "easeInOut",
-      }}
+      // initial={false}
+      // animate={{
+      // left: isSidebarOpen ? SIDEBAR_TOGGLE_OPEN_LEFT : SIDEBAR_TOGGLE_CLOSED_LEFT,
+      // }}
+      // transition={{
+      // duration: 0.4,
+      // ease: "easeInOut",
+      // }}
       aria-label={`${isSidebarOpen ? "close" : "open"} navigation sidebar`}
     >
       <div
@@ -38,7 +38,7 @@ function SidebarToggleHemisphere({ isHovered }: SidebarToggleHemisphereProps) {
           <ChevronRight size={20} className=" text-TextGray" />
         )}
       </div>
-    </motion.button>
+    </button>
   )
 }
 

@@ -18,31 +18,29 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobileDevice(900)
 
   return (
-    <div className="min-h-screen">
-      {/* Fixed Header */}
-      {(!isMobile || !isMobileSidebarOpen) && (
-        <header className="fixed top-0 left-0 right-0 z-30 bg-SecondaryGray">
-          <Header />
-        </header>
-      )}
+    <div className="flex flex-col">
+      {/* HEADER - Absolutely fixed */}
+      <div className="fixed top-0 left-0 right-0 h-[73px] z-[100] bg-SecondaryGray">
+        {(!isMobile || !isMobileSidebarOpen) && <Header />}
+      </div>
 
-      {/* Fixed Sidebar for Desktop */}
+      {/* SIDEBAR - Absolutely fixed */}
       {!isMobile && (
-        <aside className="fixed top-[73px] left-0 bottom-0 z-20">
+        <div className="fixed top-[73px] left-0 bottom-0 z-[90] bg-SecondaryGray border-r border-TertiaryGray">
           <DesktopNavigation />
-        </aside>
+        </div>
       )}
 
-      {/* Mobile Sidebar (when open) */}
+      {/* MOBILE SIDEBAR - Absolutely fixed when open */}
       {isMobile && isMobileSidebarOpen && (
-        <div className="fixed inset-0 z-40 bg-TertiaryGray">
+        <div className="fixed inset-0 z-[95] bg-TertiaryGray">
           <MobileNavigation />
         </div>
       )}
 
-      {/* Main Content - shifts right based on sidebar state */}
+      {/* MAIN CONTENT - Pushed down and to the right */}
       <main
-        className="relative pt-[73px] transition-all duration-400 ease-in-out"
+        className="min-h-screen pt-[73px]"
         style={{
           marginLeft: !isMobile
             ? isDesktopSidebarOpen
