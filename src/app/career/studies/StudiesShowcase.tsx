@@ -19,7 +19,7 @@ function StudiesShowcase() {
   const activeStudy = studies[activeIndex]
 
   return (
-    <div className="px-4 md:px-6 py-4">
+    <div className="">
       <StudiesTabSelector
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}

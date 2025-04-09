@@ -35,7 +35,7 @@ function SectionHeaderTitle({ title, urlHash }: SectionHeaderTitleProps) {
   }
 
   return (
-    <div className="flex items-center justify-center select-none pb-4 sm:pb-5 md:pb-10">
+    <div className="flex items-center justify-center select-none pb-8 pt-2 md:pb-10">
       <StringWithLink
         titleStyles="text-white font-bold text-center text-3xl md:text-5xl"
         title={title}

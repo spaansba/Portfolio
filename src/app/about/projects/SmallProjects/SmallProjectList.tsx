@@ -23,9 +23,9 @@ function SmallProjectList() {
   }
 
   return (
-    <div className="relative">
+    <>
       {/* Responsive height container */}
-      <div className="mx-4 md:mx-auto md:max-w-4xl relative h-[350px] md:h-[250px]">
+      <div className="md:mx-auto md:max-w-4xl relative h-[350px] md:h-[250px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
@@ -79,7 +79,7 @@ function SmallProjectList() {
         setActiveIndex={setActiveIndex}
         activeIndex={activeIndex}
       />
-    </div>
+    </>
   )
 }
 

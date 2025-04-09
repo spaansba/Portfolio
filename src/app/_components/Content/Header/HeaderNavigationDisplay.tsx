@@ -17,7 +17,7 @@ function HeaderNavigationDisplay() {
           duration: 0.2,
           ease: "easeInOut",
         }}
-        className="text-xl text-TextGray"
+        className="text-md md:text-xl text-TextGray "
       >
         {selectedPage.name}
       </motion.div>

@@ -8,7 +8,7 @@ function BigProjectsList() {
   const isMobile = useIsMobileDevice()
 
   return (
-    <div className="px-4 md:px-0">
+    <>
       {projects.map((project, index) => (
         <div
           key={project.title}
@@ -21,7 +21,7 @@ function BigProjectsList() {
           )}
         </div>
       ))}
-    </div>
+    </>
   )
 }
 
