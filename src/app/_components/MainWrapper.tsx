@@ -33,7 +33,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
 
       {isMobile && isMobileSidebarOpen && (
         <div className="fixed inset-0 bg-TertiaryGray z-40">
-          <nav className="w-full h-full z-[50]">
+          <nav className="z-[50]">
             <MobileNavigation />
           </nav>
         </div>
