@@ -25,7 +25,11 @@ function NavigationItem({ page }: NaviationItemProps) {
       isMobileSidebarAction.toggleMobileSidebarOpen(false)
     }
     navigationActions.setSelectedPage(page)
-    goToPageOrScroll(page.hash, page.path)
+    if (page.isOutsideLink && page.onMouseDown) {
+      page.onMouseDown()
+    } else {
+      goToPageOrScroll(page.hash, page.path)
+    }
   }
 
   return (

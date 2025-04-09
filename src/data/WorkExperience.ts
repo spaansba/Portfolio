@@ -32,7 +32,6 @@ export const workExperience: WorkExperience[] = [
         endYear: "present",
         extraInfo: [
           "Created, developed and maintained multiple big VBA projects serving over 600 internal clients from 12 different countries. Also served as the main contact point between the NL Flex team and the retail department.",
-          "asdasdasd",
         ],
       },
       {

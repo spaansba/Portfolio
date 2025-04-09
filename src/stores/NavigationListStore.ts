@@ -20,7 +20,7 @@ type NavigationListStore = {
   pages: NavigationList
 }
 
-const categoryOrder = ["about", "career", "resources", "connect"] as const
+const categoryOrder = ["about", "career", "connect"] as const
 type CategoryType = (typeof categoryOrder)[number]
 
 type NavigationList = {
@@ -32,7 +32,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
   pages: {
     about: aboutList,
     career: careerList,
-    resources: resourcesList,
+    // resources: resourcesList,
     connect: connectList,
   },
   selectedPage: aboutList[0],
@@ -85,7 +85,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
     },
     getPageBasedOnHash: (hash: string) => {
       const { pages } = get()
-      const flattenedPages = [...pages.about, ...pages.career, ...pages.resources, ...pages.connect]
+      const flattenedPages = [...pages.about, ...pages.career, ...pages.connect]
       const pageIndex = flattenedPages.findIndex((item) => item.hash === hash)
 
       return flattenedPages[pageIndex]

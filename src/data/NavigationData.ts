@@ -73,7 +73,10 @@ export const connectList: NavigationPageItem[] = [
     id: "connect-10",
     name: "Contact",
     icon: Mail,
-    isOutsideLink: false,
+    onMouseDown: () => {
+      window.open("mailto:bartspaans96@gmail.com", "_blank")
+    },
+    isOutsideLink: true,
   },
   {
     id: "connect-20",

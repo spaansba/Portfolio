@@ -4,7 +4,7 @@ export type NavigationPageItem = {
   id: string
   name: string
   icon: LucideIcon
-  onMouseDown?: (item: NavigationPageItem) => void
+  onMouseDown?: () => void
   isOutsideLink: boolean
   path?: string
   hash?: string

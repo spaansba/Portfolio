@@ -38,7 +38,7 @@ function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
         </div>
         {hasMultipleParagraphs ? (
           <button
-            className="text-white flex flex-row gap-2 items-center"
+            className="text-white flex flex-row gap-2 items-center cursor-pointer"
             aria-label={`Show more information about ${position.jobTitle}`}
             onMouseDown={() => setIsInfoExpanded(!isInfoExpanded)}
           >

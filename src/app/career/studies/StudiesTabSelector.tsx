@@ -10,13 +10,13 @@ type StudiesTabSelector = {
 
 function StudiesTabSelector({ activeIndex, setActiveIndex, studies }: StudiesTabSelector) {
   return (
-    <div className="flex flex-wrap gap-4 justify-center mb-8">
+    <div className="flex flex-wrap gap-4 justify-center mb-8 ">
       {studies.map((study, index) => (
         <button
           key={study.institution}
           aria-label={`Go to ${study.institution}`}
           onClick={() => setActiveIndex(index)}
-          className={`py-2 px-4 md:px-6  transition-all duration-300 flex items-center gap-2 border-b-2 border-transparent
+          className={`py-2 px-4 md:px-6 cursor-pointer transition-all duration-300 flex items-center gap-2 border-b-2 border-transparent
               ${
                 activeIndex === index
                   ? "bg-TertiaryGray text-white  border-white"
