@@ -13,10 +13,10 @@ import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore"
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
-  const isMobile = useIsMobileDevice(900)
+  // const isMobile = useIsMobileDevice(900)
   const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
-
+  const isMobile = false
   return (
     <div className="flex flex-col min-h-screen">
       {isMobileSidebarOpen && isMobile ? (

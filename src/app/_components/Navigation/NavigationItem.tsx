@@ -13,7 +13,8 @@ type NaviationItemProps = {
 
 function NavigationItem({ page }: NaviationItemProps) {
   const isSidebarOpen = useIsDesktopSidebarOpen()
-  const isMobile = useIsMobileDevice()
+  // const isMobile = useIsMobileDevice()
+  const isMobile = false
   const showFullContent = isSidebarOpen || isMobile
 
   const isMobileSidebarAction = useMobileSidebarActions()
