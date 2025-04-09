@@ -24,8 +24,8 @@ export const useScrollToHash = () => {
       localStorage.removeItem("scrollToHash")
       setTimeout(() => {
         setIsScrolling(false)
-      }, 700)
-    }, 200)
+      }, 900)
+    }, 300)
 
     return () => clearTimeout(timeoutId)
   }, [])
