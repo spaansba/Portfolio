@@ -11,9 +11,19 @@ import {
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 
-export const aboutList: NavigationPageItem[] = [
+function createNavigationList(
+  category: string,
+  items: Omit<NavigationPageItem, "id" | "isFirst">[]
+): NavigationPageItem[] {
+  return items.map((item, index) => ({
+    ...item,
+    id: `${category}-${(index + 1) * 10}`,
+    isFirst: index === 0,
+  }))
+}
+
+export const aboutList = createNavigationList("about", [
   {
-    id: "about-10",
     name: "Intro",
     icon: UserCircle,
     isOutsideLink: false,
@@ -21,7 +31,6 @@ export const aboutList: NavigationPageItem[] = [
     hash: "#intro",
   },
   {
-    id: "about-20",
     name: "Projects",
     icon: Package,
     isOutsideLink: false,
@@ -29,18 +38,16 @@ export const aboutList: NavigationPageItem[] = [
     hash: "#projects",
   },
   {
-    id: "about-30",
     name: "Small Projects",
     icon: Workflow,
     isOutsideLink: false,
     path: "/about",
     hash: "#smallprojects",
   },
-]
+])
 
-export const careerList: NavigationPageItem[] = [
+export const careerList = createNavigationList("career", [
   {
-    id: "career-10",
     name: "Work",
     icon: BriefcaseBusiness,
     isOutsideLink: false,
@@ -48,29 +55,26 @@ export const careerList: NavigationPageItem[] = [
     hash: "#work",
   },
   {
-    id: "career-20",
     name: "Studies",
     icon: GraduationCap,
     isOutsideLink: false,
     path: "/career",
     hash: "#studies",
   },
-]
+])
 
-export const resourcesList: NavigationPageItem[] = [
+export const resourcesList = createNavigationList("resources", [
   {
-    id: "resources-10",
     name: "Feed",
     icon: Rss,
     isOutsideLink: false,
     path: "/resources",
     hash: "#studies",
   },
-]
+])
 
-export const connectList: NavigationPageItem[] = [
+export const connectList = createNavigationList("connect", [
   {
-    id: "connect-10",
     name: "Contact",
     icon: Mail,
     onMouseDown: () => {
@@ -79,7 +83,6 @@ export const connectList: NavigationPageItem[] = [
     isOutsideLink: true,
   },
   {
-    id: "connect-20",
     name: "Github",
     icon: Github,
     onMouseDown: () => {
@@ -88,7 +91,6 @@ export const connectList: NavigationPageItem[] = [
     isOutsideLink: true,
   },
   {
-    id: "connect-30",
     name: "LinkedIn",
     icon: Linkedin,
     onMouseDown: () => {
@@ -96,4 +98,4 @@ export const connectList: NavigationPageItem[] = [
     },
     isOutsideLink: true,
   },
-]
+])

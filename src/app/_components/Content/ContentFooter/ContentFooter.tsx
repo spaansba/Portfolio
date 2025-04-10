@@ -20,7 +20,11 @@ function ContentFooter() {
         onMouseDown={() => {
           if (previousCategoryPage) {
             navigationActions.setSelectedPage(previousCategoryPage)
-            goToPage(previousCategoryPage.hash, previousCategoryPage.path)
+            goToPage(
+              previousCategoryPage.isFirst,
+              previousCategoryPage.hash,
+              previousCategoryPage.path
+            )
           }
         }}
         name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
@@ -34,7 +38,7 @@ function ContentFooter() {
         onMouseDown={() => {
           if (nextCategoryPage) {
             navigationActions.setSelectedPage(nextCategoryPage!)
-            goToPage(nextCategoryPage.hash, nextCategoryPage.path)
+            goToPage(nextCategoryPage.isFirst, nextCategoryPage.hash, nextCategoryPage.path)
           }
         }}
         name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}

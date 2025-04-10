@@ -25,7 +25,7 @@ function NavigationItem({ page, isMobile = false }: NavigationItemProps) {
     if (page.isOutsideLink && page.onMouseDown) {
       page.onMouseDown()
     } else {
-      goToPageOrScroll(page.hash, page.path)
+      goToPageOrScroll(page.isFirst, page.hash, page.path)
     }
   }
 

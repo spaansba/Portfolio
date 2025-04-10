@@ -19,7 +19,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobileDevice(900)
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
+    <div className="h-screen flex flex-col">
       {(!isMobile || !isMobileSidebarOpen) && (
         <header className="fixed top-0 left-0 right-0 z-30 bg-SecondaryGray">
           <Header />
