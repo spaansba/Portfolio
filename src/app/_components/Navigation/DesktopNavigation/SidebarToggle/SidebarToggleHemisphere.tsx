@@ -1,8 +1,8 @@
-import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function SidebarToggleHemisphere() {
-  const isSidebarOpen = useIsDesktopSidebarOpen()
+  const isSidebarOpen = useIsDesktopSidebarOpen();
 
   return (
     <button
@@ -10,7 +10,7 @@ function SidebarToggleHemisphere() {
       aria-label={`${isSidebarOpen ? "close" : "open"} navigation sidebar`}
     >
       <div
-        className="shadow-md rounded-r-full bg-white flex items-center justify-center w-3 cursor-pointer group-hover/sidebar-toggle:opacity-70"
+        className="flex w-3 cursor-pointer items-center justify-center rounded-r-md bg-white shadow-md group-hover/sidebar-toggle:opacity-70"
         style={{ height: 90 }}
       >
         {isSidebarOpen ? (
@@ -20,7 +20,7 @@ function SidebarToggleHemisphere() {
         )}
       </div>
     </button>
-  )
+  );
 }
 
-export default SidebarToggleHemisphere
+export default SidebarToggleHemisphere;

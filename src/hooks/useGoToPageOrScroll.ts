@@ -27,10 +27,11 @@ export function useGoToPageOrScroll() {
         }
       }
     } else {
-      if (urlHash) {
-        sessionStorage.setItem("scrollToHash", urlHash);
-      }
-      router.push(desiredPathName || "/");
+      // if (urlHash) {
+      //   sessionStorage.setItem("scrollToHash", urlHash);
+      // }
+      // router.push(desiredPathName || "/");
+      router.push(`${desiredPathName}${urlHash}` || "/");
     }
   };
 }

@@ -11,11 +11,11 @@ function PageHeaderNavigationDisplay() {
     <AnimatePresence mode="wait">
       <motion.span
         key={selectedPage?.name}
-        initial={false}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{
-          duration: 0.2,
+          duration: 0.3,
           ease: "easeInOut",
         }}
         className="text-TextGray text-sm md:text-xl"
