@@ -1,3 +1,4 @@
+"use client"
 import { useNavigationActions } from "@/stores/NavigationListStore"
 import { useEffect, useState } from "react"
 import useIsMobileDevice from "./useIsMobileDevice"

@@ -8,11 +8,11 @@ function AboutHeader() {
     <div className="md:px-[20px] pt-4 group/intro">
       <div className="flex flex-row gap-1 md:gap-10 lg:gap-20 items-start">
         <div className="pt-2.5 md:pt-0 md:max-w-[500px] ">
-          <h1 className="text-TextGray text-xs md:text-sm mb-0.5 md:mb-2">Hi, my name is</h1>
-          <h2 className="font-bold text-3xl md:text-5xl text-white mb-0.5 md:mb-2">Bart Spaans.</h2>
-          <h3 className="font-semibold text-lg md:text-3xl text-white">
+          <h3 className="text-TextGray text-xs md:text-sm mb-0.5 md:mb-2">Hi, my name is</h3>
+          <h1 className="font-bold text-3xl md:text-5xl text-white mb-0.5 md:mb-2">Bart Spaans.</h1>
+          <h2 className="font-semibold text-lg md:text-3xl text-white">
             I build things for the web.
-          </h3>
+          </h2>
           {!isMobile && (
             <div className="pt-5">
               <AboutParagraph />

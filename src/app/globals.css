@@ -31,6 +31,10 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+[id] {
+  scroll-margin-top: 100px;
+}
+
 /* Custom scrollbar for specific elements */
 .scrollbar-custom::-webkit-scrollbar {
   width: 8px;
@@ -60,9 +64,6 @@ body {
 /* Only show scrollbar when needed */
 .scrollbar-custom {
   overflow-y: auto;
-}
-[id] {
-  scroll-margin-top: 110px;
 }
 
 /* For specific scrollbar hiding case */

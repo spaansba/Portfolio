@@ -27,7 +27,7 @@ function StringWithLink({
       aria-label={ariaLabel || `Navigate to ${title} section`}
     >
       <div className="flex items-center">
-        <span className={titleStyles}>{title}</span>
+        <h2 className={titleStyles}>{title}</h2>
         <div
           className={`absolute opacity-0 group-hover:opacity-100 text-TextGray hover:text-white  ${
             isMirrored ? "right-full mr-3" : "left-full ml-3"

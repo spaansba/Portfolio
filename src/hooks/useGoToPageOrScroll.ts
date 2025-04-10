@@ -15,6 +15,7 @@ export function useGoToPageOrScroll() {
         })
       } else {
         const targetElement = document.querySelector(urlHash)
+        console.log(targetElement)
         if (targetElement) {
           targetElement.scrollIntoView({
             behavior: "smooth",

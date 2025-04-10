@@ -84,11 +84,14 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
       }
     },
     getPageBasedOnHash: (hash: string) => {
+      if (!hash) return aboutList[0] // Default to the first about page
+
       const { pages } = get()
       const flattenedPages = [...pages.about, ...pages.career, ...pages.connect]
       const pageIndex = flattenedPages.findIndex((item) => item.hash === hash)
 
-      return flattenedPages[pageIndex]
+      // Return the found page or default to the first about page if not found
+      return pageIndex !== -1 ? flattenedPages[pageIndex] : aboutList[0]
     },
   },
 }))
