@@ -1,17 +1,10 @@
 "use client";
-import {
-  useNavigationActions,
-  useNavigationSelectedPage,
-} from "@/stores/NavigationListStore";
 import { useEffect, useState } from "react";
-import useIsMobileDevice from "./useIsMobileDevice";
-import { aboutList } from "@/data/NavigationData";
-import type { NavigationPageItem } from "../../types/NavigationListItem";
 import { useSectionVisibility } from "./useSectionVisibility";
 
 export const useScrollToHash = () => {
   const [isScrolling, setIsScrolling] = useState(false);
-  useSectionVisibility();
+  useSectionVisibility(isScrolling);
   useEffect(() => {
     const scrollTo = sessionStorage.getItem("scrollToHash");
     if (!scrollTo) {
