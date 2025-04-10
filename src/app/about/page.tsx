@@ -11,15 +11,15 @@ function AboutPage() {
 
   return (
     <ContentWrapper>
-      <div id="intro">
+      <div id="intro" data-observe>
         <AboutHeader />
       </div>
-      <div id="projects">
+      <div id="projects" data-observe>
         <SectionHeaderTitle title="Projects." urlHash="#projects" />
         <BigProjectsList />
       </div>
 
-      <div id="smallprojects">
+      <div id="smallprojects" data-observe>
         <SectionHeaderTitle title="Small Projects." urlHash="#smallprojects" />
         <SmallProjectList />
       </div>

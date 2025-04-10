@@ -1,13 +1,14 @@
 "use client"
-import { X } from "lucide-react"
 import { useIsMobileSidebarOpen, useMobileSidebarActions } from "@/stores/MobileSidebarStore"
-import Navigation from "../Navigation"
+import { X } from "lucide-react"
 import FooterName from "../../Content/ContentFooter/FooterName"
+import MobileNavigationSection from "./MobileNavigationSection"
+import { useNavigationPageList } from "@/stores/NavigationListStore"
 
-function MobileNavigation() {
+function MobileNavigationWrapper() {
   const isMobileSidebarOpen = useIsMobileSidebarOpen()
   const mobileSidebarActions = useMobileSidebarActions()
-
+  const pages = useNavigationPageList()
   if (!isMobileSidebarOpen) return null
 
   return (
@@ -22,8 +23,12 @@ function MobileNavigation() {
           <X size={24} />
         </button>
       </div>
-      <div className="flex-1 p-4">
-        <Navigation />
+      <div className="flex-1 p-4 select-none pt-2 absolute inset-0 scrollbar-hide">
+        <ul className="space-y-6">
+          {Object.entries(pages).map(([sectionTitle, sectionItems]) => (
+            <MobileNavigationSection key={sectionTitle} title={sectionTitle} pages={sectionItems} />
+          ))}
+        </ul>
       </div>
       <div className="p-4 border-t border-TertiaryGray text-TextGray text-center text-sm">
         <FooterName />
@@ -32,4 +37,4 @@ function MobileNavigation() {
   )
 }
 
-export default MobileNavigation
+export default MobileNavigationWrapper

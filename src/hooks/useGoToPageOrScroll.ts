@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 export function useGoToPageOrScroll() {
   const router = useRouter()
 
-  return (isFirst: boolean, urlHash?: string, desiredPathName?: string) => {
+  return (urlHash?: string, desiredPathName?: string) => {
     const currentPathName = window.location.pathname
 
     if (currentPathName === desiredPathName) {

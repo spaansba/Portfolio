@@ -11,14 +11,14 @@ import {
 } from "lucide-react"
 import type { NavigationPageItem } from "../../types/NavigationListItem"
 
+// Add an id to each NavigationPageItem programmatically
 function createNavigationList(
   category: string,
-  items: Omit<NavigationPageItem, "id" | "isFirst">[]
+  items: Omit<NavigationPageItem, "id">[]
 ): NavigationPageItem[] {
   return items.map((item, index) => ({
     ...item,
     id: `${category}-${(index + 1) * 10}`,
-    isFirst: index === 0,
   }))
 }
 

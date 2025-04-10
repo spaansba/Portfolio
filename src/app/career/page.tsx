@@ -11,12 +11,12 @@ function CareerPage() {
 
   return (
     <ContentWrapper>
-      <div id="work">
+      <div id="work" data-observe>
         <SectionHeaderTitle title="Work Experience." urlHash="#work" />
         <WorkExperienceTimeline />
       </div>
 
-      <div id="studies">
+      <div id="studies" data-observe>
         <SectionHeaderTitle title="Studies." urlHash="#studies" />
         <StudiesShowcase />
       </div>

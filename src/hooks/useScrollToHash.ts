@@ -25,7 +25,7 @@ export const useScrollToHash = () => {
       sessionStorage.removeItem("scrollToHash")
       setTimeout(() => {
         setIsScrolling(false)
-      }, 700)
+      }, 300)
     }, 200)
 
     return () => clearTimeout(timeoutId)
@@ -34,24 +34,18 @@ export const useScrollToHash = () => {
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    const sections = document.querySelectorAll("[id]")
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isScrolling) {
-            const id = entry.target.id
-            const page = navigationActions.getPageBasedOnHash(`#${id}`)
-            navigationActions.setSelectedPage(page)
-          }
-        })
-      },
-      {
-        root: null,
-        rootMargin: isMobile ? "500px 0px -70% 0px" : "-400px 0px -99% 0px",
-        threshold: 0,
-      }
-    )
+    const sections = document.querySelectorAll("[data-observe]")
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+          const id = entry.target.id
+          console.log(id)
+          const page = navigationActions.getPageBasedOnHash(`#${id}`)
+          navigationActions.setSelectedPage(page)
+        }
+      })
+    })
 
     sections.forEach((section) => {
       observer.observe(section)

@@ -2,7 +2,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem"
-import NavigationItem from "../NavigationItem"
+import NavigationItem from "./MobileNavigationItem"
+import MobileNavigationItem from "./MobileNavigationItem"
 
 type MobileNavigationSectionProps = {
   title: string
@@ -37,7 +38,7 @@ function MobileNavigationSection({ title, pages }: MobileNavigationSectionProps)
           >
             <ul className="space-y-1 pl-2">
               {pages.map((page) => (
-                <NavigationItem page={page} key={page.id} isMobile={true} />
+                <MobileNavigationItem page={page} key={page.id} />
               ))}
             </ul>
           </motion.div>
