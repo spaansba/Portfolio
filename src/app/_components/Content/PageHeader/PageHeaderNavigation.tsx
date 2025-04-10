@@ -10,7 +10,7 @@ function PageHeaderNavigationDisplay() {
   return (
     <AnimatePresence mode="wait">
       <motion.span
-        key={selectedPage.name}
+        key={selectedPage?.name}
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
@@ -20,7 +20,7 @@ function PageHeaderNavigationDisplay() {
         }}
         className="text-TextGray text-sm md:text-xl"
       >
-        {isMobileSidebarOpen ? "Navigation" : selectedPage.name}
+        {isMobileSidebarOpen ? "Navigation" : selectedPage?.name}
       </motion.span>
     </AnimatePresence>
   );

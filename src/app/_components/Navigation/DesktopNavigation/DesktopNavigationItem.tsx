@@ -14,7 +14,7 @@ type NavigationItemProps = {
 function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
   const goToPageOrScroll = useGoToPageOrScroll();
   const selectedPage = useNavigationSelectedPage();
-  const isSelected = selectedPage.id === page.id;
+  const isSelected = selectedPage?.id === page.id;
   const navigationActions = useNavigationActions();
 
   const handleOnMouseDown = (page: NavigationPageItem) => {
@@ -38,7 +38,9 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
           />
         </div>
 
-        <span className="text-TextGray whitespace-nowrap group-hover/nav-item:text-white">
+        <span
+          className={`whitespace-nowrap transition-colors duration-300 ${isSelected ? "text-white" : "text-TextGray group-hover/nav-item:text-white"}`}
+        >
           {page.name}
         </span>
       </div>

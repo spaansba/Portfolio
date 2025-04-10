@@ -14,7 +14,7 @@ export const useSectionVisibility = (isScrolling: boolean) => {
   const updateMostVisibleSection = () => {
     const result = checkIfNewMostVisible();
     if (result && result.page && result.ratio > 0) {
-      if (result.page.name !== selectedPage.name) {
+      if (result.page.name !== selectedPage?.name) {
         navigationActions.setSelectedPage(result.page);
       }
     }
