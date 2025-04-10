@@ -1,3 +1,4 @@
+"use server";
 import ContentFooter from "./Content/ContentFooter/ContentFooter";
 import PageHeader from "./Content/PageHeader/PageHeader";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";

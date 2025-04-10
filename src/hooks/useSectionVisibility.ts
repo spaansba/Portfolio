@@ -65,14 +65,8 @@ export const useSectionVisibility = (isScrolling: boolean) => {
     const observer = new IntersectionObserver(
       (entries) => {
         let hasChanges = false;
-
-        console.log("--- Intersection Observer entries ---");
         entries.forEach((entry) => {
           const id = entry.target.id;
-          console.log(
-            `Section: ${id}, ratio: ${entry.intersectionRatio.toFixed(2)}, isIntersecting: ${entry.isIntersecting}`,
-          );
-
           if (entry.isIntersecting) {
             sectionVisibility.set(id, entry.intersectionRatio);
             hasChanges = true;
@@ -90,9 +84,7 @@ export const useSectionVisibility = (isScrolling: boolean) => {
       },
       {
         root: null,
-        threshold: [
-          0, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1,
-        ],
+        threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1],
         rootMargin: "-20% 0px -20% 0px",
       },
     );

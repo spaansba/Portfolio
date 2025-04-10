@@ -1,13 +1,9 @@
 "use client";
-import {
-  useIsMobileSidebarOpen,
-  useMobileSidebarActions,
-} from "@/stores/MobileSidebarStore";
-import { X } from "lucide-react";
-import FooterName from "../../Content/ContentFooter/FooterName";
-import MobileNavigationSection from "./MobileNavigationSection";
+import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
+import FooterName from "../../Content/ContentFooter/FooterName";
 import PageHeader from "../../Content/PageHeader/PageHeader";
+import MobileNavigationSection from "./MobileNavigationSection";
 
 function MobileNavigationWrapper() {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
