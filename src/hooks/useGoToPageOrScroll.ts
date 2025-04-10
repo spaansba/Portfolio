@@ -8,9 +8,8 @@ export function useGoToPageOrScroll() {
     const currentPathName = window.location.pathname
 
     if (currentPathName === desiredPathName) {
-      if (!urlHash || isFirst) {
+      if (!urlHash) {
         const contentWrapper = document.getElementById("contentwrapper")
-        console.log(contentWrapper)
         if (contentWrapper) {
           contentWrapper.scrollIntoView({
             behavior: "smooth",
