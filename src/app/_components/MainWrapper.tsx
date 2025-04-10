@@ -34,10 +34,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
             <DesktopNavigation />
           </aside>
         )}
-        <main
-          id="contentwrapper"
-          className="scrollbar-custom mb-6 overflow-auto"
-        >
+        <main id="contentwrapper" className="scrollbar-custom overflow-auto">
           {children}
           <ContentFooter />
         </main>
