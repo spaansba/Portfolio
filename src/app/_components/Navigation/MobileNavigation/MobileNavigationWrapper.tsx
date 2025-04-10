@@ -17,8 +17,8 @@ function MobileNavigationWrapper() {
   if (!isMobileSidebarOpen) return null;
 
   return (
-    <div className="bg-PrimaryGray fixed inset-0 z-50 flex h-full flex-col">
-      {/* <PageHeader /> */}
+    <div className="bg-PrimaryGray z-50 flex h-full flex-col">
+      <PageHeader />
 
       <ul className="flex flex-col overflow-y-auto px-2 py-5">
         {Object.entries(pages).map(([sectionTitle, sectionItems]) => (

@@ -7,6 +7,7 @@ import Header from "./Content/PageHeader/PageHeader";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
 import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
 import PageHeader from "./Content/PageHeader/PageHeader";
+import ContentFooter from "./Content/ContentFooter/ContentFooter";
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
@@ -24,8 +25,12 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
             <DesktopNavigation />
           </aside>
         )}
-        <main id="contentwrapper" className="scrollbar-custom overflow-auto">
+        <main
+          id="contentwrapper"
+          className="scrollbar-custom mb-6 overflow-auto"
+        >
           {children}
+          <ContentFooter />
         </main>
       </div>
 

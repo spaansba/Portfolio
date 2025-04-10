@@ -10,8 +10,6 @@ function ContentWrapper({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </div>
-
-      <ContentFooter />
     </>
   );
 }
