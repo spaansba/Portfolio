@@ -24,7 +24,9 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
             <DesktopNavigation />
           </aside>
         )}
-        <main className="scrollbar-custom overflow-auto">{children}</main>
+        <main id="contentwrapper" className="scrollbar-custom overflow-auto">
+          {children}
+        </main>
       </div>
 
       {isMobile && isMobileSidebarOpen && (
