@@ -14,11 +14,9 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
-      {(!isMobile || !isMobileSidebarOpen) && (
-        <header className="bg-SecondaryGray sticky top-0 z-30">
-          <PageHeader />
-        </header>
-      )}
+      <header className="bg-SecondaryGray sticky top-0 z-30">
+        <PageHeader />
+      </header>
 
       <div className="grid grid-cols-[auto_1fr] overflow-hidden">
         {!isMobile && (

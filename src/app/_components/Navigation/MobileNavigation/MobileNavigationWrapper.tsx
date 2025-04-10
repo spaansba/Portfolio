@@ -18,7 +18,7 @@ function MobileNavigationWrapper() {
 
   return (
     <div className="bg-PrimaryGray fixed inset-0 z-50 flex h-full flex-col">
-      <PageHeader />
+      {/* <PageHeader /> */}
 
       <ul className="flex flex-col overflow-y-auto px-2 py-5">
         {Object.entries(pages).map(([sectionTitle, sectionItems]) => (
