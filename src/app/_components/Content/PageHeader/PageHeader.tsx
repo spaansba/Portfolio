@@ -64,7 +64,7 @@ function PageHeader() {
               onClick={() =>
                 mobileSidebarActions.toggleMobileSidebarOpen(false)
               }
-              className="hover:bg-TertiaryGray rounded-full p-2 text-white transition-colors"
+              className="hover:bg-TertiaryGray p-2 text-white transition-colors"
               aria-label="Close navigation menu"
             >
               <X size={20} />
