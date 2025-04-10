@@ -41,11 +41,11 @@ export const aboutList: NavigationPageItem[] = [
 export const careerList: NavigationPageItem[] = [
   {
     id: "career-10",
-    name: "Work Experience",
+    name: "Work",
     icon: BriefcaseBusiness,
     isOutsideLink: false,
     path: "/career",
-    hash: "#workexperience",
+    hash: "#work",
   },
   {
     id: "career-20",

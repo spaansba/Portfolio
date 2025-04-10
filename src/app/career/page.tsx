@@ -11,8 +11,8 @@ function CareerPage() {
 
   return (
     <ContentWrapper>
-      <div id="workexperience">
-        <SectionHeaderTitle title="Work Experience." urlHash="#workexperience" />
+      <div id="work">
+        <SectionHeaderTitle title="Work Experience." urlHash="#work" />
         <WorkExperienceTimeline />
       </div>
 

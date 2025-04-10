@@ -13,34 +13,32 @@ function ContentFooter() {
   }
   const goToPage = useGoToPageOrScroll()
   return (
-    <footer className="bg-SecondaryGray">
-      <div className="pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
-        <FooterButton
-          direction="previous"
-          isDisabled={!previousCategoryPage}
-          onMouseDown={() => {
-            if (previousCategoryPage) {
-              navigationActions.setSelectedPage(previousCategoryPage)
-              goToPage(previousCategoryPage.hash, previousCategoryPage.path)
-            }
-          }}
-          name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
-        />
-        <div className="p-4 text-TextGray text-center text-sm">
-          <FooterName />
-        </div>
-        <FooterButton
-          direction="next"
-          isDisabled={!nextCategoryPage}
-          onMouseDown={() => {
-            if (nextCategoryPage) {
-              navigationActions.setSelectedPage(nextCategoryPage!)
-              goToPage(nextCategoryPage.hash, nextCategoryPage.path)
-            }
-          }}
-          name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}
-        />
+    <footer className="bg-SecondaryGray pt-6 pb-20 mb:pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
+      <FooterButton
+        direction="previous"
+        isDisabled={!previousCategoryPage}
+        onMouseDown={() => {
+          if (previousCategoryPage) {
+            navigationActions.setSelectedPage(previousCategoryPage)
+            goToPage(previousCategoryPage.hash, previousCategoryPage.path)
+          }
+        }}
+        name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
+      />
+      <div className="text-TextGray text-center text-sm">
+        <FooterName />
       </div>
+      <FooterButton
+        direction="next"
+        isDisabled={!nextCategoryPage}
+        onMouseDown={() => {
+          if (nextCategoryPage) {
+            navigationActions.setSelectedPage(nextCategoryPage!)
+            goToPage(nextCategoryPage.hash, nextCategoryPage.path)
+          }
+        }}
+        name={nextCategoryPageName ? CapitalizeFirstLetter(nextCategoryPageName) : ""}
+      />
     </footer>
   )
 }

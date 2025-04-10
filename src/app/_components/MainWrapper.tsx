@@ -11,6 +11,7 @@ import {
 } from "./Navigation/DesktopNavigation/DesktopNavigation"
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore"
+import ContentFooter from "./Content/ContentFooter/ContentFooter"
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
   const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
