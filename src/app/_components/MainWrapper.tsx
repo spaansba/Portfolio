@@ -1,51 +1,42 @@
 // src/app/_components/MainWrapper.tsx
-"use client"
-import React from "react"
-import Header from "./Content/PageHeader/PageHeader"
-import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper"
-import useIsMobileDevice from "@/hooks/useIsMobileDevice"
-import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper"
-import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore"
-import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore"
-import ContentFooter from "./Content/ContentFooter/ContentFooter"
+"use client";
+import useIsMobileDevice from "@/hooks/useIsMobileDevice";
+import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
+import React from "react";
+import Header from "./Content/PageHeader/PageHeader";
+import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
+import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
-  const isDesktopSidebarOpen = useIsDesktopSidebarOpen()
-  const isMobileSidebarOpen = useIsMobileSidebarOpen()
-  const isMobile = useIsMobileDevice(900)
+  const isMobileSidebarOpen = useIsMobileSidebarOpen();
+  const isMobile = useIsMobileDevice(900);
 
   return (
-    <div className="h-screen grid grid-rows-[auto_1fr] overflow-hidden">
-      {/* Header area */}
+    <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
       {(!isMobile || !isMobileSidebarOpen) && (
-        <header className="sticky top-0 z-30 bg-SecondaryGray">
+        <header className="bg-SecondaryGray sticky top-0 z-30">
           <Header />
         </header>
       )}
 
-      {/* Main content area with sidebar and content */}
       <div className="grid grid-cols-[auto_1fr] overflow-hidden">
-        {/* Sidebar area */}
         {!isMobile && (
-          <aside className="h-full z-20 bg-SecondaryGray">
+          <aside className="bg-SecondaryGray z-20 h-full">
             <DesktopNavigation />
           </aside>
         )}
-
-        {/* Main content area */}
-        <main className="overflow-auto scrollbar-custom">{children}</main>
+        <main className="scrollbar-custom overflow-auto">{children}</main>
       </div>
 
-      {/* Mobile navigation overlay */}
       {isMobile && isMobileSidebarOpen && (
-        <div className="fixed inset-0 bg-TertiaryGray z-40">
-          <nav className="w-full h-full z-50">
+        <div className="bg-TertiaryGray fixed inset-0 z-40">
+          <nav className="z-50 h-full w-full">
             <MobileNavigation />
           </nav>
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default MainWrapper
+export default MainWrapper;

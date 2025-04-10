@@ -18,7 +18,7 @@ function DesktopNavigationWrapper() {
           width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH,
         }}
       >
-        <div className="scrollbar-hide relative ml-3 flex h-full flex-col select-none">
+        <ul className="scrollbar-hide relative mt-6 ml-3 flex h-full flex-col gap-6 select-none">
           {Object.entries(pages).map(([sectionTitle, sectionItems]) => (
             <DesktopNavigationSection
               key={sectionTitle}
@@ -26,7 +26,7 @@ function DesktopNavigationWrapper() {
               pages={sectionItems}
             />
           ))}
-        </div>
+        </ul>
       </div>
 
       <SidebarToggleButton />
