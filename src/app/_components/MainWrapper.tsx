@@ -1,17 +1,26 @@
-// src/app/_components/MainWrapper.tsx
 "use client";
 import useIsMobileDevice from "@/hooks/useIsMobileDevice";
-import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
-import React from "react";
-import Header from "./Content/PageHeader/PageHeader";
+import {
+  useIsMobileSidebarOpen,
+  useMobileSidebarActions,
+} from "@/stores/MobileSidebarStore";
+import React, { useEffect } from "react";
+import ContentFooter from "./Content/ContentFooter/ContentFooter";
+import PageHeader from "./Content/PageHeader/PageHeader";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
 import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
-import PageHeader from "./Content/PageHeader/PageHeader";
-import ContentFooter from "./Content/ContentFooter/ContentFooter";
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
   const isMobile = useIsMobileDevice(900);
+  const mobileSidebarActions = useMobileSidebarActions();
+
+  // Auto-close mobile sidebar when viewport expands to desktop size
+  useEffect(() => {
+    if (isMobileSidebarOpen && !isMobile) {
+      mobileSidebarActions.toggleMobileSidebarOpen(false);
+    }
+  }, [isMobileSidebarOpen, isMobile, mobileSidebarActions]);
 
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">

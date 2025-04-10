@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ContentFooter from "./ContentFooter/ContentFooter";
 
 function ContentWrapper({ children }: { children: React.ReactNode }) {
   return (
