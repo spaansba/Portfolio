@@ -1,14 +1,15 @@
-"use client"
-import { useNavigationSelectedPage } from "@/stores/NavigationListStore"
-import React from "react"
-import { motion, AnimatePresence } from "framer-motion"
+"use client";
+import { useNavigationSelectedPage } from "@/stores/NavigationListStore";
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
 
-function HeaderNavigationDisplay() {
-  const selectedPage = useNavigationSelectedPage()
-
+function PageHeaderNavigationDisplay() {
+  const selectedPage = useNavigationSelectedPage();
+  const isMobileSidebarOpen = useIsMobileSidebarOpen();
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.span
         key={selectedPage.name}
         initial={false}
         animate={{ opacity: 1, y: 0 }}
@@ -17,12 +18,12 @@ function HeaderNavigationDisplay() {
           duration: 0.2,
           ease: "easeInOut",
         }}
-        className="text-sm md:text-xl text-TextGray "
+        className="text-TextGray text-sm md:text-xl"
       >
-        {selectedPage.name}
-      </motion.div>
+        {isMobileSidebarOpen ? "Navigation" : selectedPage.name}
+      </motion.span>
     </AnimatePresence>
-  )
+  );
 }
 
-export default HeaderNavigationDisplay
+export default PageHeaderNavigationDisplay;

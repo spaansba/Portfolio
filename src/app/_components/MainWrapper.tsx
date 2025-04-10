@@ -6,6 +6,7 @@ import React from "react";
 import Header from "./Content/PageHeader/PageHeader";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
 import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
+import PageHeader from "./Content/PageHeader/PageHeader";
 
 function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
@@ -15,7 +16,7 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
       {(!isMobile || !isMobileSidebarOpen) && (
         <header className="bg-SecondaryGray sticky top-0 z-30">
-          <Header />
+          <PageHeader />
         </header>
       )}
 
