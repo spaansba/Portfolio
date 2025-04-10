@@ -60,7 +60,7 @@ function SmallProjectList() {
                 ))}
               </div>
 
-              <div className="overflow-y-auto" style={{ flex: "1 1 auto" }}>
+              <div style={{ flex: "1 1 auto" }}>
                 <p className="text-TextGrayWhite">{SmallProjects[activeIndex].description[0]}</p>
               </div>
               <ProjectLinks

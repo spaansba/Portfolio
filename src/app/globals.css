@@ -20,57 +20,49 @@
 
 const y = "" */
 
+/* Add these styles to your globals.css */
+
 html,
 body {
+  height: 100%;
+  overflow: hidden; /* Prevent body scrolling */
+  margin: 0;
+  padding: 0;
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Base scrollbar styling - minimal opacity when not hovered */
-::-webkit-scrollbar {
+/* Custom scrollbar for specific elements */
+.scrollbar-custom::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
-::-webkit-scrollbar-track {
+.scrollbar-custom::-webkit-scrollbar-track {
   background: var(--scrollbar-track);
   border-radius: 4px;
-  opacity: 0.3;
 }
 
-::-webkit-scrollbar-thumb {
+.scrollbar-custom::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: 4px;
-  opacity: 0.3;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-/* Content areas with scrollbars - target specific containers */
-.scrollable-content {
-  overflow: auto;
-}
-
-/* Show full-opacity scrollbar when hovering the content area */
-.scrollable-content:hover::-webkit-scrollbar-thumb {
-  opacity: 1;
-  background: var(--scrollbar-thumb);
-}
-
-.scrollable-content:hover::-webkit-scrollbar-thumb:hover {
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
 }
 
-[id] {
-  scroll-margin-top: 110px;
-}
-
 /* Firefox scrollbar */
-.scrollable-content {
+.scrollbar-custom {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-.scrollable-content:hover {
-  scrollbar-color: var(--scrollbar-thumb-hover) var(--scrollbar-track);
+/* Only show scrollbar when needed */
+.scrollbar-custom {
+  overflow-y: auto;
+}
+[id] {
+  scroll-margin-top: 110px;
 }
 
 /* For specific scrollbar hiding case */

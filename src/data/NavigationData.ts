@@ -30,7 +30,7 @@ export const aboutList: NavigationPageItem[] = [
   },
   {
     id: "about-30",
-    name: "Tiny Projects",
+    name: "Small Projects",
     icon: Workflow,
     isOutsideLink: false,
     path: "/about",

@@ -1,6 +1,7 @@
 import { useNavigationActions, useNavigationSelectedPage } from "@/stores/NavigationListStore"
 import FooterButton from "./ContentFooterButton"
 import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll"
+import FooterName from "./FooterName"
 
 function ContentFooter() {
   const selectedPage = useNavigationSelectedPage()
@@ -12,8 +13,8 @@ function ContentFooter() {
   }
   const goToPage = useGoToPageOrScroll()
   return (
-    <footer className=" bg-SecondaryGray pt-10">
-      <div className="pt-4 pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
+    <footer className="bg-SecondaryGray">
+      <div className="pb-7 md:py-8 px-4 md:px-8 flex justify-between select-none">
         <FooterButton
           direction="previous"
           isDisabled={!previousCategoryPage}
@@ -25,6 +26,9 @@ function ContentFooter() {
           }}
           name={previousCategoryPageName ? CapitalizeFirstLetter(previousCategoryPageName) : ""}
         />
+        <div className="p-4 text-TextGray text-center text-sm">
+          <FooterName />
+        </div>
         <FooterButton
           direction="next"
           isDisabled={!nextCategoryPage}

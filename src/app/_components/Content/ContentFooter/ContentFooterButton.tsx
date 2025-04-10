@@ -9,7 +9,7 @@ type FooterButtonProps = {
 }
 
 function FooterButton({ onMouseDown, isDisabled, direction, name }: FooterButtonProps) {
-  if (!name) return <div></div> // dont return null
+  if (!name) return null
 
   return (
     <button

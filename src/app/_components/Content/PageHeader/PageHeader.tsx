@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import MobileHamburger from "./MobileHamburger"
-import HeaderNavigationDisplay from "./HeaderNavigationDisplay"
+import HeaderNavigationDisplay from "./PageHeaderNavigation"
 function Header() {
   const handleHeaderClick = () => {
     const currentPath = window.location.pathname
