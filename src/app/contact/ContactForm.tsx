@@ -1,45 +1,57 @@
 "use client";
 import { useForm } from "@tanstack/react-form";
 import { Send } from "lucide-react";
-import { z } from "zod";
 import FieldInfo from "./FieldInfo";
 import { useState } from "react";
+import { contactFormSchema } from "./schema";
+
+
 
 function ContactForm() {
   // State to track submission success
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  // Define Zod schema for form validation
-  const formSchema = z.object({
-    name: z
-      .string()
-      .min(1, "Name is required")
-      .max(100, "Name cant be longer than 100 characters"),
-
-    email: z
-      .string()
-      .min(1, "Email is required")
-      .max(320, "Email cant be longer than 320 characters")
-      .email("Please enter a valid email address"),
-
-    subject: z
-      .string()
-      .min(1, "Subject is required")
-      .max(200, "Subject cant be longer than 200 characters"),
-    message: z
-      .string()
-      .min(1, "message is required")
-      .max(3000, "Message cant be longer than 3000 characters"),
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const form = useForm({
     defaultValues: { name: "", email: "", subject: "", message: "" },
     onSubmit: async ({ value }) => {
-      setSubmitSuccess(true);
-      form.reset();
+      try {
+        setIsLoading(true);
+        setErrorMessage(null);
+
+        // Send data to our API route
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(value),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || "Failed to send message");
+        }
+
+        setSubmitSuccess(true);
+        form.reset();
+
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      } catch (error) {
+        setErrorMessage(
+          error instanceof Error ? error.message : "An unknown error occurred",
+        );
+        console.error("Error sending message:", error);
+      } finally {
+        setIsLoading(false);
+      }
     },
     validators: {
-      onSubmit: formSchema,
+      onSubmit: contactFormSchema,
     },
   });
 
@@ -55,6 +67,9 @@ function ContactForm() {
         onChange={() => {
           if (submitSuccess) {
             setSubmitSuccess(false);
+          }
+          if (errorMessage) {
+            setErrorMessage(null);
           }
         }}
         onSubmit={(e) => {
@@ -78,7 +93,7 @@ function ContactForm() {
                     name={field.name}
                     value={field.state.value}
                     onChange={(e) => field.handleChange(e.target.value)}
-                    className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton rounded-md border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
+                    className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                   />
                   <FieldInfo field={field} />
                 </>
@@ -101,7 +116,7 @@ function ContactForm() {
                     name={field.name}
                     value={field.state.value}
                     onChange={(e) => field.handleChange(e.target.value)}
-                    className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton rounded-md border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
+                    className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                   />
                   <FieldInfo field={field} />
                 </>
@@ -125,7 +140,7 @@ function ContactForm() {
                   name={field.name}
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
-                  className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton rounded-md border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
+                  className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
                 <FieldInfo field={field} />
               </>
@@ -149,7 +164,7 @@ function ContactForm() {
                   value={field.state.value}
                   onChange={(e) => field.handleChange(e.target.value)}
                   rows={6}
-                  className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton rounded-md border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
+                  className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
                 <FieldInfo field={field} />
               </>
@@ -163,17 +178,23 @@ function ContactForm() {
             <div className="flex items-center justify-between pt-2">
               <button
                 type="submit"
-                disabled={!canSubmit}
+                disabled={!canSubmit || isLoading}
                 onMouseDown={form.handleSubmit}
-                className="bg-TertiaryGray hover:bg-fgButton flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-70"
+                className="bg-TertiaryGray hover:bg-fgButton flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isLoading ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
 
               {submitSuccess && (
                 <span className="ml-4 text-sm text-green-400 transition-opacity duration-300">
                   Message sent successfully!
+                </span>
+              )}
+
+              {errorMessage && (
+                <span className="ml-4 text-sm text-red-400 transition-opacity duration-300">
+                  {errorMessage}
                 </span>
               )}
             </div>
