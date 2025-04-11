@@ -1,14 +1,8 @@
 "use client";
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
-import SidebarToggleButton from "./sidebarToggle/SidebarToggleButton";
-import DesktopNavigationSection from "./DesktopNavigationSection";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
-import {
-  useIsMobileSidebarOpen,
-  useMobileSidebarActions,
-} from "@/stores/MobileSidebarStore";
-import useIsMobileDevice from "@/hooks/useIsMobileDevice";
-import { useEffect } from "react";
+import DesktopNavigationSection from "./DesktopNavigationSection";
+import SidebarToggleButton from "./sidebarToggle/SidebarToggleButton";
 
 export const SIDEBAR_OPEN_WIDTH = "205px";
 export const SIDEBAR_CLOSED_WIDTH = "49px";
@@ -16,18 +10,7 @@ export const SIDEBAR_CLOSED_WIDTH = "49px";
 function DesktopNavigationWrapper() {
   const isSidebarOpen = useIsDesktopSidebarOpen();
   const pages = useNavigationPageList();
-  const isMobileSidebarOpen = useIsMobileSidebarOpen();
-  const isMobile = useIsMobileDevice(900);
-  const mobileSidebarActions = useMobileSidebarActions();
 
-  // Auto-close mobile sidebar when viewport expands to desktop size
-  useEffect(() => {
-    if (isMobileSidebarOpen && !isMobile) {
-      mobileSidebarActions.toggleMobileSidebarOpen(false);
-    }
-  }, [isMobileSidebarOpen, isMobile, mobileSidebarActions]);
-
-  if (isMobile) return null;
   return (
     <aside className="bg-SecondaryGray z-20 h-full">
       <nav className="flex h-full">

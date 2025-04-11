@@ -1,20 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Copy, Check } from "lucide-react";
 import StringWithLink from "./StringWithLink";
-import useIsMobileDevice from "@/hooks/useIsMobileDevice";
 
 type SectionHeaderTitleProps = {
   title: string;
   urlHash?: string;
+  isMobileDevice: boolean;
 };
 
-function SectionHeaderTitle({ title, urlHash }: SectionHeaderTitleProps) {
+function SectionHeaderTitle({
+  title,
+  urlHash,
+  isMobileDevice,
+}: SectionHeaderTitleProps) {
   const [isCopied, setIsCopied] = useState(false);
-  const isMobile = useIsMobileDevice();
+
   // Copy the url + hash to the clipboard and go to the selection
   const handleClick = () => {
-    if (!isMobile) {
+    console.log(isMobileDevice);
+    if (!isMobileDevice) {
       navigator.clipboard
         .writeText(window.location.origin + window.location.pathname + urlHash)
         .then(() => {

@@ -18,7 +18,7 @@ function PageHeaderNavigationDisplay() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="text-TextGray text-sm md:text-xl"
+        className="text-TextGray text-sm sm:text-xl"
       >
         {isMobileSidebarOpen ? "Navigation" : selectedPage?.name}
       </motion.span>

@@ -25,7 +25,7 @@ function PageHeader({ children }: React.PropsWithChildren) {
         >
           {children}
         </button>
-        <div className="flex items-center gap-1 md:gap-8">
+        <div className="flex items-center gap-1 md:mr-10 md:gap-8">
           <PageHeaderNavigationDisplay />
           <MobileHamburger />
         </div>
