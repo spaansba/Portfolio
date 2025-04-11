@@ -12,7 +12,6 @@ type BigProjectsMobileProps = {
 function BigProjectsMobile({ project }: BigProjectsMobileProps) {
   return (
     <>
-      {/* Mobile view (simplified) */}
       <div className="md:hidden">
         <div className="mb-5">
           <h2 className="text-xl font-semibold text-white">{project.title}</h2>
@@ -25,7 +24,7 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
                 href={project.link ?? ""}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full w-full"
+                className="relative block h-full w-full"
               >
                 <Image
                   src={project.image}
