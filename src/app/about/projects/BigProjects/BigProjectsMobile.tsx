@@ -1,13 +1,13 @@
-import type { Project } from "@/data/ProjectData"
-import Link from "next/link"
-import React from "react"
-import Image from "next/image"
-import TechnologyBadge from "../TechnologyBadge"
-import ProjectLinks from "../ProjectLinks"
-import ProjectDescription from "./ProjectDescription"
+import type { Project } from "@/data/ProjectData";
+import Link from "next/link";
+import React from "react";
+import Image from "next/image";
+import TechnologyBadge from "../TechnologyBadge";
+import ProjectLinks from "../ProjectLinks";
+import ProjectDescription from "./ProjectDescription";
 type BigProjectsMobileProps = {
-  project: Project
-}
+  project: Project;
+};
 
 function BigProjectsMobile({ project }: BigProjectsMobileProps) {
   return (
@@ -15,24 +15,24 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
       {/* Mobile view (simplified) */}
       <div className="md:hidden">
         <div className="mb-5">
-          <h2 className="font-semibold text-xl text-white">{project.title}</h2>
+          <h2 className="text-xl font-semibold text-white">{project.title}</h2>
         </div>
 
         {project.image && (
           <div className="mb-4">
-            <div className="relative w-full h-48 overflow-hidden border border-TertiaryGray rounded-md">
+            <div className="border-TertiaryGray relative h-48 w-full overflow-hidden rounded-md border">
               <Link
                 href={project.link ?? ""}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full h-full"
+                className="block h-full w-full"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   sizes="100vw"
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                   priority
                 />
               </Link>
@@ -40,9 +40,12 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 mb-3">
+        <div className="mb-3 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (
-            <TechnologyBadge name={technology} key={`${technology}${project.title}`} />
+            <TechnologyBadge
+              name={technology}
+              key={`${technology}${project.title}`}
+            />
           ))}
         </div>
 
@@ -58,7 +61,7 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
         />
       </div>
     </>
-  )
+  );
 }
 
-export default BigProjectsMobile
+export default BigProjectsMobile;

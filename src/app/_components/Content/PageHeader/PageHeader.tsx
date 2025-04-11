@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import ProfileInfo from "./ProfileInfo";
 import MobileHamburger from "./MobileHamburger";
 import PageHeaderNavigationDisplay from "./PageHeaderNavigation";
 import {
@@ -8,7 +8,7 @@ import {
   useIsMobileSidebarOpen,
 } from "@/stores/MobileSidebarStore";
 import { X } from "lucide-react";
-function PageHeader() {
+function PageHeader({ children }: React.PropsWithChildren) {
   const mobileSidebarActions = useMobileSidebarActions();
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
 
@@ -29,34 +29,11 @@ function PageHeader() {
       <div className="bg-SecondaryGray border-TertiaryGray flex items-center justify-between border-b-[1px] px-[10px] py-3">
         <button
           aria-label="Go to about me"
-          className="flex cursor-pointer items-center gap-3"
+          className={`flex cursor-pointer items-center gap-3`}
           onMouseDown={handleHeaderClick}
         >
-          <div className="ring-TertiaryGray relative size-12 flex-shrink-0 overflow-hidden ring-[1px]">
-            <Image
-              draggable={false}
-              src="/images/BartSpaans.jpg"
-              alt="Profile picture"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          <div className="flex flex-col gap-[2px]">
-            <div className="flex items-center gap-1.5">
-              <h3 className="text-TextGray text-[14px] font-semibold">
-                Frontend Developer
-              </h3>
-            </div>
-            <div className="flex gap-2">
-              <h2 className="truncate text-[18px] leading-tight font-bold text-white">
-                Bart Spaans
-              </h2>
-            </div>
-          </div>
+          {children}
         </button>
-
         <div className="flex items-center gap-1 md:gap-8">
           <PageHeaderNavigationDisplay />
           {isMobileSidebarOpen ? (
