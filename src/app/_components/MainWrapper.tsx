@@ -8,7 +8,6 @@ import { isMobileDevice } from "../_server/device";
 
 async function MainWrapper({ children }: { children: React.ReactNode }) {
   const isMobile = await isMobileDevice();
-  console.log("Is mobile device:", isMobile);
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
       <header className="bg-SecondaryGray sticky top-0 z-30">

@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+"use server";
 import Image from "next/image";
-import useIsMobileDevice from "@/hooks/useIsMobileDevice";
-import AboutParagraph from "./AboutParagraph";
 function AboutHeader() {
-  const isMobile = useIsMobileDevice();
+  const AboutParagraph = () => (
+    <p className="text-TextGray text-base leading-relaxed font-medium md:text-lg">
+      I am a self-taught hobby frontend developer from Rotterdam, The
+      Netherlands. I aspire to become a full-time frontend developer.
+    </p>
+  );
+
   return (
     <div className="group/intro pt-4 md:px-[20px]">
       <div className="flex flex-row items-start gap-1 md:gap-10 lg:gap-20">
@@ -17,11 +21,10 @@ function AboutHeader() {
           <h2 className="text-lg font-semibold text-white md:text-3xl">
             I build things for the web.
           </h2>
-          {!isMobile && (
-            <div className="pt-5">
-              <AboutParagraph />
-            </div>
-          )}
+
+          <div className="hidden pt-5 md:block">
+            <AboutParagraph />
+          </div>
         </div>
 
         <div className="relative mb-6 ml-4 size-[100px] flex-shrink-0 sm:size-[150px] md:mb-0 md:ml-0 md:size-[200px] lg:size-[300px]">
@@ -40,7 +43,9 @@ function AboutHeader() {
           />
         </div>
       </div>
-      {isMobile && <AboutParagraph />}
+      <div className="md:hidden">
+        <AboutParagraph />
+      </div>
     </div>
   );
 }

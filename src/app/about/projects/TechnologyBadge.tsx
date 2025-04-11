@@ -1,15 +1,15 @@
-import React from "react"
+import React from "react";
 
 type TechnologyBadgeProps = {
-  name: string
-}
+  name: string;
+};
 
 function TechnologyBadge({ name }: TechnologyBadgeProps) {
   return (
-    <div className="px-2 py-1 md:px-3 md:py-1 bg-SecondaryGray  text-xs md:text-sm text-TextGrayWhite border border-TertiaryGray">
+    <div className="bg-SecondaryGray text-TextGrayWhite border-TertiaryGray border px-2 py-1 text-xs md:px-3 md:py-1 md:text-sm">
       {name}
     </div>
-  )
+  );
 }
 
-export default TechnologyBadge
+export default TechnologyBadge;

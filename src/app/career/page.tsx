@@ -1,14 +1,10 @@
-"use client"
-import React from "react"
-import ContentWrapper from "../_components/Content/ContentWrapper"
-import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline"
-import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle"
-import StudiesShowcase from "./studies/StudiesShowcase"
-import { useScrollToHash } from "@/hooks/useScrollToHash"
+"use server";
+import ContentWrapper from "../_components/Content/ContentWrapper";
+import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
+import StudiesShowcase from "./studies/StudiesShowcase";
+import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline";
 
 function CareerPage() {
-  useScrollToHash()
-
   return (
     <ContentWrapper>
       <div id="work" data-observe>
@@ -21,7 +17,7 @@ function CareerPage() {
         <StudiesShowcase />
       </div>
     </ContentWrapper>
-  )
+  );
 }
 
-export default CareerPage
+export default CareerPage;

@@ -1,18 +1,10 @@
-import React, { useState } from "react";
+"use client";
 import { studies } from "@/data/StudiesData";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  GraduationCap,
-  ExternalLink,
-  BookOpen,
-  Award,
-  Calendar,
-  Globe,
-  Album,
-  Component,
-} from "lucide-react";
-import StudiesTabSelector from "./StudiesTabSelector";
+import { AnimatePresence, motion } from "framer-motion";
+import { Award, BookOpen, Component, Globe } from "lucide-react";
+import { useState } from "react";
 import StudiesHeader from "./StudiesHeader";
+import StudiesTabSelector from "./StudiesTabSelector";
 
 function StudiesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);

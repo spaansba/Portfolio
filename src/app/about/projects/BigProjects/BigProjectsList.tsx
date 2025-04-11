@@ -1,12 +1,10 @@
-import { BigProjects } from "@/data/ProjectData"
-import BigProjectsMobile from "./BigProjectsMobile"
-import BigProjectsDesktop from "./BigProjectsDesktop"
-import useIsMobileDevice from "@/hooks/useIsMobileDevice"
+"use server";
+import { BigProjects } from "@/data/ProjectData";
+import BigProjectsDesktop from "./BigProjectsDesktop";
+import BigProjectsMobile from "./BigProjectsMobile";
 
 function BigProjectsList() {
-  const projects = BigProjects
-  const isMobile = useIsMobileDevice()
-
+  const projects = BigProjects;
   return (
     <>
       {projects.map((project, index) => (
@@ -14,15 +12,19 @@ function BigProjectsList() {
           key={project.title}
           className={`${index === projects.length - 1 ? "mb-0" : "mb-[80px] md:mb-[150px]"}`}
         >
-          {isMobile ? (
+          <div className="hidden md:block">
+            <BigProjectsDesktop
+              project={project}
+              isLeftAlign={(index + 1) % 2 === 1}
+            />
+          </div>
+          <div className="md:hidden">
             <BigProjectsMobile project={project} />
-          ) : (
-            <BigProjectsDesktop project={project} isLeftAlign={(index + 1) % 2 === 1} />
-          )}
+          </div>
         </div>
       ))}
     </>
-  )
+  );
 }
 
-export default BigProjectsList
+export default BigProjectsList;

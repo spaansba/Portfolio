@@ -1,7 +1,10 @@
 "use client";
+import { useScrollToHash } from "@/hooks/useScrollToHash";
 import React from "react";
 
 function ContentWrapper({ children }: { children: React.ReactNode }) {
+  useScrollToHash();
+
   return (
     <>
       <div className="mx-1 overflow-y-auto md:mx-8 xl:mx-auto xl:max-w-5xl">

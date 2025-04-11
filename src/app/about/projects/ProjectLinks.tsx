@@ -1,23 +1,30 @@
-import { ExternalLink, Github, Download } from "lucide-react"
-import Link from "next/link"
-import React from "react"
+import { ExternalLink, Github, Download } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 type ProjectLinksProps = {
-  link: string | undefined
-  gitHubLink: string | undefined
-  downloadLink: string | undefined
-  isRightalign: boolean
-}
+  link: string | undefined;
+  gitHubLink: string | undefined;
+  downloadLink: string | undefined;
+  isRightalign: boolean;
+};
 
-function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectLinksProps) {
+function ProjectLinks({
+  link,
+  gitHubLink,
+  isRightalign,
+  downloadLink,
+}: ProjectLinksProps) {
   return (
-    <div className={`flex flex-wrap gap-4 pt-3 ${isRightalign ? "justify-end" : ""}`}>
+    <div
+      className={`flex flex-wrap gap-4 pt-3 ${isRightalign ? "justify-end" : ""}`}
+    >
       {link && (
         <Link
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
+          className="text-fgButton hover:text-fgButtonHover flex items-center gap-2 transition-colors"
         >
           <ExternalLink size={16} />
           <span>Visit Project</span>
@@ -29,7 +36,7 @@ function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectL
           href={gitHubLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
+          className="text-fgButton hover:text-fgButtonHover flex items-center gap-2 transition-colors"
         >
           <Github size={16} />
           <span>View Code</span>
@@ -42,14 +49,14 @@ function ProjectLinks({ link, gitHubLink, isRightalign, downloadLink }: ProjectL
           download
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-fgButton hover:text-fgButtonHover transition-colors"
+          className="text-fgButton hover:text-fgButtonHover flex items-center gap-2 transition-colors"
         >
           <Download size={16} />
           <span>Download</span>
         </Link>
       )}
     </div>
-  )
+  );
 }
 
-export default ProjectLinks
+export default ProjectLinks;

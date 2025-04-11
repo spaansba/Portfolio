@@ -1,17 +1,8 @@
 "use client";
 import React from "react";
-import ProfileInfo from "./ProfileInfo";
 import MobileHamburger from "./MobileHamburger";
 import PageHeaderNavigationDisplay from "./PageHeaderNavigation";
-import {
-  useMobileSidebarActions,
-  useIsMobileSidebarOpen,
-} from "@/stores/MobileSidebarStore";
-import { X } from "lucide-react";
 function PageHeader({ children }: React.PropsWithChildren) {
-  const mobileSidebarActions = useMobileSidebarActions();
-  const isMobileSidebarOpen = useIsMobileSidebarOpen();
-
   const handleHeaderClick = () => {
     const currentPath = window.location.pathname;
     if (currentPath.endsWith("/about")) {

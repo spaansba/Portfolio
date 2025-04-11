@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from "react"
+"use client";
+import { useState } from "react";
 
 type ProjectDescriptionProps = {
-  description: string[]
-}
+  description: string[];
+};
 
 function ProjectDescription({ description }: ProjectDescriptionProps) {
-  const [showButton] = useState(description.length > 1)
-  const [expanded, setExpanded] = useState(false)
+  const [showButton] = useState(description.length > 1);
+  const [expanded, setExpanded] = useState(false);
   return (
     <div className="text-white">
       <p className="text-base">{description[0]}</p>
@@ -25,7 +26,7 @@ function ProjectDescription({ description }: ProjectDescriptionProps) {
 
           <button
             onMouseDown={() => setExpanded(!expanded)}
-            className="mt-2 text-fgButton hover:text-fgButtonHover text-sm font-medium focus:outline-none"
+            className="text-fgButton hover:text-fgButtonHover mt-2 text-sm font-medium focus:outline-none"
             aria-label={`${expanded ? "Show Less" : "Read More"}`}
           >
             {expanded ? "Show Less" : "Read More"}
@@ -33,7 +34,7 @@ function ProjectDescription({ description }: ProjectDescriptionProps) {
         </>
       )}
     </div>
-  )
+  );
 }
 
-export default ProjectDescription
+export default ProjectDescription;
