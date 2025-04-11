@@ -1,9 +1,9 @@
 "use server";
 import ContentFooter from "./content/contentFooter/ContentFooter";
-import PageHeader from "./content/PageHeader/PageHeader";
-import ProfileInfo from "./content/PageHeader/ProfileInfo";
+import PageHeader from "./content/pageHeader/PageHeader";
+import ProfileInfo from "./content/pageHeader/ProfileInfo";
 import DesktopNavigationWrapper from "./navigation/desktopNavigation/DesktopNavigationWrapper";
-import MobileNavigationWrapper from "./navigation/MobileNavigation/MobileNavigationWrapper";
+import MobileNavigationWrapper from "./navigation/mobileNavigation/MobileNavigationWrapper";
 
 async function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +14,7 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
         </PageHeader>
       </header>
 
-      <div className="grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] mt-[73px] overflow-hidden">
+      <div className="mt-[73px] grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] overflow-hidden">
         <div className="hidden md:block">
           <DesktopNavigationWrapper />
         </div>
@@ -22,7 +22,7 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
           {children}
           <ContentFooter />
         </main>
-        <div className="absolute bottom-0 left-0 right-0 md:hidden">
+        <div className="absolute right-0 bottom-0 left-0 md:hidden">
           <MobileNavigationWrapper />
         </div>
       </div>

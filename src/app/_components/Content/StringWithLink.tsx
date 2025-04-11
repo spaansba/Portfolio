@@ -1,15 +1,16 @@
-import type { LucideIcon } from "lucide-react"
-import React from "react"
+"use client";
+import type { LucideIcon } from "lucide-react";
+import React from "react";
 
 type StringWithLinkProps = {
-  title: string
-  Icon: LucideIcon
-  handleMouseDown: () => void
-  titleStyles?: string
-  iconSize?: number
-  ariaLabel: string
-  isMirrored?: boolean
-}
+  title: string;
+  Icon: LucideIcon;
+  handleMouseDown: () => void;
+  titleStyles?: string;
+  iconSize?: number;
+  ariaLabel: string;
+  isMirrored?: boolean;
+};
 
 function StringWithLink({
   title,
@@ -22,14 +23,14 @@ function StringWithLink({
 }: StringWithLinkProps) {
   return (
     <button
-      className="relative inline-flex items-center group cursor-pointer"
+      className="group relative inline-flex cursor-pointer items-center"
       onMouseDown={handleMouseDown}
       aria-label={ariaLabel || `Navigate to ${title} section`}
     >
       <div className="flex items-center">
         <h2 className={titleStyles}>{title}</h2>
         <div
-          className={`absolute opacity-0 group-hover:opacity-100 text-TextGray hover:text-white  ${
+          className={`text-TextGray absolute opacity-0 group-hover:opacity-100 hover:text-white ${
             isMirrored ? "right-full mr-3" : "left-full ml-3"
           } `}
         >
@@ -37,7 +38,7 @@ function StringWithLink({
         </div>
       </div>
     </button>
-  )
+  );
 }
 
-export default StringWithLink
+export default StringWithLink;

@@ -55,6 +55,7 @@ function ContactForm() {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="mt-4 md:mt-6">
       <p className="text-TextGrayWhite mb-6 text-sm md:text-base">
