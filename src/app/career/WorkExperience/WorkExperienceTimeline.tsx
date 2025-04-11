@@ -1,5 +1,5 @@
 import { workExperience } from "@/data/WorkExperience";
-import TimelineEmployer from "./TimelineEmployer/TimelineEmployer";
+import TimelineEmployer from "./timelineEmployer/TimelineEmployer";
 
 function WorkExperienceTimeline() {
   return (
