@@ -10,14 +10,17 @@ function MobileHamburger() {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
   return (
     //dont remove empty div
-    <div className="md:hidden">
+    <button
+      className="md:hidden"
+      aria-label={`${isMobileSidebarOpen ? "close" : "open"} mobile navigation menu`}
+    >
       <Hamburger
         color="white"
         toggle={() => mobileSidebarActions.toggleMobileSidebarOpen()}
         toggled={isMobileSidebarOpen}
         direction="left"
       />
-    </div>
+    </button>
   );
 }
 
