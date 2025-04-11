@@ -77,10 +77,9 @@ export const connectList = createNavigationList("connect", [
   {
     name: "Contact",
     icon: Mail,
-    onMouseDown: () => {
-      window.open("mailto:bartspaans96@gmail.com", "_blank")
-    },
-    isOutsideLink: true,
+    isOutsideLink: false,
+    path: "/contact",
+    hash: "#contactform",
   },
   {
     name: "Github",

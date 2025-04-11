@@ -16,7 +16,7 @@ function MobileNavigationItem({ page }: NavigationItemProps) {
   const goToPageOrScroll = useGoToPageOrScroll();
   const mobileSidebarActions = useMobileSidebarActions();
   const selectedPage = useNavigationSelectedPage();
-  const isSelected = selectedPage.id === page.id;
+  const isSelected = selectedPage?.id === page.id;
   const navigationActions = useNavigationActions();
 
   const handleOnMouseDown = (page: NavigationPageItem) => {
