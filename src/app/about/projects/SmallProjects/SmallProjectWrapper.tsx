@@ -1,16 +1,8 @@
 "use client";
 import { SmallProjects } from "@/data/ProjectData";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  type PanInfo,
-} from "framer-motion";
 import { useState } from "react";
-import ProjectLinks from "../ProjectLinks";
-import TechnologyBadge from "../TechnologyBadge";
-import SmallProjectNavigation from "./SmallProjectNavigation";
 import SmallProjectContent from "./SmallProjectContent";
+import SmallProjectNavigation from "./SmallProjectNavigation";
 
 function SmallProjectWrapper() {
   const [activeIndex, setActiveIndex] = useState(0);

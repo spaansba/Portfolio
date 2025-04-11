@@ -5,10 +5,9 @@ import {
   useMotionValue,
   type PanInfo,
 } from "framer-motion";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import ProjectLinks from "../ProjectLinks";
 import TechnologyBadge from "../TechnologyBadge";
-import SmallProjectNavigation from "./SmallProjectNavigation";
 
 type SmallProjectContentProps = {
   activeIndex: number;
@@ -37,7 +36,7 @@ function SmallProjectContent({
     dragX.set(0);
   };
   return (
-    <div className="relative h-[350px] md:mx-auto md:h-[250px] md:max-w-4xl">
+    <div className="h-[350px] overflow-hidden sm:h-[250px] md:mx-auto md:max-w-4xl">
       <AnimatePresence mode="wait">
         <motion.div
           key={activeIndex}
@@ -45,7 +44,7 @@ function SmallProjectContent({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          className="absolute inset-0 h-full w-full"
+          className="h-full"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={handleDragEnd}

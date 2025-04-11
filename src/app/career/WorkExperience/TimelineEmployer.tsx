@@ -1,23 +1,29 @@
-import type { WorkExperience } from "@/data/WorkExperience"
-import React from "react"
-import TimelinePosition from "./TimelinePosition"
-import TimelineEmployerHeader from "./TimelineEmployerHeader"
+import type { WorkExperience } from "@/data/WorkExperience";
+import React from "react";
+import TimelinePosition from "./TimelinePosition/TimelinePosition";
+import TimelineEmployerHeader from "./TimelineEmployerHeader";
 
 type TimelineEmployerType = {
-  workExperience: WorkExperience
-  isLeftAlign: boolean
-}
+  workExperience: WorkExperience;
+  isLeftAlign: boolean;
+};
 
-function TimelineEmployer({ workExperience, isLeftAlign }: TimelineEmployerType) {
+function TimelineEmployer({
+  workExperience,
+  isLeftAlign,
+}: TimelineEmployerType) {
   return (
-    <div className="flex flex-col gap-6 max-w-4xl">
-      <TimelineEmployerHeader isLeftAlign={isLeftAlign} workExperience={workExperience} />
+    <div className="flex max-w-4xl flex-col gap-6">
+      <TimelineEmployerHeader
+        isLeftAlign={isLeftAlign}
+        workExperience={workExperience}
+      />
       <div>
         {workExperience.positions.map((position) => (
           <div
             key={`${workExperience.employer}-${position.jobTitle}`}
-            className={`relative pb-8 group ${
-              isLeftAlign ? "pl-8 sm:pl-45" : "pr-8 sm:pr-45 pl-0"
+            className={`group relative pb-8 ${
+              isLeftAlign ? "pl-8 sm:pl-45" : "pr-8 pl-0 sm:pr-45"
             }`}
           >
             <TimelinePosition isLeftAlign={isLeftAlign} position={position} />
@@ -25,7 +31,7 @@ function TimelineEmployer({ workExperience, isLeftAlign }: TimelineEmployerType)
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default TimelineEmployer
+export default TimelineEmployer;

@@ -1,12 +1,10 @@
-import React from "react"
-import { workExperience } from "@/data/WorkExperience"
-import Image from "next/image"
-import TimelineEmployer from "./TimelineEmployer"
+import { workExperience } from "@/data/WorkExperience";
+import TimelineEmployer from "./TimelineEmployer";
 
 function WorkExperienceTimeline() {
   return (
     <div className="">
-      <div className="flex justify-center flex-col gap-12">
+      <div className="flex flex-col justify-center gap-12">
         {workExperience.map((experience, index) => (
           <TimelineEmployer
             key={`experience-${experience.employer}`}
@@ -16,7 +14,7 @@ function WorkExperienceTimeline() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default WorkExperienceTimeline
+export default WorkExperienceTimeline;
