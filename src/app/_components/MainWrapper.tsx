@@ -7,14 +7,14 @@ import MobileNavigationWrapper from "./navigation/MobileNavigation/MobileNavigat
 
 async function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
+    <div className="h-screen overflow-hidden">
       <header className="bg-SecondaryGray fixed top-0 right-0 left-0 z-30">
         <PageHeader>
           <ProfileInfo />
         </PageHeader>
       </header>
 
-      <div className="relative mt-[73px] grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] overflow-hidden">
+      <div className="grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] mt-[73px] overflow-hidden">
         <div className="hidden md:block">
           <DesktopNavigationWrapper />
         </div>
@@ -22,7 +22,7 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
           {children}
           <ContentFooter />
         </main>
-        <div className="md:hidden">
+        <div className="absolute bottom-0 left-0 right-0 md:hidden">
           <MobileNavigationWrapper />
         </div>
       </div>
