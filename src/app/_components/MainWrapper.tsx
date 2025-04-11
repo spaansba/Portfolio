@@ -4,8 +4,11 @@ import PageHeader from "./Content/PageHeader/PageHeader";
 import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
 import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
 import ProfileInfo from "./Content/PageHeader/ProfileInfo";
+import { isMobileDevice } from "../_server/device";
 
-function MainWrapper({ children }: { children: React.ReactNode }) {
+async function MainWrapper({ children }: { children: React.ReactNode }) {
+  const isMobile = await isMobileDevice();
+  console.log("Is mobile device:", isMobile);
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] overflow-hidden">
       <header className="bg-SecondaryGray sticky top-0 z-30">
@@ -14,14 +17,14 @@ function MainWrapper({ children }: { children: React.ReactNode }) {
         </PageHeader>
       </header>
 
-      <div className="grid grid-cols-[auto_1fr] overflow-hidden">
+      <div className="relative grid grid-cols-[auto_1fr] overflow-hidden">
         <DesktopNavigation />
         <main id="contentwrapper" className="scrollbar-custom overflow-auto">
           {children}
           <ContentFooter />
         </main>
+        <MobileNavigation />
       </div>
-      <MobileNavigation />
     </div>
   );
 }

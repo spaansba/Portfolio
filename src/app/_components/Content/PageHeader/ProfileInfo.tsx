@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 
 function ProfileInfo() {
-  console.log("server");
   return (
     <>
       <div className="ring-TertiaryGray relative size-12 flex-shrink-0 overflow-hidden ring-[1px]">

@@ -36,19 +36,7 @@ function PageHeader({ children }: React.PropsWithChildren) {
         </button>
         <div className="flex items-center gap-1 md:gap-8">
           <PageHeaderNavigationDisplay />
-          {isMobileSidebarOpen ? (
-            <button
-              onClick={() =>
-                mobileSidebarActions.toggleMobileSidebarOpen(false)
-              }
-              className="hover:bg-TertiaryGray p-2 text-white transition-colors"
-              aria-label="Close navigation menu"
-            >
-              <X size={20} />
-            </button>
-          ) : (
-            <MobileHamburger />
-          )}
+          <MobileHamburger />
         </div>
       </div>
     </>
