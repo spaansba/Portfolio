@@ -18,7 +18,6 @@ function SectionHeaderTitle({
 
   // Copy the url + hash to the clipboard and go to the selection
   const handleClick = () => {
-    console.log(isMobileDevice);
     if (!isMobileDevice) {
       navigator.clipboard
         .writeText(window.location.origin + window.location.pathname + urlHash)
