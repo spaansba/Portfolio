@@ -1,6 +1,6 @@
 import type { WorkExperience } from "@/data/WorkExperience";
 import React from "react";
-import TimelinePosition from "./TimelinePosition/TimelinePosition";
+import TimelinePosition from "../TimelinePosition/TimelinePosition";
 import TimelineEmployerHeader from "./TimelineEmployerHeader";
 
 type TimelineEmployerType = {
