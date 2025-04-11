@@ -1,15 +1,15 @@
-import StringWithLink from "@/app/_components/Content/StringWithLink"
-import type { Study } from "@/data/StudiesData"
-import { Calendar, ExternalLink } from "lucide-react"
-import React from "react"
+import StringWithLink from "@/app/_components/content/StringWithLink";
+import type { Study } from "@/data/StudiesData";
+import { Calendar, ExternalLink } from "lucide-react";
+import React from "react";
 
 type StudiesHeaderProps = {
-  study: Study
-}
+  study: Study;
+};
 
 function StudiesHeader({ study }: StudiesHeaderProps) {
   return (
-    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+    <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div>
         <StringWithLink
           title={study.institution}
@@ -24,12 +24,12 @@ function StudiesHeader({ study }: StudiesHeaderProps) {
         </p>
       </div>
 
-      <div className="inline-flex items-center gap-2 bg-SecondaryGray border border-TertiaryGray text-TextGrayWhite text-sm font-medium py-1.5 px-3">
+      <div className="bg-SecondaryGray border-TertiaryGray text-TextGrayWhite inline-flex items-center gap-2 border px-3 py-1.5 text-sm font-medium">
         <Calendar size={16} />
         {study.startYear} - {study.endYear}
       </div>
     </div>
-  )
+  );
 }
 
-export default StudiesHeader
+export default StudiesHeader;

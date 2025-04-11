@@ -1,5 +1,5 @@
-import ContentWrapper from "../_components/Content/ContentWrapper";
-import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
+import ContentWrapper from "../_components/content/ContentWrapper";
+import SectionHeaderTitle from "../_components/content/SectionHeaderTitle";
 import AboutHeader from "./AboutHeader";
 import BigProjectsList from "./projects/BigProjects/BigProjectsList";
 import SmallProjectList from "./projects/SmallProjects/SmallProjectWrapper";

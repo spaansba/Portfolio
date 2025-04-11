@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import ContentWrapper from "../_components/Content/ContentWrapper";
-import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
+import ContentWrapper from "../_components/content/ContentWrapper";
+import SectionHeaderTitle from "../_components/content/SectionHeaderTitle";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 import { Send } from "lucide-react";
 

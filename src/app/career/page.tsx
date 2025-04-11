@@ -1,8 +1,8 @@
 "use server";
-import ContentWrapper from "../_components/Content/ContentWrapper";
-import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
+import ContentWrapper from "../_components/content/ContentWrapper";
+import SectionHeaderTitle from "../_components/content/SectionHeaderTitle";
 import StudiesShowcase from "./studies/StudiesShowcase";
-import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline";
+import WorkExperienceTimeline from "./workExperience/WorkExperienceTimeline";
 
 function CareerPage() {
   return (

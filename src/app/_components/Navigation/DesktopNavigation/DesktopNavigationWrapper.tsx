@@ -1,6 +1,6 @@
 "use client";
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
-import SidebarToggleButton from "./SidebarToggle/SidebarToggleButton";
+import SidebarToggleButton from "./sidebarToggle/SidebarToggleButton";
 import DesktopNavigationSection from "./DesktopNavigationSection";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
 import {

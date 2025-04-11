@@ -1,8 +1,8 @@
 "use client";
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
-import FooterName from "../../Content/ContentFooter/FooterName";
-import PageHeader from "../../Content/PageHeader/PageHeader";
+import FooterName from "../../content/contentFooter/FooterName";
+import PageHeader from "../../content/pageHeader/PageHeader";
 import MobileNavigationSection from "./MobileNavigationSection";
 
 function MobileNavigationWrapper() {

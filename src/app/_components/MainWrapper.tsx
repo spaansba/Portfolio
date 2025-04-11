@@ -1,9 +1,9 @@
 "use server";
-import ContentFooter from "./Content/ContentFooter/ContentFooter";
-import PageHeader from "./Content/PageHeader/PageHeader";
-import DesktopNavigation from "./Navigation/DesktopNavigation/DesktopNavigationWrapper";
-import MobileNavigation from "./Navigation/MobileNavigation/MobileNavigationWrapper";
-import ProfileInfo from "./Content/PageHeader/ProfileInfo";
+import ContentFooter from "./content/contentFooter/ContentFooter";
+import PageHeader from "./content/pageHeader/PageHeader";
+import DesktopNavigation from "./navigation/desktopNavigation/DesktopNavigationWrapper";
+import MobileNavigation from "./navigation/mobileNavigation/MobileNavigationWrapper";
+import ProfileInfo from "./content/pageHeader/ProfileInfo";
 import { isMobileDevice } from "../_server/device";
 
 async function MainWrapper({ children }: { children: React.ReactNode }) {
