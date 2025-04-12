@@ -4,12 +4,15 @@ import { useState } from "react";
 import TimelinePositionHeader from "./TimelinePositionHeader";
 import TimelinePositionParagraph from "./TimelinePositionParagraph";
 
-type TimelinePositionProps = {
+type TimelinePositionWrapperProps = {
   position: WorkPositions;
   isLeftAlign: boolean;
 };
 
-function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
+function TimelinePositionWrapper({
+  position,
+  isLeftAlign,
+}: TimelinePositionWrapperProps) {
   const [isInfoExpanded, setIsInfoExpanded] = useState(false);
   // Ensure extraInfo is always an array
   const extraInfoParagraphs = Array.isArray(position.extraInfo)
@@ -36,4 +39,4 @@ function TimelinePosition({ position, isLeftAlign }: TimelinePositionProps) {
   );
 }
 
-export default TimelinePosition;
+export default TimelinePositionWrapper;

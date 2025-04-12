@@ -1,17 +1,16 @@
 import type { WorkExperience } from "@/data/WorkExperience";
-import React from "react";
-import TimelinePosition from "../timelinePosition/TimelinePosition";
+import TimelinePositionWrapper from "../TimelinePosition/TimelinePositionWrapper";
 import TimelineEmployerHeader from "./TimelineEmployerHeader";
 
-type TimelineEmployerType = {
+type TimelineEmployerWrapperProps = {
   workExperience: WorkExperience;
   isLeftAlign: boolean;
 };
 
-function TimelineEmployer({
+function TimelineEmployerWrapper({
   workExperience,
   isLeftAlign,
-}: TimelineEmployerType) {
+}: TimelineEmployerWrapperProps) {
   return (
     <div className="flex max-w-4xl flex-col gap-6">
       <TimelineEmployerHeader
@@ -26,7 +25,10 @@ function TimelineEmployer({
               isLeftAlign ? "pl-8 sm:pl-45" : "pr-8 pl-0 sm:pr-45"
             }`}
           >
-            <TimelinePosition isLeftAlign={isLeftAlign} position={position} />
+            <TimelinePositionWrapper
+              isLeftAlign={isLeftAlign}
+              position={position}
+            />
           </div>
         ))}
       </div>
@@ -34,4 +36,4 @@ function TimelineEmployer({
   );
 }
 
-export default TimelineEmployer;
+export default TimelineEmployerWrapper;

@@ -1,5 +1,5 @@
 "use client";
-import StringWithLink from "@/app/_components/content/StringWithLink";
+import StringWithLink from "@/app/_components/Content/StringWithLink";
 import type { WorkExperience } from "@/data/WorkExperience";
 import { BriefcaseBusiness, ExternalLink, MapPin } from "lucide-react";
 
