@@ -1,6 +1,6 @@
 "use server";
-import ContentWrapper from "../_components/content/ContentWrapper";
-import SectionHeaderTitle from "../_components/content/SectionHeaderTitle";
+import ContentWrapper from "../_components/Content/ContentWrapper";
+import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import StudiesShowcase from "./studies/StudiesShowcase";
 import WorkExperienceTimeline from "./workExperience/WorkExperienceTimeline";

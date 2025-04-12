@@ -1,4 +1,4 @@
-import StringWithLink from "@/app/_components/content/StringWithLink";
+import StringWithLink from "@/app/_components/Content/StringWithLink";
 import type { Study } from "@/data/StudiesData";
 import { Calendar, ExternalLink } from "lucide-react";
 import React from "react";
