@@ -27,8 +27,6 @@ export function useGoToPageOrScroll() {
         }
       }
     } else {
-      console.log(desiredPathName);
-      console.log(urlHash);
       // if (urlHash) {
       //   sessionStorage.setItem("scrollToHash", urlHash);
       // }

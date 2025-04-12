@@ -1,11 +1,15 @@
 "use client";
 import { create } from "zustand";
-import { aboutList, careerList, connectList } from "../data/NavigationData";
 import type { NavigationPageItem } from "../../types/NavigationListItem";
+import {
+  navigationPages,
+  type CategoryType,
+  type NavigationList,
+} from "../data/NavigationData";
 
 type NavigationListActions = {
   setSelectedPage: (page: NavigationPageItem) => void;
-  getAdjacentCategoryPages: (page: NavigationPageItem | undefined) => {
+  getAdjacentCategoryPages: (category: CategoryType) => {
     previousCategoryPage?: NavigationPageItem;
     previousCategoryPageName?: CategoryType;
     nextCategoryPage?: NavigationPageItem;
@@ -18,19 +22,6 @@ type NavigationListStore = {
   selectedPage: NavigationPageItem | undefined;
   actions: NavigationListActions;
   pages: NavigationList;
-};
-
-const categoryOrder = ["about", "career", "connect"] as const;
-type CategoryType = (typeof categoryOrder)[number];
-
-type NavigationList = {
-  [K in CategoryType]: NavigationPageItem[];
-};
-
-const navigationPages: NavigationList = {
-  about: aboutList,
-  career: careerList,
-  connect: connectList,
 };
 
 const useNavigationListStore = create<NavigationListStore>((set, get) => ({
@@ -47,71 +38,53 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
         selectedPage: page,
       }));
     },
-    getAdjacentCategoryPages: (page) => {
+    getAdjacentCategoryPages: (category: CategoryType) => {
       const { pages } = get();
-      if (!page) {
-        return pages.about[0];
-      }
-      console.log(pages);
-      let currentCategory: CategoryType | undefined;
-      let currentCategoryIndex = -1;
+      const categories = Object.keys(pages) as CategoryType[];
 
-      for (let i = 0; i < categoryOrder.length; i++) {
-        const category = categoryOrder[i];
-        if (pages[category].some((item) => item.id === page.id)) {
-          currentCategory = category;
-          currentCategoryIndex = i;
-          break;
-        }
-      }
+      const currentCategoryIndex = categories.findIndex(
+        (cat) => cat === category,
+      );
 
-      if (currentCategoryIndex === -1 || currentCategory === undefined) {
-        return {};
-      }
-
-      const previousCategoryIndex =
-        currentCategoryIndex > 0 ? currentCategoryIndex - 1 : undefined;
-      const previousCategory =
-        previousCategoryIndex !== undefined
-          ? categoryOrder[previousCategoryIndex]
+      const previousCategoryName =
+        currentCategoryIndex > 0
+          ? (categories[currentCategoryIndex - 1] as CategoryType)
           : undefined;
 
-      const nextCategoryIndex =
-        currentCategoryIndex < categoryOrder.length - 1
-          ? currentCategoryIndex + 1
-          : undefined;
-      const nextCategory =
-        nextCategoryIndex !== undefined
-          ? categoryOrder[nextCategoryIndex]
+      const nextCategoryName =
+        currentCategoryIndex < categories.length - 1
+          ? (categories[currentCategoryIndex + 1] as CategoryType)
           : undefined;
 
-      console.log(previousCategoryIndex + " previouscategoryindex");
-      console.log(previousCategory + " previousCategory");
-      console.log(nextCategoryIndex + " nextCategoryIndex");
-      console.log(nextCategory + " nextCategory");
+      const previousCategoryPage = previousCategoryName
+        ? pages[previousCategoryName][0]
+        : undefined;
+
+      const nextCategoryPage = nextCategoryName
+        ? pages[nextCategoryName][0]
+        : undefined;
 
       return {
-        previousCategoryPage: previousCategory
-          ? pages[previousCategory][0]
-          : undefined,
-        previousCategoryPageName: previousCategory,
-        nextCategoryPage: nextCategory ? pages[nextCategory][0] : undefined,
-        nextCategoryPageName: nextCategory,
+        previousCategoryPage,
+        previousCategoryPageName: previousCategoryName,
+        nextCategoryPage,
+        nextCategoryPageName: nextCategoryName,
       };
     },
     getPageBasedOnHash: (hash: string) => {
-      if (!hash) return aboutList[0]; // Default to the first about page
-
       const { pages } = get();
+      if (!hash) return pages.about[0]; // Default to the first about page
+
       const flattenedPages = [
         ...pages.about,
         ...pages.career,
         ...pages.connect,
       ];
+
       const pageIndex = flattenedPages.findIndex((item) => item.hash === hash);
 
       // Return the found page or default to the first about page if not found
-      return pageIndex !== -1 ? flattenedPages[pageIndex] : aboutList[0];
+      return pageIndex !== -1 ? flattenedPages[pageIndex] : pages.about[0];
     },
   },
 }));

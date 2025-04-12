@@ -11,13 +11,14 @@ import type { NavigationPageItem } from "../../../../../types/NavigationListItem
 function ContentFooter() {
   const selectedPage = useNavigationSelectedPage();
   const navigationActions = useNavigationActions();
-
+  const goToPage = useGoToPageOrScroll();
+  if (!selectedPage) return null;
   const {
     previousCategoryPage,
     previousCategoryPageName,
     nextCategoryPage,
     nextCategoryPageName,
-  } = navigationActions.getAdjacentCategoryPages(selectedPage);
+  } = navigationActions.getAdjacentCategoryPages(selectedPage.category);
 
   const CapitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -30,7 +31,6 @@ function ContentFooter() {
     }
   };
 
-  const goToPage = useGoToPageOrScroll();
   return (
     <footer className="bg-SecondaryGray mb:pb-7 relative flex justify-between px-4 pt-6 pb-20 select-none md:px-8 md:py-8">
       <FooterButton
