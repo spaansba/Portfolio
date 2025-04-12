@@ -3,8 +3,7 @@ import ContentWrapper from "../_components/Content/ContentWrapper";
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import AboutHeader from "./AboutHeader";
-import ProjectsWrapper from "./Projects/BigProjects/ProjectsWrapper";
-import SmallProjectWrapper from "./Projects/SmallProjects/SmallProjectWrapper";
+
 async function AboutPage() {
   const isMobileDevice = await GetIsMobileDevice();
   return (
@@ -18,7 +17,7 @@ async function AboutPage() {
           urlHash="#projects"
           isMobileDevice={isMobileDevice}
         />
-        <ProjectsWrapper />
+        {/* <ProjectsWrapper /> */}
       </div>
 
       <div id="smallprojects" data-observe>
@@ -27,7 +26,7 @@ async function AboutPage() {
           urlHash="#smallprojects"
           isMobileDevice={isMobileDevice}
         />
-        <SmallProjectWrapper />
+        {/* <SmallProjectWrapper /> */}
       </div>
     </ContentWrapper>
   );
