@@ -170,7 +170,7 @@ function ContactForm() {
             )}
           </form.Field>
         </div>
-        <div className="flex flex-row items-center gap-4 pt-2">
+        <div className="flex flex-row items-center justify-between gap-4 pt-2">
           <form.Subscribe
             selector={(state) => [state.canSubmit, state.isSubmitting]}
           >
