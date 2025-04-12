@@ -8,18 +8,18 @@ import {
   Rss,
   UserCircle,
   Workflow,
-} from "lucide-react"
-import type { NavigationPageItem } from "../../types/NavigationListItem"
+} from "lucide-react";
+import type { NavigationPageItem } from "../../types/NavigationListItem";
 
 // Add an id to each NavigationPageItem programmatically
 function createNavigationList(
   category: string,
-  items: Omit<NavigationPageItem, "id">[]
+  items: Omit<NavigationPageItem, "id">[],
 ): NavigationPageItem[] {
   return items.map((item, index) => ({
     ...item,
     id: `${category}-${(index + 1) * 10}`,
-  }))
+  }));
 }
 
 export const aboutList = createNavigationList("about", [
@@ -44,7 +44,7 @@ export const aboutList = createNavigationList("about", [
     path: "/about",
     hash: "#smallprojects",
   },
-])
+]);
 
 export const careerList = createNavigationList("career", [
   {
@@ -61,17 +61,7 @@ export const careerList = createNavigationList("career", [
     path: "/career",
     hash: "#studies",
   },
-])
-
-export const resourcesList = createNavigationList("resources", [
-  {
-    name: "Feed",
-    icon: Rss,
-    isOutsideLink: false,
-    path: "/resources",
-    hash: "#studies",
-  },
-])
+]);
 
 export const connectList = createNavigationList("connect", [
   {
@@ -79,13 +69,12 @@ export const connectList = createNavigationList("connect", [
     icon: Mail,
     isOutsideLink: false,
     path: "/contact",
-    hash: "#contactform",
   },
   {
     name: "Github",
     icon: Github,
     onMouseDown: () => {
-      window.open("https://github.com/spaansba", "_blank")
+      window.open("https://github.com/spaansba", "_blank");
     },
     isOutsideLink: true,
   },
@@ -93,8 +82,8 @@ export const connectList = createNavigationList("connect", [
     name: "LinkedIn",
     icon: Linkedin,
     onMouseDown: () => {
-      window.open("https://www.linkedin.com/in/bart-spaans", "_blank")
+      window.open("https://www.linkedin.com/in/bart-spaans", "_blank");
     },
     isOutsideLink: true,
   },
-])
+]);

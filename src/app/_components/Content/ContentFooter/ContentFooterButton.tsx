@@ -14,7 +14,7 @@ function FooterButton({
   direction,
   name,
 }: FooterButtonProps) {
-  if (!name) return null;
+  if (!name) return <div></div>;
 
   return (
     <button

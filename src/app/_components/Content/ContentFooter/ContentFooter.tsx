@@ -32,7 +32,7 @@ function ContentFooter() {
 
   const goToPage = useGoToPageOrScroll();
   return (
-    <footer className="bg-SecondaryGray mb:pb-7 flex justify-between px-4 pt-6 pb-20 select-none md:px-8 md:py-8">
+    <footer className="bg-SecondaryGray mb:pb-7 relative flex justify-between px-4 pt-6 pb-20 select-none md:px-8 md:py-8">
       <FooterButton
         direction="previous"
         isDisabled={!previousCategoryPage}
@@ -45,7 +45,7 @@ function ContentFooter() {
             : ""
         }
       />
-      <div className="text-TextGray flex items-center text-center text-sm">
+      <div className="text-TextGray absolute left-1/2 flex h-full -translate-x-1/2 items-start text-center text-sm">
         <FooterName />
       </div>
       <FooterButton

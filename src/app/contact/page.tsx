@@ -8,10 +8,10 @@ async function ContactPage() {
   const isMobileDevice = await GetIsMobileDevice();
   return (
     <ContentWrapper>
-      <div id="projects" data-observe>
+      <div id="contact" data-observe>
         <SectionHeaderTitle
-          title="Projects."
-          urlHash="#projects"
+          title="Contact."
+          urlHash=""
           isMobileDevice={isMobileDevice}
         />
         <ContactForm />

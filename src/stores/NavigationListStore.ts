@@ -52,6 +52,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
       if (!page) {
         return pages.about[0];
       }
+      console.log(pages);
       let currentCategory: CategoryType | undefined;
       let currentCategoryIndex = -1;
 
@@ -83,6 +84,11 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
         nextCategoryIndex !== undefined
           ? categoryOrder[nextCategoryIndex]
           : undefined;
+
+      console.log(previousCategoryIndex + " previouscategoryindex");
+      console.log(previousCategory + " previousCategory");
+      console.log(nextCategoryIndex + " nextCategoryIndex");
+      console.log(nextCategory + " nextCategory");
 
       return {
         previousCategoryPage: previousCategory
