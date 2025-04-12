@@ -3,8 +3,8 @@ import ContentWrapper from "../_components/Content/ContentWrapper";
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import AboutHeader from "./AboutHeader";
-import ProjectsWrapper from "./Projects/BigProjects/ProjectsWrapper";
-import SmallProjectWrapper from "./Projects/SmallProjects/SmallProjectWrapper";
+import ProjectsWrapper from "./ProjectList/BigProjects/BigProjectsWrapper";
+import SmallProjectWrapper from "./ProjectList/SmallProjects/SmallProjectWrapper";
 
 async function AboutPage() {
   const isMobileDevice = await GetIsMobileDevice();
