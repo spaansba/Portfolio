@@ -3,7 +3,7 @@
 import ContentWrapper from "../_components/Content/ContentWrapper";
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
-import StudiesShowcase from "./Studies/StudieShowcase";
+import StudiesShowcase from "./Study/StudieShowcase";
 import WorkExperienceTimeline from "./WorkExperience/WorkExperienceTimeline";
 
 async function CareerPage() {
