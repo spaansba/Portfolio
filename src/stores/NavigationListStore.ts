@@ -63,7 +63,8 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
       const nextCategoryPage = nextCategoryName
         ? pages[nextCategoryName][0]
         : undefined;
-
+      console.log(previousCategoryName + " previes");
+      console.log(nextCategoryName + " next");
       return {
         previousCategoryPage,
         previousCategoryPageName: previousCategoryName,

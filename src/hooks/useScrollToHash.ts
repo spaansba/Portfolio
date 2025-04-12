@@ -4,7 +4,7 @@ import { useSectionVisibility } from "./useSectionVisibility";
 
 export const useScrollToHash = () => {
   const [isScrolling, setIsScrolling] = useState(false);
-  useSectionVisibility(isScrolling);
+  useSectionVisibility();
   // useEffect(() => {
   //   const scrollTo = sessionStorage.getItem("scrollToHash");
   //   if (!scrollTo) {

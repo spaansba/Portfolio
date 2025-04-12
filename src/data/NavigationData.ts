@@ -83,6 +83,7 @@ export const navigationPages: NavigationList = createNavigationList2({
       icon: Mail,
       isOutsideLink: false,
       path: "/contact",
+      hash: "#contact",
     },
     {
       name: "Github",

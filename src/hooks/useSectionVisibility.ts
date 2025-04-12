@@ -5,7 +5,7 @@ import {
 import { useEffect } from "react";
 import type { NavigationPageItem } from "../../types/NavigationListItem";
 
-export const useSectionVisibility = (isScrolling: boolean) => {
+export const useSectionVisibility = () => {
   const navigationActions = useNavigationActions();
   const selectedPage = useNavigationSelectedPage();
 
