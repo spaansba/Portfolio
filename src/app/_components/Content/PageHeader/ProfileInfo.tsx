@@ -4,8 +4,9 @@ import Image from "next/image";
 
 function ProfileInfo() {
   return (
-    <>
-      <div className="ring-TertiaryGray relative size-12 flex-shrink-0 overflow-hidden ring-[1px]">
+    <div className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-70">
+      {/* Using named group */}
+      <div className="relative size-12 flex-shrink-0 overflow-hidden">
         <Image
           draggable={false}
           src="/images/BartSpaans.jpg"
@@ -16,7 +17,6 @@ function ProfileInfo() {
           priority={true}
         />
       </div>
-
       <div className="flex flex-col gap-[2px]">
         <div className="flex items-center gap-1.5">
           <h3 className="text-TextGray text-[14px] font-semibold">
@@ -29,7 +29,7 @@ function ProfileInfo() {
           </h2>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
