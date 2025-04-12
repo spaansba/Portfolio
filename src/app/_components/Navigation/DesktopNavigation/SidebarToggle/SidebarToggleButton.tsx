@@ -1,21 +1,20 @@
-import { useDesktopSidebarActions } from "@/stores/DesktopSidebarStore"
-import SidebarToggleHemisphere from "./SidebarToggleHemisphere"
-import SidebarToggleLine from "./SidebarToggleLine"
-
+import { useDesktopSidebarActions } from "@/stores/DesktopSidebarStore";
+import SidebarToggleLine from "./SidebarToggleLine";
+import SidebarToggleHemisphere from "./SidebarToggleHemisphere";
 function SidebarToggleButton() {
-  const sidebarActions = useDesktopSidebarActions()
+  const sidebarActions = useDesktopSidebarActions();
 
   return (
     <div
       onMouseDown={() => {
-        sidebarActions.toggleDesktopSidebarOpen()
+        sidebarActions.toggleDesktopSidebarOpen();
       }}
-      className="flex h-full cursor-pointer group/sidebar-toggle"
+      className="group/sidebar-toggle flex h-full cursor-pointer"
     >
       <SidebarToggleLine />
       <SidebarToggleHemisphere />
     </div>
-  )
+  );
 }
 
-export default SidebarToggleButton
+export default SidebarToggleButton;

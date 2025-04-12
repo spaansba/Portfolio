@@ -5,7 +5,6 @@ import Image from "next/image";
 function ProfileInfo() {
   return (
     <div className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-70">
-      {/* Using named group */}
       <div className="relative size-12 flex-shrink-0 overflow-hidden">
         <Image
           draggable={false}

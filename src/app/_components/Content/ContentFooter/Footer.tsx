@@ -3,12 +3,12 @@ import {
   useNavigationActions,
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
-import FooterButton from "./ContentFooterButton";
 import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll";
-import FooterName from "./FooterName";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
+import FooterButton from "./ContentFooterButton";
+import FooterName from "./FooterName";
 
-function ContentFooter() {
+function Footer() {
   const selectedPage = useNavigationSelectedPage();
   const navigationActions = useNavigationActions();
   const goToPage = useGoToPageOrScroll();
@@ -62,4 +62,4 @@ function ContentFooter() {
   );
 }
 
-export default ContentFooter;
+export default Footer;

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
-import NavigationItem from "./MobileNavigationItem";
 import MobileNavigationItem from "./MobileNavigationItem";
 
 type MobileNavigationSectionProps = {

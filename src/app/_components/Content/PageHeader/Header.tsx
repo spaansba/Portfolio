@@ -2,7 +2,7 @@
 import React from "react";
 import MobileHamburger from "./MobileHamburger";
 import PageHeaderNavigationDisplay from "./PageHeaderNavigation";
-function PageHeader({ children }: React.PropsWithChildren) {
+function Header({ children }: React.PropsWithChildren) {
   const handleHeaderClick = () => {
     const currentPath = window.location.pathname;
     if (currentPath.endsWith("/about")) {
@@ -34,4 +34,4 @@ function PageHeader({ children }: React.PropsWithChildren) {
   );
 }
 
-export default PageHeader;
+export default Header;

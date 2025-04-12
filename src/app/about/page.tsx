@@ -1,10 +1,11 @@
 "use server";
-import ContentWrapper from "../_components/content/ContentWrapper";
-import SectionHeaderTitle from "../_components/content/SectionHeaderTitle";
+import ContentWrapper from "../_components/Content/ContentWrapper";
+import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import AboutHeader from "./AboutHeader";
-import BigProjectsList from "./projects/BigProjects/BigProjectsList";
-import SmallProjectList from "./projects/SmallProjects/SmallProjectWrapper";
+import BigProjectsWrapper from "./Projects/BigProjects/BigProjectsWrapper";
+
+import SmallProjectWrapper from "./Projects/SmallProjects/SmallProjectWrapper";
 
 async function AboutPage() {
   const isMobileDevice = await GetIsMobileDevice();
@@ -19,7 +20,7 @@ async function AboutPage() {
           urlHash="#projects"
           isMobileDevice={isMobileDevice}
         />
-        <BigProjectsList />
+        <BigProjectsWrapper />
       </div>
 
       <div id="smallprojects" data-observe>
@@ -28,7 +29,7 @@ async function AboutPage() {
           urlHash="#smallprojects"
           isMobileDevice={isMobileDevice}
         />
-        <SmallProjectList />
+        <SmallProjectWrapper />
       </div>
     </ContentWrapper>
   );

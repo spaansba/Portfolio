@@ -1,9 +1,8 @@
 "use client";
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
+import SidebarToggleButton from "./SidebarToggle/SidebarToggleButton";
 import DesktopNavigationSection from "./DesktopNavigationSection";
-import SidebarToggleButton from "./sidebarToggle/SidebarToggleButton";
-
 export const SIDEBAR_OPEN_WIDTH = "205px";
 export const SIDEBAR_CLOSED_WIDTH = "49px";
 

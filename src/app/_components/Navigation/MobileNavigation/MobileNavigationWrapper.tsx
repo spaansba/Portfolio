@@ -1,9 +1,8 @@
 "use client";
 import { useIsMobileSidebarOpen } from "@/stores/MobileSidebarStore";
 import { useNavigationPageList } from "@/stores/NavigationListStore";
-import FooterName from "../../content/contentFooter/FooterName";
 import MobileNavigationSection from "./MobileNavigationSection";
-
+import FooterName from "../../Content/ContentFooter/FooterName";
 function MobileNavigationWrapper() {
   const isMobileSidebarOpen = useIsMobileSidebarOpen();
   const pages = useNavigationPageList();
