@@ -2,9 +2,10 @@
 type ProjectTitleProps = {
   title: string;
   isLeftAlign: boolean;
+  isFinished: boolean;
 };
 
-function ProjectTitle({ title, isLeftAlign }: ProjectTitleProps) {
+function ProjectTitle({ title, isLeftAlign, isFinished }: ProjectTitleProps) {
   return (
     <>
       <div
@@ -24,7 +25,12 @@ function ProjectTitle({ title, isLeftAlign }: ProjectTitleProps) {
               : "right-0 mr-4 group-hover/project:mr-6 group-hover/project:pr-7"
           } bg-SecondaryGray px-5 transition-all duration-300`}
         >
-          <h2 className="text-3xl font-semibold text-white">{title}</h2>
+          <h2
+            className="text-3xl font-semibold text-white"
+            title={`${isFinished ? "" : "Work in Progress"}`}
+          >
+            {isFinished ? title : `${title} *`}
+          </h2>
         </div>
       </div>
     </>

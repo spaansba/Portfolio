@@ -13,8 +13,12 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
   return (
     <>
       <div className="md:hidden">
-        <div className="mb-5">
+        <div className="mb-5 flex flex-row content-center justify-between">
           <h2 className="text-xl font-semibold text-white">{project.title}</h2>
+
+          {/* <div className={`text-TextGray text-s`}>
+            {project.isFinished ? "" : "* work in progress"}
+          </div> */}
         </div>
 
         {project.image && (

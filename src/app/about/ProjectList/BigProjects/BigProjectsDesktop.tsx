@@ -23,7 +23,8 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
       />
 
       <ProjectTitle
-        title={project.isFinished ? project.title : `${project.title} *`}
+        isFinished={project.isFinished}
+        title={project.title}
         isLeftAlign={isLeftAlign}
       />
 
