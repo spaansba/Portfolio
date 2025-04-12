@@ -4,8 +4,7 @@ import { Send } from "lucide-react";
 import FieldInfo from "./FieldInfo";
 import { useState } from "react";
 import { contactFormSchema } from "./schema";
-
-
+import ContactLinks from "./ContactLinks";
 
 function ContactForm() {
   // State to track submission success
@@ -56,7 +55,7 @@ function ContactForm() {
   });
 
   return (
-    <div className="mt-4 md:mt-6">
+    <>
       <p className="text-TextGrayWhite mb-6 text-sm md:text-base">
         Feel free to reach out if you have any questions, want to discuss a
         project. Ill get back to you as soon as possible.
@@ -171,37 +170,40 @@ function ContactForm() {
             )}
           </form.Field>
         </div>
-        <form.Subscribe
-          selector={(state) => [state.canSubmit, state.isSubmitting]}
-        >
-          {([canSubmit, isSubmitting]) => (
-            <div className="flex items-center justify-between pt-2">
-              <button
-                type="submit"
-                disabled={!canSubmit || isLoading}
-                onMouseDown={form.handleSubmit}
-                className="bg-TertiaryGray hover:bg-fgButton flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                {isLoading ? "Sending..." : "Send Message"}
-                <Send size={16} />
-              </button>
+        <div className="flex flex-row items-center gap-4 pt-2">
+          <form.Subscribe
+            selector={(state) => [state.canSubmit, state.isSubmitting]}
+          >
+            {([canSubmit]) => (
+              <div className="flex items-center justify-between">
+                <button
+                  type="submit"
+                  disabled={!canSubmit || isLoading}
+                  onMouseDown={form.handleSubmit}
+                  className="bg-TertiaryGray hover:text-fgButton flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {isLoading ? "Sending..." : "Send Message"}
+                  <Send size={16} />
+                </button>
 
-              {submitSuccess && (
-                <span className="ml-4 text-sm text-green-400 transition-opacity duration-300">
-                  Message sent successfully!
-                </span>
-              )}
+                {submitSuccess && (
+                  <span className="ml-4 text-sm text-green-400 transition-opacity duration-300">
+                    Message sent successfully!
+                  </span>
+                )}
 
-              {errorMessage && (
-                <span className="ml-4 text-sm text-red-400 transition-opacity duration-300">
-                  {errorMessage}
-                </span>
-              )}
-            </div>
-          )}
-        </form.Subscribe>
+                {errorMessage && (
+                  <span className="ml-4 text-sm text-red-400 transition-opacity duration-300">
+                    {errorMessage}
+                  </span>
+                )}
+              </div>
+            )}
+          </form.Subscribe>
+          <ContactLinks />
+        </div>
       </form>
-    </div>
+    </>
   );
 }
 
