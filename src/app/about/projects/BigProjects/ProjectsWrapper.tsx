@@ -3,7 +3,7 @@ import { BigProjects } from "@/data/ProjectData";
 import BigProjectsDesktop from "./BigProjectsDesktop";
 import BigProjectsMobile from "./BigProjectsMobile";
 
-function BigProjectsWrapper() {
+function ProjectsWrapper() {
   const projects = BigProjects;
   return (
     <>
@@ -27,4 +27,4 @@ function BigProjectsWrapper() {
   );
 }
 
-export default BigProjectsWrapper;
+export default ProjectsWrapper;
