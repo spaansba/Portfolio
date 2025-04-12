@@ -3,8 +3,8 @@ import { studies } from "@/data/StudiesData";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, BookOpen, Component, Globe } from "lucide-react";
 import { useState } from "react";
-import StudiesHeader from "./StudiesHeader";
 import StudiesTabSelector from "./StudiesTabSelector";
+import StudiesHeader from "./StudiesHeader";
 
 function StudiesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);

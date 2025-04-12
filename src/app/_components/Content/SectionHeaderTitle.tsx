@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
 import StringWithLink from "./StringWithLink";
 
 type SectionHeaderTitleProps = {

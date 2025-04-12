@@ -1,4 +1,5 @@
 "use server";
+
 import ContentWrapper from "../_components/Content/ContentWrapper";
 import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
