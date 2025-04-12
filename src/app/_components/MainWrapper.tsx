@@ -23,9 +23,7 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
             {children}
             <Footer />
           </main>
-          <div className="absolute right-0 bottom-0 left-0 md:hidden">
-            <MobileNavigationWrapper />
-          </div>
+          <MobileNavigationWrapper />
         </div>
       </div>
     </>
