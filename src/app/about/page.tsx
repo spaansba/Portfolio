@@ -5,7 +5,6 @@ import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import AboutHeader from "./AboutHeader";
 import BigProjectsWrapper from "./Projects/BigProjects/BigProjectsWrapper";
 import SmallProjectWrapper from "./Projects/SmallProjects/SmallProjectWrapper";
-
 async function AboutPage() {
   const isMobileDevice = await GetIsMobileDevice();
   return (
