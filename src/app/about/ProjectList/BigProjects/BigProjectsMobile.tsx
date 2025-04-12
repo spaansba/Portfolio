@@ -51,13 +51,14 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
         <div>
           <ProjectDescription description={project.description} />
         </div>
-
-        <ProjectLinks
-          link={project.link}
-          gitHubLink={project.gitHubLink}
-          downloadLink={project.downloadLink}
-          isRightalign={false}
-        />
+        <div className="pt-2">
+          <ProjectLinks
+            link={project.link}
+            gitHubLink={project.gitHubLink}
+            downloadLink={project.downloadLink}
+            isRightalign={false}
+          />
+        </div>
       </div>
     </>
   );
