@@ -1,16 +1,18 @@
 export type Project = {
-  title: string
-  description: string[]
-  technologies: string[]
-  link?: string
-  downloadLink?: string
-  gitHubLink?: string
-  image?: string
-}
+  title: string;
+  isFinished: boolean;
+  description: string[];
+  technologies: string[];
+  link?: string;
+  downloadLink?: string;
+  gitHubLink?: string;
+  image?: string;
+};
 
 export const BigProjects: Project[] = [
   {
     title: "Toast Texter",
+    isFinished: false,
     description: [
       "What started as an idea to refurbish my thermal printer evolved into a way for my family and I to connect through thermal prints (aka Toasts). With Toaster, we can send each other text, images, and QR codes from anywhere in the world via an webapp or PWA.",
       "Toaster also features a built-in subscription capability that allows users to receive daily prints like weather reports. Currently, Toasters are not for sale as the prototypes use expensive and inefficient components. I'm developing a newer version with a custom PCB that connects directly to the printhead. This updated version will also have its own dedicated React Native app.",
@@ -32,6 +34,7 @@ export const BigProjects: Project[] = [
   },
   {
     title: "Majas Portfolio",
+    isFinished: true,
     description: [
       "Portfolio I made for my friend who is a hobby photographer. It's an SPA with a simple and clean layout to ensure the photography remains the focal point.",
     ],
@@ -42,6 +45,7 @@ export const BigProjects: Project[] = [
   },
   {
     title: "Filmiliar",
+    isFinished: true,
     description: [
       "Filmiliar is a hobby project I developed to learn how to work with the ChatGPT API and implement streaming responses. The application helps users discover new movies based on their selection of previously enjoyed films.",
       "Each recommendation displays a popularity rating, main cast members, thematic elements, a brief description, and convenient links to streaming or purchase options. Filmiliar used to work with music as well with the Spotify API but sadly Spotify deprecated it.",
@@ -50,11 +54,12 @@ export const BigProjects: Project[] = [
     link: "https://www.filmiliar.nl/",
     image: "/images/Filmiliar.jpg",
   },
-]
+];
 
 export const SmallProjects: Project[] = [
   {
     title: "Search Sanitizer",
+    isFinished: true,
     description: [
       "An Google Chrome Extension that blocks sites/images/videos/ads from showing up on your Google Search Results page. Never want to see temu again? Block it.",
     ],
@@ -63,6 +68,7 @@ export const SmallProjects: Project[] = [
   },
   {
     title: "PowerTree",
+    isFinished: true,
     description: [
       "Open-source PowerTree cmdlet that allows users to visualize an directory recursively with advanced features like: Excluding folders, displaying extra info like size, modification date, sorting and filtering",
     ],
@@ -72,9 +78,12 @@ export const SmallProjects: Project[] = [
   },
   {
     title: "Maestro",
-    description: ["VBA & XML based add-in for Excel users providing over 50 productivity tools."],
+    isFinished: true,
+    description: [
+      "VBA & XML based add-in for Excel users providing over 50 productivity tools.",
+    ],
     technologies: ["VBA", "XML"],
     downloadLink: "asdas",
     image: "/images/Filmiliar.jpg",
   },
-]
+];
