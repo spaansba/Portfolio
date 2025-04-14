@@ -17,7 +17,7 @@ function ProjectLinks({
 }: ProjectLinksProps) {
   return (
     <div
-      className={`flex flex-wrap gap-4 ${isRightalign ? "justify-end" : ""}`}
+      className={`flex flex-wrap gap-4 pt-3 ${isRightalign ? "justify-end" : ""}`}
     >
       {link && (
         <Link

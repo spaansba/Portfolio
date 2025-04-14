@@ -31,9 +31,10 @@ function BigProjectTitle({
         >
           <h2
             className="text-3xl font-semibold text-white"
-            title={`${isFinished ? "" : "Work in Progress"}`}
+            title={`${!isFinished ? "Work in Progress" : ""}`}
           >
-            {isFinished ? title : `${title} *`}
+            {title}
+            <span className="text-TextGrayWhite"> {!isFinished && `*`}</span>
           </h2>
         </div>
       </div>

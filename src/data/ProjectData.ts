@@ -80,10 +80,11 @@ export const SmallProjects: Project[] = [
     title: "Maestro",
     isFinished: true,
     description: [
-      "VBA & XML based add-in for Excel users providing over 50 productivity tools.",
+      "Combination of all productivity related Excel macros I created for myself in VBA neatly packaged into an easely installable Excel Add-in. The Add-in houses 50+ macros ranging from instant mass lookups to ",
     ],
     technologies: ["VBA", "XML"],
-    downloadLink: "asdas",
+    downloadLink:
+      "https://h0oyl2bore.ufs.sh/f/s1SwIVgQ9NPAYuNKQxmjCTBq1z8oihFNPltdrf2v763WDnyG",
     image: "/images/Filmiliar.jpg",
   },
 ];
