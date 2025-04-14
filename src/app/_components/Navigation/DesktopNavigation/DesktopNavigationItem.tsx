@@ -1,4 +1,3 @@
-import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll";
 import {
   useNavigationActions,
   useNavigationSelectedPage,
@@ -6,6 +5,7 @@ import {
 import { ExternalLink } from "lucide-react";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import Link from "next/link";
+import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
 
 type NavigationItemProps = {
   page: NavigationPageItem;
@@ -13,7 +13,7 @@ type NavigationItemProps = {
 };
 
 function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
-  const goToPageOrScroll = useGoToPageOrScroll();
+  const navigationWithScroll = useNavigationWithScroll();
   const selectedPage = useNavigationSelectedPage();
   const isSelected = selectedPage?.id === page.id;
   const navigationActions = useNavigationActions();
@@ -23,7 +23,7 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
     if (page.isOutsideLink && page.onMouseDown) {
       page.onMouseDown();
     } else {
-      goToPageOrScroll(page.hash, page.path);
+      navigationWithScroll.goToPageOrScroll(page.hash, page.path);
     }
   };
 

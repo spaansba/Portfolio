@@ -1,5 +1,6 @@
 import {
   useNavigationActions,
+  useNavigationIsScrolling,
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
 import { useEffect } from "react";
@@ -8,7 +9,7 @@ import type { NavigationPageItem } from "../../types/NavigationListItem";
 export const useSectionVisibility = () => {
   const navigationActions = useNavigationActions();
   const selectedPage = useNavigationSelectedPage();
-
+  const isScrolling = useNavigationIsScrolling();
   const sectionVisibility = new Map();
 
   const updateMostVisibleSection = () => {
@@ -64,22 +65,24 @@ export const useSectionVisibility = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        let hasChanges = false;
-        entries.forEach((entry) => {
-          const id = entry.target.id;
-          if (entry.isIntersecting) {
-            sectionVisibility.set(id, entry.intersectionRatio);
-            hasChanges = true;
-          } else {
-            if (sectionVisibility.has(id)) {
-              sectionVisibility.set(id, 0);
+        if (!isScrolling) {
+          let hasChanges = false;
+          entries.forEach((entry) => {
+            const id = entry.target.id;
+            if (entry.isIntersecting) {
+              sectionVisibility.set(id, entry.intersectionRatio);
               hasChanges = true;
+            } else {
+              if (sectionVisibility.has(id)) {
+                sectionVisibility.set(id, 0);
+                hasChanges = true;
+              }
             }
-          }
-        });
+          });
 
-        if (hasChanges) {
-          updateMostVisibleSection();
+          if (hasChanges) {
+            updateMostVisibleSection();
+          }
         }
       },
       {

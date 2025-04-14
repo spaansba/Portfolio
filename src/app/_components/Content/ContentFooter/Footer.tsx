@@ -3,15 +3,15 @@ import {
   useNavigationActions,
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
-import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import FooterButton from "./ContentFooterButton";
 import FooterName from "./FooterName";
+import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
 
 function Footer() {
   const selectedPage = useNavigationSelectedPage();
   const navigationActions = useNavigationActions();
-  const goToPage = useGoToPageOrScroll();
+  const navigationWithScroll = useNavigationWithScroll();
   if (!selectedPage) return null;
   const {
     previousCategoryPage,
@@ -26,7 +26,7 @@ function Footer() {
 
   const handleOnClickFooter = (page: NavigationPageItem | undefined) => {
     if (page) {
-      goToPage(page.hash, page.path);
+      navigationWithScroll.goToPage(page.hash, page.path);
       navigationActions.setSelectedPage(page);
     }
   };

@@ -8,6 +8,7 @@ import {
 } from "../data/NavigationData";
 
 type NavigationListActions = {
+  setIsScrolling: (scrolling: boolean) => void;
   setSelectedPage: (page: NavigationPageItem) => void;
   getAdjacentCategoryPages: (category: CategoryType) => {
     previousCategoryPage?: NavigationPageItem;
@@ -22,13 +23,20 @@ type NavigationListStore = {
   selectedPage: NavigationPageItem | undefined;
   actions: NavigationListActions;
   pages: NavigationList;
+  isScrolling: boolean;
 };
 
 const useNavigationListStore = create<NavigationListStore>((set, get) => ({
   name: "navigation-list-store",
   pages: navigationPages,
   selectedPage: undefined, // there is no page on ssr and cant set it to about[0] for if someone comes in on /career etc
+  isScrolling: false,
   actions: {
+    setIsScrolling: (scrolling) => {
+      set(() => ({
+        isScrolling: scrolling,
+      }));
+    },
     setSelectedPage: (page) => {
       if (page.isOutsideLink) {
         return;
@@ -38,7 +46,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
         selectedPage: page,
       }));
     },
-    getAdjacentCategoryPages: (category: CategoryType) => {
+    getAdjacentCategoryPages: (category) => {
       const { pages } = get();
       const categories = Object.keys(pages) as CategoryType[];
 
@@ -89,6 +97,8 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
   },
 }));
 
+export const useNavigationIsScrolling = () =>
+  useNavigationListStore((state) => state.isScrolling);
 export const useNavigationPageList = () =>
   useNavigationListStore((state) => state.pages);
 export const useNavigationSelectedPage = () =>

@@ -1,4 +1,3 @@
-import { useGoToPageOrScroll } from "@/hooks/useGoToPageOrScroll";
 import { useMobileSidebarActions } from "@/stores/MobileSidebarStore";
 import {
   useNavigationActions,
@@ -7,13 +6,14 @@ import {
 import { ExternalLink } from "lucide-react";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import { motion } from "framer-motion";
+import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
 
 type NavigationItemProps = {
   page: NavigationPageItem;
 };
 
 function MobileNavigationItem({ page }: NavigationItemProps) {
-  const goToPageOrScroll = useGoToPageOrScroll();
+  const navigationWithScroll = useNavigationWithScroll();
   const mobileSidebarActions = useMobileSidebarActions();
   const selectedPage = useNavigationSelectedPage();
   const isSelected = selectedPage?.id === page.id;
@@ -25,7 +25,7 @@ function MobileNavigationItem({ page }: NavigationItemProps) {
     if (page.isOutsideLink && page.onMouseDown) {
       page.onMouseDown();
     } else {
-      goToPageOrScroll(page.hash, page.path);
+      navigationWithScroll.goToPageOrScroll(page.hash, page.path);
     }
   };
 
