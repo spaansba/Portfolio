@@ -1,11 +1,15 @@
 "use server";
-type ProjectTitleProps = {
+type BigProjectTitleProps = {
   title: string;
   isLeftAlign: boolean;
   isFinished: boolean;
 };
 
-function ProjectTitle({ title, isLeftAlign, isFinished }: ProjectTitleProps) {
+function BigProjectTitle({
+  title,
+  isLeftAlign,
+  isFinished,
+}: BigProjectTitleProps) {
   return (
     <>
       <div
@@ -37,4 +41,4 @@ function ProjectTitle({ title, isLeftAlign, isFinished }: ProjectTitleProps) {
   );
 }
 
-export default ProjectTitle;
+export default BigProjectTitle;

@@ -3,9 +3,9 @@ import type { Project } from "@/data/ProjectData";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import ProjectTitle from "./ProjectTitle";
+import ProjectTitle from "./BigProjectTitle";
 import TechnologyBadge from "../TechnologyBadge";
-import ProjectDescription from "./ProjectDescription";
+import ProjectDescription from "./BigProjectDescription";
 import ProjectLinks from "../ProjectLinks";
 
 type BigProjectsDesktopProps = {

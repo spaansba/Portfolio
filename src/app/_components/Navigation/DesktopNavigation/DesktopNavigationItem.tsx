@@ -5,6 +5,7 @@ import {
 } from "@/stores/NavigationListStore";
 import { ExternalLink } from "lucide-react";
 import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
+import Link from "next/link";
 
 type NavigationItemProps = {
   page: NavigationPageItem;
@@ -25,6 +26,7 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
       goToPageOrScroll(page.hash, page.path);
     }
   };
+
   return (
     <li
       onMouseDown={() => handleOnMouseDown(page)}

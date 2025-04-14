@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import TechnologyBadge from "../TechnologyBadge";
 import ProjectLinks from "../ProjectLinks";
-import ProjectDescription from "./ProjectDescription";
+import ProjectDescription from "./BigProjectDescription";
 type BigProjectsMobileProps = {
   project: Project;
 };

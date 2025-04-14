@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 
-type ProjectDescriptionProps = {
+type BigProjectDescriptionProps = {
   description: string[];
 };
 
-function ProjectDescription({ description }: ProjectDescriptionProps) {
+function BigProjectDescription({ description }: BigProjectDescriptionProps) {
   const [showButton] = useState(description.length > 1);
   const [expanded, setExpanded] = useState(false);
   return (
@@ -37,4 +37,4 @@ function ProjectDescription({ description }: ProjectDescriptionProps) {
   );
 }
 
-export default ProjectDescription;
+export default BigProjectDescription;
