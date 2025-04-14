@@ -1,10 +1,10 @@
 "use client";
 import { create } from "zustand";
-import type { NavigationPageItem } from "../../types/NavigationListItem";
 import {
   navigationPages,
   type CategoryType,
   type NavigationList,
+  type NavigationPageItem,
 } from "../data/NavigationData";
 
 type NavigationListActions = {

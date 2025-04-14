@@ -1,6 +1,6 @@
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
-import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import DesktopNavigationItem from "./DesktopNavigationItem";
+import type { NavigationPageItem } from "@/data/NavigationData";
 
 type NavigationSectionProps = {
   title: string;

@@ -3,9 +3,9 @@ import {
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
 import { ExternalLink } from "lucide-react";
-import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import Link from "next/link";
 import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
+import type { NavigationPageItem } from "@/data/NavigationData";
 
 type NavigationItemProps = {
   page: NavigationPageItem;

@@ -1,10 +1,10 @@
+import type { NavigationPageItem } from "@/data/NavigationData";
 import {
   useNavigationActions,
   useNavigationIsScrolling,
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
 import { useEffect } from "react";
-import type { NavigationPageItem } from "../../types/NavigationListItem";
 
 export const useSectionVisibility = () => {
   const navigationActions = useNavigationActions();

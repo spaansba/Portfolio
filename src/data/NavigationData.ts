@@ -8,7 +8,18 @@ import {
   UserCircle,
   Workflow,
 } from "lucide-react";
-import type { NavigationPageItem } from "../../types/NavigationListItem";
+import type { LucideIcon } from "lucide-react";
+
+export type NavigationPageItem = {
+  id: number;
+  category: CategoryType;
+  name: string;
+  icon: LucideIcon;
+  onMouseDown?: () => void;
+  isOutsideLink: boolean;
+  path?: string;
+  hash?: string;
+};
 
 export const categoryOrder = ["about", "career", "connect"] as const;
 export type CategoryType = (typeof categoryOrder)[number];

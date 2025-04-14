@@ -3,10 +3,10 @@ import {
   useNavigationActions,
   useNavigationSelectedPage,
 } from "@/stores/NavigationListStore";
-import type { NavigationPageItem } from "../../../../../types/NavigationListItem";
 import FooterButton from "./ContentFooterButton";
 import FooterName from "./FooterName";
 import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
+import type { NavigationPageItem } from "@/data/NavigationData";
 
 function Footer() {
   const selectedPage = useNavigationSelectedPage();
