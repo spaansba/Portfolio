@@ -1,28 +1,28 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { type Dispatch, type SetStateAction } from "react";
+import { ButtonGroupProps } from "react-multi-carousel/lib/types";
 
-type MandatoryIndex = {
-  index: number;
-};
-
-type NavigationCubesProps<T extends MandatoryIndex> = {
-  setAdjacent: (direction: "next" | "prev") => void;
-  setActive: (index: number) => void;
-  active: T;
+type NavigationCubesProps = {
+  ButtonGroupProps: ButtonGroupProps;
   totalItems: number;
+  currentIndex: number;
 };
 
-function NavigationCubes<T extends MandatoryIndex>({
-  setAdjacent,
-  setActive,
-  active,
+function NavigationCubes({
   totalItems,
-}: NavigationCubesProps<T>) {
+  ButtonGroupProps,
+  currentIndex,
+}: NavigationCubesProps) {
+  const { previous, next, goToSlide, carouselState } = ButtonGroupProps;
+  if (!previous || !next || !goToSlide || !carouselState) {
+    return null;
+  }
+
   return (
     <>
       <div className="mt-6 flex items-center justify-center gap-2">
         <button
-          onMouseDown={() => setAdjacent("prev")}
+          onMouseDown={previous}
           aria-label="Previous project"
           className="transition-colors"
         >
@@ -33,9 +33,9 @@ function NavigationCubes<T extends MandatoryIndex>({
           {Array.from({ length: totalItems }, (_, i) => (
             <button
               key={i}
-              onMouseDown={() => setActive(i)}
+              onMouseDown={() => goToSlide(i)}
               className={`h-2 w-2 transition-all ${
-                active.index === i
+                currentIndex === i
                   ? "w-4 bg-white"
                   : "bg-TertiaryGray hover:bg-white hover:opacity-30"
               }`}
@@ -45,7 +45,7 @@ function NavigationCubes<T extends MandatoryIndex>({
         </div>
 
         <button
-          onMouseDown={() => setAdjacent("next")}
+          onMouseDown={next}
           aria-label="Next project"
           className="transition-colors"
         >
