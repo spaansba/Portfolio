@@ -13,12 +13,12 @@ import ProjectModal from "../ProjectModal";
 
 type SmallProjectContentProps = {
   activeProject: Project;
-  setActiveProject: Dispatch<SetStateAction<Project>>;
+  setAdjecentProject: (direction: "next" | "prev") => void;
 };
 
 function SmallProjectContent({
   activeProject,
-  setActiveProject,
+  setAdjecentProject,
 }: SmallProjectContentProps) {
   const dragX = useMotionValue(0);
   const [isHovering, setIsHovering] = useState(false);
@@ -31,19 +31,9 @@ function SmallProjectContent({
     const threshold = 20;
 
     if (info.offset.x < -threshold) {
-      setActiveProject((prev) => {
-        const nextProject = SmallProjects.find(
-          (project) => project.index == prev.index - 1,
-        );
-        return nextProject ?? SmallProjects[0];
-      });
+      setAdjecentProject("next");
     } else if (info.offset.x > threshold) {
-      setActiveProject((prev) => {
-        const nextProject = SmallProjects.find(
-          (project) => project.index == prev.index + 1,
-        );
-        return nextProject ?? SmallProjects[0];
-      });
+      setAdjecentProject("prev");
     }
 
     dragX.set(0);

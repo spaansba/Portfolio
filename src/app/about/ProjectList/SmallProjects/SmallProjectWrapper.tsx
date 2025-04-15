@@ -7,17 +7,32 @@ import SmallProjectNavigation from "./SmallProjectNavigation";
 function SmallProjectWrapper() {
   const [activeProject, setActiveProject] = useState<Project>(SmallProjects[0]);
 
+  const setAdjecentProject = (direction: "next" | "prev") => {
+    const activeIndex = activeProject.index;
+    if (direction === "next") {
+      console.log("current ", activeProject.index);
+
+      const nextIndex = (activeIndex + 1) % SmallProjects.length;
+      console.log("next ", nextIndex);
+      setActiveProject(SmallProjects[nextIndex]);
+    } else {
+      const prevIndex =
+        (activeIndex - 1 + SmallProjects.length) % SmallProjects.length;
+      setActiveProject(SmallProjects[prevIndex]);
+    }
+  };
   return (
     <>
       <SmallProjectContent
         activeProject={activeProject}
-        setActiveProject={setActiveProject}
+        setAdjecentProject={setAdjecentProject}
       />
-      {/* <SmallProjectNavigation
+      <SmallProjectNavigation
         projectCount={SmallProjects.length}
-        setActiveIndex={setActiveIndex}
-        activeIndex={activeIndex}
-      /> */}
+        setActiveProject={setActiveProject}
+        setAdjecentProject={setAdjecentProject}
+        activeProject={activeProject}
+      />
     </>
   );
 }
