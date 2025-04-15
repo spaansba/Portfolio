@@ -10,15 +10,30 @@ export type Project = {
   index: number;
 };
 
-type ProjectImages = {
+export type ProjectImages = {
+  index: number;
   image: string;
   description: string;
 };
 
-function addIndexToProject(projects: Omit<Project, "index">[]): Project[] {
+type ImageWithoutIndex = Omit<ProjectImages, "index">;
+
+type ProjectWithoutIndex = Omit<Project, "index" | "images"> & {
+  images: ImageWithoutIndex[];
+};
+
+function addIndexToImages(images: ImageWithoutIndex[]): ProjectImages[] {
+  return images.map((image, index) => ({
+    ...image,
+    index,
+  }));
+}
+
+function addIndexToProject(projects: ProjectWithoutIndex[]): Project[] {
   return projects.map((project, index) => ({
     ...project,
     index,
+    images: addIndexToImages(project.images),
   }));
 }
 
@@ -97,6 +112,18 @@ export const SmallProjects: Project[] = addIndexToProject([
       {
         image: "/images/Filmiliar.jpg",
         description: "Maestro Excel add-in interface",
+      },
+      {
+        image: "/images/MajasPortfolio.jpg",
+        description: "Maja's photography portfolio website",
+      },
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+      {
+        image: "/images/ToastTexter.jpg",
+        description: "Toast Texter thermal printer prototype",
       },
     ],
   },

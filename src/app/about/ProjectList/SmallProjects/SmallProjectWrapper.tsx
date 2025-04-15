@@ -2,12 +2,12 @@
 import { SmallProjects, type Project } from "@/data/ProjectData";
 import { useState } from "react";
 import SmallProjectContent from "./SmallProjectContent";
-import SmallProjectNavigation from "./SmallProjectNavigation";
+import NavigationCubes from "../../../_components/NavigationCubes";
 
 function SmallProjectWrapper() {
   const [activeProject, setActiveProject] = useState<Project>(SmallProjects[0]);
 
-  const setAdjecentProject = (direction: "next" | "prev") => {
+  const setAdjacentProject = (direction: "next" | "prev") => {
     const activeIndex = activeProject.index;
     if (direction === "next") {
       console.log("current ", activeProject.index);
@@ -21,17 +21,17 @@ function SmallProjectWrapper() {
       setActiveProject(SmallProjects[prevIndex]);
     }
   };
+
   return (
     <>
       <SmallProjectContent
         activeProject={activeProject}
-        setAdjecentProject={setAdjecentProject}
+        setAdjacentProject={setAdjacentProject}
       />
-      <SmallProjectNavigation
-        projectCount={SmallProjects.length}
-        setActiveProject={setActiveProject}
-        setAdjecentProject={setAdjecentProject}
-        activeProject={activeProject}
+      <NavigationCubes
+        active={activeProject}
+        setActive={(index: number) => setActiveProject(SmallProjects[index])}
+        setAdjacent={setAdjacentProject}
       />
     </>
   );

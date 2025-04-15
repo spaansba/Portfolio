@@ -2,33 +2,26 @@ import { SmallProjects, type Project } from "@/data/ProjectData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { type Dispatch, type SetStateAction } from "react";
 
-type SmallProjectNavigationProps = {
-  setAdjecentProject: (direction: "next" | "prev") => void;
-  setActiveProject: Dispatch<SetStateAction<Project>>;
-  projectCount: number;
-  activeProject: Project;
+type MandatoryIndex = {
+  index: number;
 };
 
-function SmallProjectNavigation({
-  setAdjecentProject,
-  setActiveProject,
-  projectCount,
-  activeProject,
-}: SmallProjectNavigationProps) {
-  const goToProject = (index: number) => {
-    setActiveProject(SmallProjects[index]);
-  };
+type NavigationCubesProps<T extends MandatoryIndex> = {
+  setAdjacent: (direction: "next" | "prev") => void;
+  setActive: (index: number) => void;
+  active: T;
+};
 
-  const projectIndices = Array.from(
-    { length: projectCount },
-    (_, index) => index,
-  );
-
+function NavigationCubes<T extends MandatoryIndex>({
+  setAdjacent,
+  setActive,
+  active,
+}: NavigationCubesProps<T>) {
   return (
     <>
       <div className="mt-6 flex items-center justify-center gap-2">
         <button
-          onMouseDown={() => setAdjecentProject("prev")}
+          onMouseDown={() => setAdjacent("prev")}
           aria-label="Previous project"
           className="transition-colors"
         >
@@ -36,22 +29,22 @@ function SmallProjectNavigation({
         </button>
 
         <div className="flex gap-2 px-2">
-          {projectIndices.map((index) => (
+          {SmallProjects.map((project) => (
             <button
-              key={index}
-              onMouseDown={() => goToProject(index)}
+              key={project.index}
+              onMouseDown={() => setActive(project.index)}
               className={`h-2 w-2 transition-all ${
-                activeProject.index === index
+                active.index === project.index
                   ? "w-4 bg-white"
                   : "bg-TertiaryGray hover:bg-white hover:opacity-30"
               }`}
-              aria-label={`Check out project ${index}`}
+              aria-label={`Check out project ${project.index}`}
             />
           ))}
         </div>
 
         <button
-          onMouseDown={() => setAdjecentProject("next")}
+          onMouseDown={() => setAdjacent("next")}
           aria-label="Next project"
           className="transition-colors"
         >
@@ -62,4 +55,4 @@ function SmallProjectNavigation({
   );
 }
 
-export default SmallProjectNavigation;
+export default NavigationCubes;
