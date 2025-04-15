@@ -6,10 +6,23 @@ export type Project = {
   link?: string;
   downloadLink?: string;
   gitHubLink?: string;
-  image?: string;
+  images: ProjectImages[];
+  index: number;
 };
 
-export const BigProjects: Project[] = [
+type ProjectImages = {
+  image: string;
+  description: string;
+};
+
+function addIndexToProject(projects: Omit<Project, "index">[]): Project[] {
+  return projects.map((project, index) => ({
+    ...project,
+    index,
+  }));
+}
+
+export const BigProjects: Project[] = addIndexToProject([
   {
     title: "Toast Texter",
     isFinished: false,
@@ -30,7 +43,12 @@ export const BigProjects: Project[] = [
     ],
     link: "https://toasttexter.com/",
     gitHubLink: "https://github.com/spaansba/PrinterPage",
-    image: "/images/ToastTexter.jpg",
+    images: [
+      {
+        image: "/images/ToastTexter.jpg",
+        description: "Toast Texter thermal printer prototype",
+      },
+    ],
   },
   {
     title: "Majas Portfolio",
@@ -41,7 +59,12 @@ export const BigProjects: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind", "Next.js", "CSS"],
     link: "https://majaportfolio.vercel.app/",
     gitHubLink: "https://github.com/spaansba/majaportfolio",
-    image: "/images/MajasPortfolio.jpg",
+    images: [
+      {
+        image: "/images/MajasPortfolio.jpg",
+        description: "Maja's photography portfolio website",
+      },
+    ],
   },
   {
     title: "Filmiliar",
@@ -52,11 +75,16 @@ export const BigProjects: Project[] = [
     ],
     technologies: ["React", "TypeScript", "Tailwind", "Next.js", "ChatGPT API"],
     link: "https://www.filmiliar.nl/",
-    image: "/images/Filmiliar.jpg",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Filmiliar movie recommendation interface",
+      },
+    ],
   },
-];
+]);
 
-export const SmallProjects: Project[] = [
+export const SmallProjects: Project[] = addIndexToProject([
   {
     title: "Search Sanitizer",
     isFinished: true,
@@ -65,6 +93,12 @@ export const SmallProjects: Project[] = [
     ],
     technologies: ["Chrome Extension", "React", "TypeScript", "Tailwind"],
     link: "https://chromewebstore.google.com/detail/search-sanitizer/cojacdikohpefnppeaaehbkonbhenhgb",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+    ],
   },
   {
     title: "PowerTree",
@@ -75,16 +109,27 @@ export const SmallProjects: Project[] = [
     technologies: ["PowerShell"],
     gitHubLink: "https://github.com/spaansba/PowerTree",
     link: "https://www.powershellgallery.com/packages/PowerTree",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+    ],
   },
   {
     title: "Maestro",
     isFinished: true,
     description: [
-      "Combination of all productivity related Excel macros I created for myself in VBA neatly packaged into an easely installable Excel Add-in. The Add-in houses 50+ macros ranging from instant mass lookups to ",
+      "Combination of all productivity related Excel macros I created for myself in VBA neatly packaged into an easely installable Excel Add-in. The Add-in houses 50+ macros ranging from instant mass lookups to sampling tools and data cleaning",
     ],
     technologies: ["VBA", "XML"],
     downloadLink:
       "https://h0oyl2bore.ufs.sh/f/s1SwIVgQ9NPAYuNKQxmjCTBq1z8oihFNPltdrf2v763WDnyG",
-    image: "/images/Filmiliar.jpg",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+    ],
   },
-];
+]);
