@@ -17,7 +17,6 @@ export type ProjectImages = {
 };
 
 type ImageWithoutIndex = Omit<ProjectImages, "index">;
-
 type ProjectWithoutIndex = Omit<Project, "index" | "images"> & {
   images: ImageWithoutIndex[];
 };

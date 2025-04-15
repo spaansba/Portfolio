@@ -151,6 +151,7 @@ function ProjectModal({
                       setCurrentImage(project.images[index])
                     }
                     setAdjacent={setAdjacentImage}
+                    totalItems={project.images.length}
                   />
                   {/* <div className="mt-2 flex items-center justify-between">
                     <p className="text-TextGrayWhite text-sm">

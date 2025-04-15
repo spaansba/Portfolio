@@ -32,6 +32,7 @@ function SmallProjectWrapper() {
         active={activeProject}
         setActive={(index: number) => setActiveProject(SmallProjects[index])}
         setAdjacent={setAdjacentProject}
+        totalItems={SmallProjects.length}
       />
     </>
   );
