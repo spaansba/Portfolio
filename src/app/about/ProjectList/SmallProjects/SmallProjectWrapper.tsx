@@ -1,14 +1,10 @@
 "use client";
-import { SmallProjects, type Project } from "@/data/ProjectData";
-import { useState } from "react";
-import SmallProjectContent from "./SmallProjectContent";
-import NavigationCubes from "../../../_components/NavigationCubes";
+import { SmallProjects } from "@/data/ProjectData";
 import Carousel, { type ButtonGroupProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import NavigationCubes from "../../../_components/NavigationCubes";
 import SmallProjectCarouselItem from "./SmallProjectCarouselItem";
 function SmallProjectWrapper() {
-  const [activeProject, setActiveProject] = useState<Project>(SmallProjects[0]);
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -26,21 +22,15 @@ function SmallProjectWrapper() {
       slidesToSlide: 1,
     },
   };
-
   const CustomButtonGroup = (props: ButtonGroupProps) => {
-    return (
-      <NavigationCubes
-        ButtonGroupProps={props}
-        totalItems={SmallProjects.length}
-        currentIndex={activeProject.index}
-      />
-    );
+    return <NavigationCubes ButtonGroupProps={props} />;
   };
   return (
     <>
       <Carousel
         responsive={responsive}
-        infinite={true}
+        //Sadly we cant put it to infite because the carouselstate is bugged within react-multi-carousel
+        // infinite={true}
         showDots={false}
         arrows={false}
         centerMode={false}
@@ -49,12 +39,6 @@ function SmallProjectWrapper() {
         autoPlay={false}
         keyBoardControl={true}
         renderButtonGroupOutside={true}
-        beforeChange={(nextSlide) => {
-          // We need to do this because the ButtonGroupProps.carouselState is bugged and never gives the correct index
-          const normalizedNextSlide = (nextSlide + 1) % SmallProjects.length;
-          console.log(normalizedNextSlide);
-          setActiveProject(SmallProjects[normalizedNextSlide]);
-        }}
         customButtonGroup={<CustomButtonGroup />}
       >
         {SmallProjects.map((project) => (

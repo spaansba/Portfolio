@@ -28,7 +28,6 @@ function SmallProjectCarouselItem({ project }: SmallProjectCarouselItemProps) {
           <div className="flex-grow overflow-y-auto">
             <p className="text-TextGrayWhite">{project.description[0]}</p>
           </div>
-
           <ProjectLinks
             link={project.link}
             gitHubLink={project.gitHubLink}
@@ -87,7 +86,7 @@ function SmallProjectCarouselItem({ project }: SmallProjectCarouselItemProps) {
           </div>
 
           {/* Image Counter Indicator */}
-          <div className="bg-opacity-70 absolute right-2 bottom-2 rounded-sm bg-black px-2 py-1 text-xs text-white">
+          <div className="bg-opacity-70 text-TextGrayWhite absolute right-2 bottom-2 bg-black px-2 py-1 text-xs">
             1/{project.images.length}
           </div>
         </div>
