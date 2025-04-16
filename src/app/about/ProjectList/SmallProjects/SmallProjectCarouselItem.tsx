@@ -1,10 +1,8 @@
 import type { Project } from "@/data/ProjectData";
-import React from "react";
-import TechnologyBadge from "../TechnologyBadge";
+import ImageContainer from "../../../_components/Content/ImageContainer/ImageContainer";
 import ProjectLinks from "../ProjectLinks";
-import Image from "next/image";
-import ProjectImages from "../ProjectImages";
-import ProjectImageModal from "../ProjectImageModal";
+import TechnologyBadge from "../TechnologyBadge";
+
 type SmallProjectCarouselItemProps = {
   project: Project;
 };
@@ -37,14 +35,10 @@ function SmallProjectCarouselItem({ project }: SmallProjectCarouselItemProps) {
             isRightalign={false}
           />
         </div>
-        <div
-          className="relative mt-6 h-48 w-full cursor-pointer md:mt-0 md:h-full md:w-1/3 md:flex-shrink-0"
-          //
-        >
-          <ProjectImages project={project} />
+        <div className="relative mt-6 h-48 w-full md:mt-0 md:h-full md:w-1/3 md:flex-shrink-0">
+          <ImageContainer project={project} />
         </div>
       </div>
-      <ProjectImageModal />
     </div>
   );
 }

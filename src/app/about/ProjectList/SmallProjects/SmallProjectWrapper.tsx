@@ -4,7 +4,7 @@ import Carousel, { type ButtonGroupProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import NavigationCubes from "../../../_components/NavigationCubes";
 import SmallProjectCarouselItem from "./SmallProjectCarouselItem";
-function SmallProjectWrapper() {
+export function SmallProjectWrapper() {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -22,9 +22,7 @@ function SmallProjectWrapper() {
       slidesToSlide: 1,
     },
   };
-  const CustomButtonGroup = (props: ButtonGroupProps) => {
-    return <NavigationCubes ButtonGroupProps={props} />;
-  };
+
   return (
     <>
       <Carousel
@@ -49,4 +47,6 @@ function SmallProjectWrapper() {
   );
 }
 
-export default SmallProjectWrapper;
+export const CustomButtonGroup = (props: ButtonGroupProps) => {
+  return <NavigationCubes ButtonGroupProps={props} />;
+};

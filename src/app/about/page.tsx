@@ -4,7 +4,7 @@ import SectionHeaderTitle from "../_components/Content/SectionHeaderTitle";
 import GetIsMobileDevice from "../_server/GetIsMobileDevice";
 import AboutHeader from "./AboutHeader";
 import ProjectsWrapper from "./ProjectList/BigProjects/BigProjectsWrapper";
-import SmallProjectWrapper from "./ProjectList/SmallProjects/SmallProjectWrapper";
+import { SmallProjectWrapper } from "./ProjectList/SmallProjects/SmallProjectWrapper";
 
 async function AboutPage() {
   const isMobileDevice = await GetIsMobileDevice();
