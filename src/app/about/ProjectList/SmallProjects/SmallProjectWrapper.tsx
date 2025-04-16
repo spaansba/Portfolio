@@ -2,7 +2,7 @@
 import { SmallProjects } from "@/data/ProjectData";
 import Carousel, { type ButtonGroupProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import NavigationCubes from "../../../_components/NavigationCubes";
+import NavigationCubes from "../../../_components/SwiperNavigationCubes";
 import SmallProjectCarouselItem from "./SmallProjectCarouselItem";
 export function SmallProjectWrapper() {
   const responsive = {
@@ -37,7 +37,7 @@ export function SmallProjectWrapper() {
         autoPlay={false}
         keyBoardControl={true}
         renderButtonGroupOutside={true}
-        customButtonGroup={<CustomButtonGroup />}
+        // customButtonGroup={<CustomButtonGroup />}
       >
         {SmallProjects.map((project) => (
           <SmallProjectCarouselItem project={project} key={project.index} />
@@ -48,5 +48,5 @@ export function SmallProjectWrapper() {
 }
 
 export const CustomButtonGroup = (props: ButtonGroupProps) => {
-  return <NavigationCubes ButtonGroupProps={props} />;
+  // return <NavigationCubes ButtonGroupProps={props} />;
 };

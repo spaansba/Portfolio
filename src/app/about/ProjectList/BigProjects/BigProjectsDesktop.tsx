@@ -48,7 +48,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
           </div>
         </div>
 
-        {project.image && (
+        {project.images && (
           <div className={`w-2/5 ${!isLeftAlign && "order-1"}`}>
             <div className="border-TertiaryGray relative h-60 w-full overflow-hidden border">
               <Link
@@ -58,7 +58,7 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
                 className="relative block h-full w-full"
               >
                 <Image
-                  src={project.image}
+                  src={project.images[0].image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"

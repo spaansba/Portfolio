@@ -109,20 +109,13 @@ export const SmallProjects: Project[] = addIndexToProject([
     link: "https://chromewebstore.google.com/detail/search-sanitizer/cojacdikohpefnppeaaehbkonbhenhgb",
     images: [
       {
-        image: "/images/Filmiliar.jpg",
-        description: "Maestro Excel add-in interface",
-      },
-      {
         image: "/images/MajasPortfolio.jpg",
         description: "Maja's photography portfolio website",
       },
       {
-        image: "/images/Filmiliar.jpg",
-        description: "Maestro Excel add-in interface",
-      },
-      {
-        image: "/images/ToastTexter.jpg",
-        description: "Toast Texter thermal printer prototype",
+        image: "/images/SearchSanitizer/Dashboard.png",
+        description:
+          "Dashboard showing the currently blocked URL's and their blocked stats. This is one of the places where you can configure new URL's to block",
       },
     ],
   },

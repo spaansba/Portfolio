@@ -1,72 +1,103 @@
 import ProjectLinks from "@/app/about/ProjectList/ProjectLinks";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import type { Project, ProjectImages } from "@/data/ProjectData";
 import ModalHeader from "./ModalHeader";
-import { CustomButtonGroup } from "@/app/about/ProjectList/SmallProjects/SmallProjectWrapper";
-import { Swiper, SwiperSlide } from "swiper/react";
-
+import {
+  Swiper,
+  SwiperSlide,
+  type SwiperClass,
+  type SwiperRef,
+} from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
+import SwiperNavigationCubes from "@/app/_components/SwiperNavigationCubes";
+
 type ImageModalContentProps = {
   closeModal: () => void;
   project: Project;
 };
 
 function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   const [currentImage, setCurrentImage] = useState<ProjectImages>(
     project.images[0],
   );
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ type: "spring", damping: 20 }}
-        className="bg-PrimaryGray relative max-h-[90vh] w-full overflow-hidden rounded-lg shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <ModalHeader closeModal={closeModal} projectTitle={project.title} />
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="mx-auto flex max-h-[95vh] w-full max-w-6xl flex-col overflow-hidden"
+    >
+      <ModalHeader closeModal={closeModal} projectTitle={project.title} />
+
+      {/* Image slider with responsive height */}
+      <div className="h-[40vh] w-full bg-black sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
         <Swiper
-          spaceBetween={50}
+          onSwiper={setSwiperRef}
+          spaceBetween={0}
           slidesPerView={1}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={(swiper) => {
+            setCurrentSlideIndex(swiper.activeIndex);
+            setCurrentImage(project.images[swiper.activeIndex]);
+          }}
+          className="h-full w-full"
         >
           {project.images.map((image, index) => (
-            <SwiperSlide key={index} className="relative h-full w-full">
-              <Image
-                src={image.image}
-                alt={image.description}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 80vw"
-              />
+            <SwiperSlide key={index} className="h-full w-full">
+              <div className="relative h-full w-full">
+                <Image
+                  src={image.image}
+                  alt={image.description}
+                  fill
+                  quality={100}
+                  className="object-contain"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 70vw"
+                  priority={index === 0}
+                  unoptimized={true}
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
 
-        {/* Bottom Panel */}
-        <div className="bg-opacity-90 flex flex-col gap-4 bg-black p-4">
-          {/* Image description */}
-          <p className="text-TextGrayWhite">{currentImage.description}</p>
+      {/* Bottom Panel - Scrollable if content is too large */}
+      <div className="bg-opacity-90 flex flex-shrink-0 flex-col gap-2 overflow-y-auto bg-black p-3 md:gap-4 md:p-4">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-TextGrayWhite text-sm md:text-base">
+            {currentImage.description}
+          </p>
+          {project.images.length > 1 && (
+            <div className="self-end sm:self-auto">
+              <SwiperNavigationCubes
+                swiperRef={swiperRef}
+                totalSlides={project.images.length}
+                currentSlide={currentSlideIndex}
+              />
+            </div>
+          )}
+        </div>
 
-          {/* Project description */}
-          <div className="border-TertiaryGray border-t pt-4">
-            <h4 className="mb-2 text-lg font-medium text-white">
-              About this project
-            </h4>
-            <p className="text-TextGrayWhite mb-4">{project.description[0]}</p>
-            {project.description.length > 1 && (
-              <p className="text-TextGrayWhite">{project.description[1]}</p>
-            )}
-          </div>
+        {/* Project description */}
+        <div className="border-TertiaryGray border-t pt-2 md:pt-4">
+          <h4 className="mb-1 text-base font-medium text-white md:mb-2 md:text-lg">
+            About this project
+          </h4>
+          <p className="text-TextGrayWhite mb-2 text-sm md:mb-4 md:text-base">
+            {project.description[0]}
+          </p>
+          {project.description.length > 1 && (
+            <p className="text-TextGrayWhite text-sm md:text-base">
+              {project.description[1]}
+            </p>
+          )}
+        </div>
 
-          {/* Project links */}
+        {/* Project links */}
+        <div className="mt-1 md:mt-2">
           <ProjectLinks
             link={project.link}
             gitHubLink={project.gitHubLink}
@@ -74,8 +105,8 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
             isRightalign={true}
           />
         </div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </div>
   );
 }
 

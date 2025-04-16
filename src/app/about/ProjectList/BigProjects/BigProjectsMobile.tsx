@@ -21,7 +21,7 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
           </div> */}
         </div>
 
-        {project.image && (
+        {project.images && (
           <div className="mb-4">
             <div className="border-TertiaryGray relative h-48 w-full overflow-hidden rounded-md border">
               <Link
@@ -31,12 +31,12 @@ function BigProjectsMobile({ project }: BigProjectsMobileProps) {
                 className="relative block h-full w-full"
               >
                 <Image
-                  src={project.image}
+                  src={project.images[0].image}
                   alt={project.title}
                   fill
-                  sizes="100vw"
                   className="object-cover transition-transform duration-300 hover:scale-105"
                   priority
+                  quality={100}
                 />
               </Link>
             </div>

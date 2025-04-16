@@ -31,7 +31,7 @@ function ImageContainer({ project }: ImageContainerProps) {
       <button
         aria-label="view more images"
         onMouseDown={handleOpenModal}
-        className="relative h-full w-full"
+        className="relative h-full w-full cursor-pointer"
       >
         <Image
           draggable={false}
@@ -47,7 +47,7 @@ function ImageContainer({ project }: ImageContainerProps) {
 
       <dialog
         ref={modalRef}
-        className="backdrop:bg-opacity-70 m-auto w-full max-w-5xl rounded-lg bg-transparent p-0 backdrop:bg-black backdrop:backdrop-blur-md"
+        className="backdrop:bg-opacity-70 m-auto w-full max-w-5xl cursor-default rounded-lg bg-transparent p-0 backdrop:bg-black backdrop:backdrop-blur-md"
       >
         <ImageModalContent project={project} closeModal={handleCloseModal} />
       </dialog>
