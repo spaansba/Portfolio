@@ -5,9 +5,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import type { Project, ProjectImages } from "@/data/ProjectData";
 import ModalHeader from "./ModalHeader";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { CustomButtonGroup } from "@/app/about/ProjectList/SmallProjects/SmallProjectWrapper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 type ImageModalContentProps = {
   closeModal: () => void;
   project: Project;
@@ -18,23 +20,6 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
     project.images[0],
   );
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
   return (
     <AnimatePresence>
       <motion.div
@@ -46,27 +31,24 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <ModalHeader closeModal={closeModal} projectTitle={project.title} />
-        <Carousel
-          responsive={responsive}
-          renderButtonGroupOutside={true}
-          customButtonGroup={<CustomButtonGroup />}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
         >
-          {project.images && project.images.length > 0 ? (
-            project.images.map((image, index) => (
-              <div key={index} className="relative h-[50vh] w-full">
-                <Image
-                  src={image.image}
-                  alt={image.description}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 80vw"
-                />
-              </div>
-            ))
-          ) : (
-            <div>No images available</div>
-          )}
-        </Carousel>
+          {project.images.map((image, index) => (
+            <SwiperSlide key={index} className="relative h-full w-full">
+              <Image
+                src={image.image}
+                alt={image.description}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
         {/* Bottom Panel */}
         <div className="bg-opacity-90 flex flex-col gap-4 bg-black p-4">
