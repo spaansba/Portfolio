@@ -1,3 +1,4 @@
+import FastButton from "@/app/_components/FastButton";
 import { useIsDesktopSidebarOpen } from "@/stores/DesktopSidebarStore";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -5,7 +6,7 @@ function SidebarToggleHemisphere() {
   const isSidebarOpen = useIsDesktopSidebarOpen();
 
   return (
-    <button
+    <FastButton
       className="select-none"
       aria-label={`${isSidebarOpen ? "close" : "open"} navigation sidebar`}
     >
@@ -19,7 +20,7 @@ function SidebarToggleHemisphere() {
           <ChevronRight size={20} className="text-TextGray" />
         )}
       </div>
-    </button>
+    </FastButton>
   );
 }
 

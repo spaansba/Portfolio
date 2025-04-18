@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import MobileNavigationItem from "./MobileNavigationItem";
 import type { NavigationPageItem } from "@/data/NavigationData";
+import FastButton from "../../FastButton";
 
 type MobileNavigationSectionProps = {
   title: string;
@@ -18,7 +19,7 @@ function MobileNavigationSection({
   return (
     <div className="mb-6">
       {/* Section Header */}
-      <button
+      <FastButton
         onClick={() => setIsExpanded(!isExpanded)}
         className="text-TextGrayWhite mb-2 flex w-full items-center justify-between px-2"
       >
@@ -29,7 +30,7 @@ function MobileNavigationSection({
         >
           <ChevronDown size={18} />
         </motion.div>
-      </button>
+      </FastButton>
 
       {/* Section Items */}
       <AnimatePresence initial={false}>

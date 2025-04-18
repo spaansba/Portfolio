@@ -1,35 +1,39 @@
-import type { Study } from "@/data/StudiesData"
-import { GraduationCap } from "lucide-react"
-import React from "react"
+import FastButton from "@/app/_components/FastButton";
+import type { Study } from "@/data/StudiesData";
+import { GraduationCap } from "lucide-react";
+import React from "react";
 
 type StudiesTabSelector = {
-  activeIndex: number
-  setActiveIndex: React.Dispatch<React.SetStateAction<number>>
-  studies: Study[]
-}
+  activeIndex: number;
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+  studies: Study[];
+};
 
-function StudiesTabSelector({ activeIndex, setActiveIndex, studies }: StudiesTabSelector) {
+function StudiesTabSelector({
+  activeIndex,
+  setActiveIndex,
+  studies,
+}: StudiesTabSelector) {
   return (
-    <div className="flex flex-wrap gap-4 justify-center mb-8 ">
+    <div className="mb-8 flex flex-wrap justify-center gap-4">
       {studies.map((study, index) => (
-        <button
+        <FastButton
           key={study.institution}
           aria-label={`Go to ${study.institution}`}
           onClick={() => setActiveIndex(index)}
-          className={`py-2 px-4 md:px-6 cursor-pointer transition-all duration-300 flex items-center gap-2 border-b-2 border-transparent
-              ${
-                activeIndex === index
-                  ? "bg-TertiaryGray text-white  border-white"
-                  : "bg-SecondaryGray text-TextGray hover:text-TextGrayWhite"
-              }`}
+          className={`flex cursor-pointer items-center gap-2 border-b-2 border-transparent px-4 py-2 transition-all duration-300 md:px-6 ${
+            activeIndex === index
+              ? "bg-TertiaryGray border-white text-white"
+              : "bg-SecondaryGray text-TextGray hover:text-TextGrayWhite"
+          }`}
         >
           <GraduationCap size={16} />
           <span className="hidden md:inline">{study.institution}</span>
           <span className="md:hidden">{study.degree.split(" ")[0]}</span>
-        </button>
+        </FastButton>
       ))}
     </div>
-  )
+  );
 }
 
-export default StudiesTabSelector
+export default StudiesTabSelector;

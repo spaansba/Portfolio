@@ -1,6 +1,7 @@
 import { useNavigationPageList } from "@/stores/NavigationListStore";
 import Link from "next/link";
 import React from "react";
+import FastButton from "../_components/FastButton";
 
 // Add a link for every outside link in connect
 function ContactLinks() {
@@ -10,16 +11,16 @@ function ContactLinks() {
       {pages.connect
         .filter((page) => page.isOutsideLink)
         .map((page) => (
-          <button
+          <FastButton
             key={page.id}
-            onMouseDown={page.onMouseDown}
+            onClick={page.onMouseDown}
             aria-label={`go to ${page.name}`}
           >
             <page.icon
               size={19}
               className={`text-TextGray hover:text-fgButton transition-colors duration-300`}
             />
-          </button>
+          </FastButton>
         ))}
     </div>
   );

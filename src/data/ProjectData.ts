@@ -14,6 +14,7 @@ export type ProjectImages = {
   index: number;
   image: string;
   description: string;
+  isGif?: boolean;
 };
 
 type ImageWithoutIndex = Omit<ProjectImages, "index">;
@@ -68,7 +69,7 @@ export const BigProjects: Project[] = addIndexToProject([
     title: "Majas Portfolio",
     isFinished: true,
     description: [
-      "Portfolio I made for my friend who is a hobby photographer. It's an SPA with a simple and clean layout to ensure the photography remains the focal point.",
+      "Portfolio I made for my friend who is a photographer. It's an SPA with a simple and clean layout to ensure the photography remains the focal point.",
     ],
     technologies: ["React", "TypeScript", "Tailwind", "Next.js", "CSS"],
     link: "https://majaportfolio.vercel.app/",
@@ -109,8 +110,9 @@ export const SmallProjects: Project[] = addIndexToProject([
     link: "https://chromewebstore.google.com/detail/search-sanitizer/cojacdikohpefnppeaaehbkonbhenhgb",
     images: [
       {
-        image: "/images/MajasPortfolio.jpg",
+        image: "/images/SearchSanitizer/SearchSanitizer.gif",
         description: "Maja's photography portfolio website",
+        isGif: true,
       },
       {
         image: "/images/SearchSanitizer/Dashboard.png",

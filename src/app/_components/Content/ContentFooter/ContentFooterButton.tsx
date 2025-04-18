@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
+import FastButton from "../../FastButton";
 
 type FooterButtonProps = {
   onMouseDown: () => void;
@@ -17,8 +18,8 @@ function FooterButton({
   if (!name) return <div></div>;
 
   return (
-    <button
-      onMouseDown={onMouseDown}
+    <FastButton
+      onClick={onMouseDown}
       disabled={isDisabled}
       className="text-TextGray group/footer flex flex-row items-center justify-center transition-colors duration-300 md:gap-2 hover:md:text-white"
       aria-label={`Go to ${direction} page`}
@@ -36,7 +37,7 @@ function FooterButton({
           size={16}
         />
       )}
-    </button>
+    </FastButton>
   );
 }
 

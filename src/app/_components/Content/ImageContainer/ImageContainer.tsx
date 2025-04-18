@@ -7,7 +7,8 @@ import useOutsideModalClick from "@/hooks/useOutsideModalClick";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import ProjectLinks from "../../../about/ProjectList/ProjectLinks";
 import { ImageCountOverlay, ModalOverlay } from "./ModalOverlay";
-import ImageModalContent from "./ImageModal/ImageModalContent";
+import { ImageModalContent } from "./ImageModal/ImageModalContent";
+import FastButton from "../../FastButton";
 
 type ImageContainerProps = {
   project: Project;
@@ -28,9 +29,9 @@ function ImageContainer({ project }: ImageContainerProps) {
 
   return (
     <>
-      <button
+      <FastButton
         aria-label="view more images"
-        onMouseDown={handleOpenModal}
+        onClick={handleOpenModal}
         className="relative h-full w-full cursor-pointer"
       >
         <Image
@@ -43,7 +44,7 @@ function ImageContainer({ project }: ImageContainerProps) {
         />
         <ModalOverlay />
         <ImageCountOverlay totalImageCount={project.images.length} />
-      </button>
+      </FastButton>
 
       <dialog
         ref={modalRef}

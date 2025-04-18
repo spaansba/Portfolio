@@ -1,6 +1,7 @@
 "use client";
 import type { LucideIcon } from "lucide-react";
 import React from "react";
+import FastButton from "../FastButton";
 
 type StringWithLinkProps = {
   title: string;
@@ -22,9 +23,9 @@ function StringWithLink({
   isMirrored = false,
 }: StringWithLinkProps) {
   return (
-    <button
+    <FastButton
       className="group relative inline-flex cursor-pointer items-center"
-      onMouseDown={handleMouseDown}
+      onClick={handleMouseDown}
       aria-label={ariaLabel || `Navigate to ${title} section`}
     >
       <div className="flex items-center">
@@ -37,7 +38,7 @@ function StringWithLink({
           <Icon size={iconSize} />
         </div>
       </div>
-    </button>
+    </FastButton>
   );
 }
 

@@ -1,3 +1,4 @@
+import FastButton from "@/app/_components/FastButton";
 import type { WorkPositions } from "@/data/WorkExperience";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -36,10 +37,10 @@ function TimelinePositionHeader({
           </span>
         </div>
         {hasMultipleParagraphs ? (
-          <button
+          <FastButton
             className="flex cursor-pointer flex-row items-center gap-2 text-white"
             aria-label={`Show more information about ${position.jobTitle}`}
-            onMouseDown={() => setIsInfoExpanded(!isInfoExpanded)}
+            onClick={() => setIsInfoExpanded(!isInfoExpanded)}
           >
             <span>{position.jobTitle}</span>
             <motion.span
@@ -53,7 +54,7 @@ function TimelinePositionHeader({
                 <ChevronDown size={18} />
               )}
             </motion.span>
-          </button>
+          </FastButton>
         ) : (
           <div className="text-white">{position.jobTitle}</div>
         )}

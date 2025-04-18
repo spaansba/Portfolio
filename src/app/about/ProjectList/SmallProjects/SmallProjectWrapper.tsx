@@ -1,52 +1,64 @@
 "use client";
-import { SmallProjects } from "@/data/ProjectData";
-import Carousel, { type ButtonGroupProps } from "react-multi-carousel";
+import { SmallProjects, type Project } from "@/data/ProjectData";
 import "react-multi-carousel/lib/styles.css";
-import NavigationCubes from "../../../_components/SwiperNavigationCubes";
+import "swiper/css";
+import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react";
 import SmallProjectCarouselItem from "./SmallProjectCarouselItem";
+import { useEffect, useState } from "react";
+import SwiperNavigationCubes from "@/app/_components/SwiperNavigationCubes";
+
 export function SmallProjectWrapper() {
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const [swiperRef, setSwiperRef] = useState<SwiperClass>();
+  const [slidesPerView, setSlidesPerView] = useState(
+    swiperRef?.slidesPerViewDynamic() ?? 2,
+  );
+  const [currentProject, setCurrentProject] = useState<Project>(
+    SmallProjects[0],
+  );
 
   return (
     <>
-      <Carousel
-        responsive={responsive}
-        //Sadly we cant put it to infite because the carouselstate is bugged within react-multi-carousel
-        // infinite={true}
-        showDots={false}
-        arrows={false}
-        centerMode={false}
-        swipeable={true}
-        draggable={true}
-        autoPlay={false}
-        keyBoardControl={true}
-        renderButtonGroupOutside={true}
-        // customButtonGroup={<CustomButtonGroup />}
+      <Swiper
+        onSwiper={setSwiperRef}
+        autoHeight={false}
+        breakpointsBase={"container"}
+        breakpoints={{
+          1: {
+            slidesPerView: 1,
+          },
+          750: {
+            slidesPerView: 2,
+          },
+        }}
+        onSlideChange={(swiper) => {
+          setCurrentSlideIndex(swiper.activeIndex);
+          // setSlidesPerView(swiper.slidesPerViewDynamic());
+        }}
+        onSlidesUpdated={(swiper) => {
+          setSlidesPerView(swiper.slidesPerViewDynamic());
+        }}
       >
         {SmallProjects.map((project) => (
-          <SmallProjectCarouselItem project={project} key={project.index} />
+          <SwiperSlide key={project.index} className="h-full">
+            <SmallProjectCarouselItem project={project} key={project.index} />
+          </SwiperSlide>
         ))}
-      </Carousel>
+      </Swiper>
+      {SmallProjects.length > 1 && (
+        <div className="pt-4">
+          <SwiperNavigationCubes
+            swiperRef={swiperRef}
+            totalSlides={
+              slidesPerView === 2
+                ? SmallProjects.length - 1
+                : SmallProjects.length
+            }
+            currentSlide={currentSlideIndex}
+          />
+        </div>
+      )}
     </>
   );
 }
-
-export const CustomButtonGroup = (props: ButtonGroupProps) => {
-  // return <NavigationCubes ButtonGroupProps={props} />;
-};

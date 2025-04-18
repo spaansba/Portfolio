@@ -21,7 +21,6 @@ export function useNavigationWithScroll() {
 
     timeoutRef.current = setTimeout(() => {
       navigationActions.setIsScrolling(false);
-      console.log("set scrolling to false");
       timeoutRef.current = null;
     }, 500);
   };
@@ -50,8 +49,6 @@ export function useNavigationWithScroll() {
   const scrollToElement = (element: Element | null) => {
     if (element) {
       navigationActions.setIsScrolling(true);
-      console.log("set scrolling to true");
-
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",

@@ -6,6 +6,7 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useNavigationWithScroll } from "@/hooks/useNavigationWithScroll";
 import type { NavigationPageItem } from "@/data/NavigationData";
+import FastButton from "../../FastButton";
 
 type NavigationItemProps = {
   page: NavigationPageItem;
@@ -18,7 +19,8 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
   const isSelected = selectedPage?.id === page.id;
   const navigationActions = useNavigationActions();
 
-  const handleOnMouseDown = (page: NavigationPageItem) => {
+  const handleNavigation = () => {
+    console.log("here");
     navigationActions.setSelectedPage(page);
     if (page.isOutsideLink && page.onMouseDown) {
       page.onMouseDown();
@@ -29,30 +31,35 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
 
   return (
     <li
-      onMouseDown={() => handleOnMouseDown(page)}
-      className={`group/nav-item flex h-[40px] cursor-pointer items-center justify-between border-[1px] py-2 pr-2 font-bold transition-all duration-400 ease-in-out hover:text-white ${isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"} ${isSidebarOpen ? "pl-[12px]" : "pl-[9px]"}`}
+      className={`group/nav-item ${isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"}`}
     >
-      <div className="flex items-center gap-2 overflow-hidden">
-        <div className="flex-shrink-0">
-          <page.icon
-            size={19}
-            className={`transition-colors duration-300 ${isSelected ? "text-white" : "text-TextGray group-hover/nav-item:text-white"}`}
-          />
+      <FastButton
+        aria-label={`Navigate to ${page.name}`}
+        onClick={handleNavigation}
+        className={`flex h-[40px] w-full cursor-pointer items-center justify-between border-[1px] py-2 pr-2 font-bold transition-all duration-400 ease-in-out hover:text-white ${isSelected ? "bg-TertiaryGray border-[#383838]" : "border-transparent"} ${isSidebarOpen ? "pl-[12px]" : "pl-[9px]"}`}
+      >
+        <div className="flex items-center gap-2 overflow-hidden">
+          <div className="flex-shrink-0">
+            <page.icon
+              size={19}
+              className={`transition-colors duration-300 ${isSelected ? "text-white" : "text-TextGray group-hover/nav-item:text-white"}`}
+            />
+          </div>
+
+          <span
+            className={`whitespace-nowrap transition-colors duration-300 ${isSelected ? "text-white" : "text-TextGray group-hover/nav-item:text-white"}`}
+          >
+            {page.name}
+          </span>
         </div>
 
-        <span
-          className={`whitespace-nowrap transition-colors duration-300 ${isSelected ? "text-white" : "text-TextGray group-hover/nav-item:text-white"}`}
-        >
-          {page.name}
-        </span>
-      </div>
-
-      {page.isOutsideLink && isSidebarOpen && (
-        <ExternalLink
-          size={19}
-          className="text-TextGray transition-colors duration-300 group-hover/nav-item:text-white"
-        />
-      )}
+        {page.isOutsideLink && isSidebarOpen && (
+          <ExternalLink
+            size={19}
+            className="text-TextGray transition-colors duration-300 group-hover/nav-item:text-white"
+          />
+        )}
+      </FastButton>
     </li>
   );
 }

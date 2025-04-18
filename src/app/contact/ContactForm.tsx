@@ -5,6 +5,7 @@ import FieldInfo from "./FieldInfo";
 import { useState } from "react";
 import { contactFormSchema } from "./schema";
 import ContactLinks from "./ContactLinks";
+import FastButton from "../_components/FastButton";
 
 function ContactForm() {
   // State to track submission success
@@ -176,15 +177,15 @@ function ContactForm() {
           >
             {([canSubmit]) => (
               <div className="flex items-center justify-between">
-                <button
+                <FastButton
                   type="submit"
                   disabled={!canSubmit || isLoading}
-                  onMouseDown={form.handleSubmit}
+                  onClick={form.handleSubmit}
                   className="bg-TertiaryGray hover:text-fgButton flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isLoading ? "Sending..." : "Send Message"}
                   <Send size={16} />
-                </button>
+                </FastButton>
 
                 {submitSuccess && (
                   <span className="ml-4 text-sm text-green-400 transition-opacity duration-300">

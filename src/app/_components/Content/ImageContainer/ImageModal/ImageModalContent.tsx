@@ -19,7 +19,10 @@ type ImageModalContentProps = {
   project: Project;
 };
 
-function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
+export function ImageModalContent({
+  closeModal,
+  project,
+}: ImageModalContentProps) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   const [currentImage, setCurrentImage] = useState<ProjectImages>(
@@ -33,7 +36,7 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
     >
       <ModalHeader closeModal={closeModal} projectTitle={project.title} />
 
-      {/* Image slider with responsive height */}
+      {/* Image/GIF slider with responsive height */}
       <div className="h-[40vh] w-full bg-black sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
         <Swiper
           onSwiper={setSwiperRef}
@@ -46,18 +49,31 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
           className="h-full w-full"
         >
           {project.images.map((image, index) => (
-            <SwiperSlide key={index} className="h-full w-full">
+            <SwiperSlide key={image.index} className="h-full w-full">
               <div className="relative h-full w-full">
-                <Image
-                  src={image.image}
-                  alt={image.description}
-                  fill
-                  quality={100}
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 70vw"
-                  priority={index === 0}
-                  unoptimized={true}
-                />
+                {/* If the image is marked as a GIF, use a video element instead */}
+                {image.isGif ? (
+                  <video
+                    src={image.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full object-contain"
+                    aria-label={image.description}
+                  />
+                ) : (
+                  <Image
+                    src={image.image}
+                    alt={image.description}
+                    fill
+                    quality={100}
+                    className="object-contain"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 70vw"
+                    priority={index === 0}
+                    unoptimized={true}
+                  />
+                )}
               </div>
             </SwiperSlide>
           ))}
@@ -109,5 +125,3 @@ function ImageModalContent({ closeModal, project }: ImageModalContentProps) {
     </div>
   );
 }
-
-export default ImageModalContent;

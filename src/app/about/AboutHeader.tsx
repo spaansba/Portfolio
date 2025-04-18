@@ -3,8 +3,8 @@ import Image from "next/image";
 function AboutHeader() {
   const AboutParagraph = () => (
     <p className="text-TextGray text-base leading-relaxed font-medium md:text-lg">
-      I am a self-taught hobby frontend developer from Rotterdam, The
-      Netherlands. I aspire to become a full-time frontend developer.
+      I am a self-taught frontend developer from Rotterdam, The Netherlands. I
+      aspire to become a full-time frontend developer.
     </p>
   );
 

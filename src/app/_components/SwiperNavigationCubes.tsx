@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 import { useSwiper, type SwiperClass } from "swiper/react";
+import FastButton from "./FastButton";
 
 type NavigationCubesProps = {
   swiperRef: SwiperClass | undefined;
@@ -18,18 +19,18 @@ function SwiperNavigationCubes({
   }
   return (
     <div className="flex items-center justify-center gap-2">
-      <button
+      <FastButton
         onClick={() => swiperRef.slidePrev()}
         aria-label="Previous project"
         disabled={currentSlide === 0}
         className={`${currentSlide === 0 ? "opacity-10" : "hover:opacity-50"} transition-all duration-200`}
       >
         <ChevronLeft color={"white"} size={20} />
-      </button>
+      </FastButton>
 
       <div className="flex gap-2 px-2">
         {Array.from({ length: totalSlides }, (_, i) => (
-          <button
+          <FastButton
             key={i}
             onClick={() => swiperRef.slideTo(i)}
             className={`h-2 w-2 transition-all ${
@@ -42,14 +43,14 @@ function SwiperNavigationCubes({
         ))}
       </div>
 
-      <button
+      <FastButton
         onClick={() => swiperRef.slideNext()}
         aria-label="Next project"
         disabled={currentSlide === totalSlides - 1}
         className={`${currentSlide === totalSlides - 1 ? "opacity-10" : "hover:opacity-50"} transition-all duration-200`}
       >
         <ChevronRight color={"white"} size={20} />
-      </button>
+      </FastButton>
     </div>
   );
 }
