@@ -21,7 +21,7 @@ function MobileNavigationSection({
       {/* Section Header */}
       <FastButton
         onClick={() => setIsExpanded(!isExpanded)}
-        className="text-TextGrayWhite mb-2 flex w-full items-center justify-between px-2"
+        className="text-TextGrayWhite mb-2 flex w-full cursor-pointer items-center justify-between px-2"
       >
         <h3 className="text-lg font-semibold uppercase">{title}</h3>
         <motion.div

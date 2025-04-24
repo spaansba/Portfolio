@@ -33,7 +33,7 @@ function MobileNavigationItem({ page }: NavigationItemProps) {
     <motion.li
       whileTap={{ scale: 0.98 }}
       onMouseDown={() => handleOnMouseDown(page)}
-      className={`active:bg-opacity-80 flex items-center justify-between px-4 py-3 font-medium transition-all duration-300 ${
+      className={`active:bg-opacity-80 flex cursor-pointer items-center justify-between px-4 py-3 font-medium transition-all duration-300 ${
         isSelected
           ? "bg-TertiaryGray text-white shadow-md"
           : "text-TextGrayWhite hover:bg-SecondaryGray"
