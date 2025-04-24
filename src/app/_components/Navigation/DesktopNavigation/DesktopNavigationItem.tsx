@@ -20,7 +20,6 @@ function DesktopNavigationItem({ page, isSidebarOpen }: NavigationItemProps) {
   const navigationActions = useNavigationActions();
 
   const handleNavigation = () => {
-    console.log("here");
     navigationActions.setSelectedPage(page);
     if (page.isOutsideLink && page.onMouseDown) {
       page.onMouseDown();

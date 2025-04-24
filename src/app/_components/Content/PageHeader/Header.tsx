@@ -3,16 +3,21 @@ import React from "react";
 import MobileHamburger from "./MobileHamburger";
 import PageHeaderNavigationDisplay from "./PageHeaderNavigation";
 import FastButton from "../../FastButton";
+import { useRouter } from "next/navigation";
 function Header({ children }: React.PropsWithChildren) {
+  const router = useRouter();
   const handleHeaderClick = () => {
     const currentPath = window.location.pathname;
+    const mainWrapper = document.querySelector("#contentwrapper");
     if (currentPath.endsWith("/about")) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      if (mainWrapper) {
+        mainWrapper.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
     } else {
-      window.location.href = window.location.origin + "/about";
+      router.push(window.location.origin + "/about");
     }
   };
 
