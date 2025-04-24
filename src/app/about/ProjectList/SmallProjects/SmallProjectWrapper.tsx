@@ -14,9 +14,6 @@ export function SmallProjectWrapper() {
   const [slidesPerView, setSlidesPerView] = useState(
     swiperRef?.slidesPerViewDynamic() ?? 2,
   );
-  const [currentProject, setCurrentProject] = useState<Project>(
-    SmallProjects[0],
-  );
 
   return (
     <>
@@ -34,7 +31,6 @@ export function SmallProjectWrapper() {
         }}
         onSlideChange={(swiper) => {
           setCurrentSlideIndex(swiper.activeIndex);
-          // setSlidesPerView(swiper.slidesPerViewDynamic());
         }}
         onSlidesUpdated={(swiper) => {
           setSlidesPerView(swiper.slidesPerViewDynamic());

@@ -1,22 +1,18 @@
 import type { LucideIcon } from "lucide-react";
 import React, { type ReactNode } from "react";
 
-type StudyContentWrapperProps = {
+type StudyContentItemProps = {
   Icon: LucideIcon;
   title: string;
   content: ReactNode;
 };
 
-function StudyContentWrapper({
-  Icon,
-  title,
-  content,
-}: StudyContentWrapperProps) {
+function StudyContentItem({ Icon, title, content }: StudyContentItemProps) {
   return (
-    <>
+    <div className="flex flex-col gap-2">
       <StudyContentHeader Icon={Icon} title={title} />
       <StudyContentBody>{content}</StudyContentBody>
-    </>
+    </div>
   );
 }
 
@@ -28,7 +24,7 @@ export function StudyContentHeader({
   title: string;
 }) {
   return (
-    <div className="mb-2 flex items-center gap-2">
+    <div className="flex items-center gap-x-2">
       <Icon size={18} className="text-TextGrayWhite" />
       <h4 className="text-TextGrayWhite font-semibold">{title}</h4>
     </div>
@@ -43,4 +39,4 @@ function StudyContentBody({ children }: { children: ReactNode }) {
   );
 }
 
-export default StudyContentWrapper;
+export default StudyContentItem;

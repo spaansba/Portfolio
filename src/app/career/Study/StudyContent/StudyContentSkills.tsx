@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import React from "react";
-import { StudyContentHeader } from "./StudyContentWrapper";
+import { StudyContentHeader } from "./StudyContentItem";
 
 type StudySkillsContentProps = {
   Icon: LucideIcon;
@@ -10,7 +10,7 @@ type StudySkillsContentProps = {
 
 function StudySkillsContent({ Icon, title, skills }: StudySkillsContentProps) {
   return (
-    <>
+    <div className="flex flex-col gap-2">
       <StudyContentHeader Icon={Icon} title={title} />
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {skills?.map((skill) => (
@@ -23,7 +23,7 @@ function StudySkillsContent({ Icon, title, skills }: StudySkillsContentProps) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

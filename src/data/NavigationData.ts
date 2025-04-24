@@ -100,7 +100,11 @@ export const navigationPages: NavigationList = createNavigationList2({
       name: "Github",
       icon: Github,
       onMouseDown: () => {
-        window.open("https://github.com/spaansba", "_blank");
+        window.open(
+          "https://github.com/spaansba",
+          "_blank",
+          "noopener noreferrer",
+        );
       },
       isOutsideLink: true,
     },
@@ -108,7 +112,11 @@ export const navigationPages: NavigationList = createNavigationList2({
       name: "LinkedIn",
       icon: Linkedin,
       onMouseDown: () => {
-        window.open("https://www.linkedin.com/in/bart-spaans", "_blank");
+        window.open(
+          "https://www.linkedin.com/in/bart-spaans",
+          "_blank",
+          "noopener noreferrer",
+        );
       },
       isOutsideLink: true,
     },

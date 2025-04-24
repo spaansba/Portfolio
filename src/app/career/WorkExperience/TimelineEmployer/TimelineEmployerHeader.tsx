@@ -33,7 +33,9 @@ function TimelineEmployerHeader({
             title={workExperience.employer}
             iconSize={18}
             Icon={ExternalLink}
-            handleMouseDown={() => window.open(workExperience.url, "_blank")}
+            handleMouseDown={() =>
+              window.open(workExperience.url, "_blank", "noopener noreferrer")
+            }
             titleStyles="text-2xl font-bold leading-tight justify-end order-2"
             isMirrored={!isLeftAlign}
             ariaLabel={`Go to ${workExperience.employer}'s website`}
