@@ -1,20 +1,26 @@
 type StudyLocation = {
-  countryCode: string
-  city: string
-}
+  countryCode: string;
+  city: string;
+};
+
+type StudyDegree = {
+  fullName: string; // e.g Bachelor of Science
+  baseTitle: string; // e.g Bachelor
+  shortName?: string; // e.g Bachelor of Science = BSc
+};
 
 export type Study = {
-  institution: string
-  url: string
-  language: string
-  location: StudyLocation
-  degree: string
-  field: string
-  startYear: number
-  endYear: number | string
-  description: string
-  skills?: string[]
-}
+  institution: string;
+  url: string;
+  language: string;
+  location: StudyLocation;
+  degree: StudyDegree;
+  field: string;
+  startYear: number;
+  endYear: number | string;
+  description: string;
+  skills?: string[];
+};
 
 export const studies: Study[] = [
   {
@@ -25,7 +31,11 @@ export const studies: Study[] = [
       countryCode: "NL",
       city: "Rotterdam",
     },
-    degree: "Master of Science (MSc)",
+    degree: {
+      fullName: "Master of Science",
+      baseTitle: "Master",
+      shortName: "MSc",
+    },
     field: "Consultancy and Entrepreneurship",
     startYear: 2019,
     endYear: 2020,
@@ -47,7 +57,11 @@ export const studies: Study[] = [
       countryCode: "NL",
       city: "Rotterdam",
     },
-    degree: "Bachelor of Science (BSc)",
+    degree: {
+      fullName: "Bachelor of Science",
+      baseTitle: "Bachelor",
+      shortName: "BSc",
+    },
     field: "Commercial Economics with a specialisation in marketing management",
     startYear: 2016,
     endYear: 2019,
@@ -61,4 +75,4 @@ export const studies: Study[] = [
       "Communication",
     ],
   },
-]
+];

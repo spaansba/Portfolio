@@ -29,7 +29,7 @@ function StudiesTabSelector({
         >
           <GraduationCap size={16} />
           <span className="hidden md:inline">{study.institution}</span>
-          <span className="md:hidden">{study.degree.split(" ")[0]}</span>
+          <span className="md:hidden">{study.degree.baseTitle}</span>
         </FastButton>
       ))}
     </div>

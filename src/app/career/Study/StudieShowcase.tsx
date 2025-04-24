@@ -40,7 +40,9 @@ function StudiesShowcase() {
                   content={
                     <>
                       <p className="font-medium text-white">
-                        {activeStudy.degree}
+                        {activeStudy.degree.fullName}
+                        {activeStudy.degree.shortName &&
+                          ` (${activeStudy.degree.shortName})`}
                       </p>
                       <p className="text-TextGrayWhite mt-1">
                         {activeStudy.field}
