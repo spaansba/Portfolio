@@ -19,10 +19,12 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
           <div className="hidden md:block">
             <DesktopNavigationWrapper />
           </div>
+
           <main id="contentwrapper" className="scrollbar-custom overflow-auto">
             {children}
             <Footer />
           </main>
+
           <MobileNavigationWrapper />
         </div>
       </div>
