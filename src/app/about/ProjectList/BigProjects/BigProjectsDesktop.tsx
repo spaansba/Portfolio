@@ -15,7 +15,7 @@ type BigProjectsDesktopProps = {
 
 function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
   return (
-    <div className="group/project relative hidden md:block">
+    <div className="group/project relative">
       <div
         className={`bg-TertiaryGray absolute top-0 bottom-0 w-[1px] ${
           isLeftAlign ? "left-0" : "right-0"
