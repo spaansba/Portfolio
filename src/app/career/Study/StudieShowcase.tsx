@@ -5,6 +5,8 @@ import { Award, BookOpen, Component, Globe } from "lucide-react";
 import { useState } from "react";
 import StudiesTabSelector from "./StudiesTabSelector";
 import StudiesHeader from "./StudiesHeader";
+import StudyContentWrapper from "./StudyContent/StudyContentWrapper";
+import StudySkillsContent from "./StudyContent/StudyContentSkills";
 
 function StudiesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,85 +31,55 @@ function StudiesShowcase() {
         >
           <div className="p-6 md:p-8">
             <StudiesHeader study={activeStudy} />
-            {/* Content */}
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              {/* Left Column */}
               <div className="space-y-5">
-                <div>
-                  <div className="mb-2 flex items-center gap-2">
-                    <Award size={18} className="text-TextGrayWhite" />
-                    <h4 className="text-TextGrayWhite font-semibold">Degree</h4>
-                  </div>
-                  <div className="bg-SecondaryGray border-TertiaryGray border-l-2 p-4">
-                    <p className="font-medium text-white">
-                      {activeStudy.degree}
-                    </p>
-                    <p className="text-TextGrayWhite mt-1">
-                      {activeStudy.field}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="mb-2 flex items-center gap-2">
-                    <BookOpen size={18} className="text-TextGrayWhite" />
-                    <h4 className="text-TextGrayWhite font-semibold">
-                      Overview
-                    </h4>
-                  </div>
-                  <div className="bg-SecondaryGray border-TertiaryGray border-l-2 p-4">
+                <StudyContentWrapper
+                  Icon={Award}
+                  title={"Degree"}
+                  content={
+                    <>
+                      <p className="font-medium text-white">
+                        {activeStudy.degree}
+                      </p>
+                      <p className="text-TextGrayWhite mt-1">
+                        {activeStudy.field}
+                      </p>
+                    </>
+                  }
+                />
+                <StudyContentWrapper
+                  Icon={Award}
+                  title={"Description"}
+                  content={
                     <p className="text-TextGrayWhite">
                       {activeStudy.description}
                     </p>
-                  </div>
-                </div>
+                  }
+                />
               </div>
 
               {/* Right Column */}
               <div className="space-y-5">
-                <div>
-                  <div className="mb-2 flex items-center gap-2">
-                    <Globe size={18} className="text-TextGrayWhite" />
-                    <h4 className="text-TextGrayWhite font-semibold">
-                      Language
-                    </h4>
-                  </div>
-                  <div className="bg-SecondaryGray border-TertiaryGray border-l-2 p-3">
-                    <p className="text-TextGrayWhite">
-                      {activeStudy.language || "Not specified"}
-                    </p>
-                  </div>
-                </div>
+                <StudyContentWrapper
+                  Icon={Globe}
+                  title={"Language"}
+                  content={
+                    <p className="text-TextGrayWhite">{activeStudy.language}</p>
+                  }
+                />
 
-                <div>
-                  <div className="mb-2 flex items-center gap-2">
-                    <div className="text-TextGrayWhite">
-                      <Component size={18} />
-                    </div>
-                    <h4 className="text-TextGrayWhite font-semibold">
-                      Key Skills
-                    </h4>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {activeStudy.skills?.map((skill) => (
-                      <div
-                        key={skill}
-                        className="bg-SecondaryGray border-TertiaryGray flex items-center border-l-2 p-3"
-                      >
-                        <div className="mr-3 size-2 bg-yellow-50"></div>
-                        <span className="text-TextGrayWhite text-sm">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {activeStudy.skills && activeStudy.skills.length > 0 && (
+                  <StudySkillsContent
+                    Icon={Component}
+                    title={"Key Skills"}
+                    skills={activeStudy.skills}
+                  />
+                )}
               </div>
             </div>
           </div>
 
-          {/* <div className="h-1 w-full bg-gradient-to-r from-SecondaryGray via-TextGrayWhite to-TertiaryGray opacity-30"></div> */}
+          {/* <div className="from-SecondaryGray via-TextGrayWhite to-TertiaryGray h-1 w-full bg-gradient-to-r opacity-30"></div> */}
         </motion.div>
       </AnimatePresence>
     </div>
