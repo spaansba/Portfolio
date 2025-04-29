@@ -125,7 +125,7 @@ export const SmallProjects: Project[] = addIndexToProject([
     title: "PowerTree",
     isFinished: true,
     description: [
-      "Open-source PowerTree cmdlet that allows users to visualize an directory recursively with advanced features like: Excluding folders, displaying extra info like size, modification date, sorting and filtering",
+      "Open-source PowerShell module that allows users to visualize an directory recursively with advanced features like: Excluding folders, displaying extra info like size, modification date, sorting and filtering",
     ],
     technologies: ["PowerShell"],
     gitHubLink: "https://github.com/spaansba/PowerTree",
@@ -146,6 +146,22 @@ export const SmallProjects: Project[] = addIndexToProject([
     technologies: ["VBA", "XML"],
     downloadLink:
       "https://h0oyl2bore.ufs.sh/f/s1SwIVgQ9NPAYuNKQxmjCTBq1z8oihFNPltdrf2v763WDnyG",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+    ],
+  },
+  {
+    title: "SVGL-PowerShell",
+    isFinished: true,
+    description: [
+      "Open-source PowerShell module for interacting with the open-source SVGL library",
+    ],
+    technologies: ["PowerShell"],
+    gitHubLink: "https://github.com/spaansba/SVGL-PowerShell",
+    link: "https://www.powershellgallery.com/packages/Get-SVGL",
     images: [
       {
         image: "/images/Filmiliar.jpg",
