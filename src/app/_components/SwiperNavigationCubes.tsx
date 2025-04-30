@@ -23,7 +23,7 @@ function SwiperNavigationCubes({
         onClick={() => swiperRef.slidePrev()}
         aria-label="Previous project"
         disabled={currentSlide === 0}
-        className={`${currentSlide === 0 ? "opacity-10" : "hover:opacity-50"} transition-all duration-200`}
+        className={`${currentSlide === 0 ? "opacity-10" : "cursor-pointer hover:opacity-50"} transition-all duration-200`}
       >
         <ChevronLeft color={"white"} size={20} />
       </FastButton>
@@ -36,7 +36,7 @@ function SwiperNavigationCubes({
             className={`h-2 w-2 transition-all ${
               currentSlide === i
                 ? "w-4 bg-white"
-                : "bg-TertiaryGray hover:bg-white hover:opacity-30"
+                : "bg-TertiaryGray cursor-pointer hover:bg-white hover:opacity-30"
             }`}
             aria-label={`Check out project ${i + 1}`}
           />
@@ -47,7 +47,7 @@ function SwiperNavigationCubes({
         onClick={() => swiperRef.slideNext()}
         aria-label="Next project"
         disabled={currentSlide === totalSlides - 1}
-        className={`${currentSlide === totalSlides - 1 ? "opacity-10" : "hover:opacity-50"} transition-all duration-200`}
+        className={`${currentSlide === totalSlides - 1 ? "opacity-10" : "cursor-pointer hover:opacity-50"} transition-all duration-200`}
       >
         <ChevronRight color={"white"} size={20} />
       </FastButton>
