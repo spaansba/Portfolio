@@ -154,6 +154,22 @@ export const SmallProjects: Project[] = addIndexToProject([
     ],
   },
   {
+    title: "React hover slob",
+    isFinished: true,
+    description: [
+      "A React hook that expands the area of the mouseOver, mouseLeave and mouseEnter events for React components. Usefull for if you want to prefetch earlier than regular hover",
+    ],
+    technologies: ["React"],
+    gitHubLink: "https://github.com/spaansba/react-hover-slop",
+    link: "https://react-hover-slop-example-page.vercel.app/",
+    images: [
+      {
+        image: "/images/Filmiliar.jpg",
+        description: "Maestro Excel add-in interface",
+      },
+    ],
+  },
+  {
     title: "SVGL-PowerShell",
     isFinished: true,
     description: [
