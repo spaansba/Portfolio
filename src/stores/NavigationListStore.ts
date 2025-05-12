@@ -38,6 +38,7 @@ const useNavigationListStore = create<NavigationListStore>((set, get) => ({
       }));
     },
     setSelectedPage: (page) => {
+      console.log(page);
       if (page.isOutsideLink) {
         return;
       }

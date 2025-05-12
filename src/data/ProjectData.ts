@@ -39,6 +39,22 @@ function addIndexToProject(projects: ProjectWithoutIndex[]): Project[] {
 
 export const BigProjects: Project[] = addIndexToProject([
   {
+    title: "ForesightJS",
+    isFinished: false,
+    description: [
+      "ForesightJS is a lightweight JavaScript library that predicts user intent based on mouse movements. By analyzing cursor trajectory in real-time, it anticipates which elements a user is likely to interact with, allowing developers to trigger actions before the actual hover or click occurs (for example prefetching).",
+    ],
+    technologies: ["TypeScript"],
+    link: "https://foresightJS.com/",
+    gitHubLink: "https://github.com/spaansba/ForesightJS",
+    images: [
+      {
+        image: "/",
+        description: "Toast Texter thermal printer prototype",
+      },
+    ],
+  },
+  {
     title: "Toast Texter",
     isFinished: false,
     description: [

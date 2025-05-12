@@ -22,7 +22,7 @@ export function useNavigationWithScroll() {
     timeoutRef.current = setTimeout(() => {
       navigationActions.setIsScrolling(false);
       timeoutRef.current = null;
-    }, 500);
+    }, 700);
   };
 
   const goToPageOrScroll = (urlHash?: string, desiredPathName?: string) => {

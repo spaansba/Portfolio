@@ -48,9 +48,10 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
           </div>
         </div>
 
-        {project.images && (
+        {project.images && project.images[0].image !== "/" && (
           <div className={`w-2/5 ${!isLeftAlign && "order-1"}`}>
             <div className="border-TertiaryGray relative h-60 w-full overflow-hidden border">
+              (
               <Link
                 href={project.link ?? ""}
                 target="_blank"
