@@ -1,6 +1,5 @@
 import {
   BriefcaseBusiness,
-  Github,
   GraduationCap,
   Linkedin,
   Mail,
@@ -9,12 +8,14 @@ import {
   Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { SVGProps } from "react";
+import { BlueskyIcon, GitHubIcon, LinkedInIcon } from "./icons";
 
 export type NavigationPageItem = {
   id: number;
   category: CategoryType;
   name: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.FC<SVGProps<SVGSVGElement>>;
   onMouseDown?: () => void;
   isOutsideLink: boolean;
   path?: string;
@@ -98,7 +99,7 @@ export const navigationPages: NavigationList = createNavigationList2({
     },
     {
       name: "Github",
-      icon: Github,
+      icon: GitHubIcon,
       onMouseDown: () => {
         window.open(
           "https://github.com/spaansba",
@@ -110,10 +111,22 @@ export const navigationPages: NavigationList = createNavigationList2({
     },
     {
       name: "LinkedIn",
-      icon: Linkedin,
+      icon: LinkedInIcon,
       onMouseDown: () => {
         window.open(
           "https://www.linkedin.com/in/bart-spaans",
+          "_blank",
+          "noopener noreferrer",
+        );
+      },
+      isOutsideLink: true,
+    },
+    {
+      name: "BlueSky",
+      icon: BlueskyIcon,
+      onMouseDown: () => {
+        window.open(
+          "https://bsky.app/profile/bartspaans.com",
           "_blank",
           "noopener noreferrer",
         );

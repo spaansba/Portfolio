@@ -7,7 +7,7 @@ import FastButton from "../_components/FastButton";
 function ContactLinks() {
   const pages = useNavigationPageList();
   return (
-    <div className="flex flex-row items-center justify-center gap-2">
+    <div className="flex flex-row items-center justify-center gap-3">
       {pages.connect
         .filter((page) => page.isOutsideLink)
         .map((page) => (
