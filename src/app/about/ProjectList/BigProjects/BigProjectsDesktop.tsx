@@ -6,6 +6,7 @@ import ProjectTitle from "./BigProjectTitle";
 import TechnologyBadge from "../TechnologyBadge";
 import ProjectDescription from "./BigProjectDescription";
 import ProjectLinks from "../ProjectLinks";
+import ProjectStats from "../ProjectStats";
 
 type BigProjectsDesktopProps = {
   project: Project;
@@ -69,22 +70,31 @@ function BigProjectsDesktop({ project, isLeftAlign }: BigProjectsDesktopProps) {
           </div>
         )}
       </div>
-      <div
-        className={`${isLeftAlign ? "ml-10" : "mr-10"} flex flex-row items-center justify-between pt-3`}
-      >
-        <div className={!isLeftAlign ? "order-2" : "order-1"}>
-          <ProjectLinks
-            link={project.link}
-            gitHubLink={project.gitHubLink}
-            downloadLink={project.downloadLink}
-            isRightalign={!isLeftAlign}
-          />
-        </div>
+      <div className={`${isLeftAlign ? "ml-10" : "mr-10"} pt-3`}>
+        {project.package && (
+          <div className={`mt-4 ${!isLeftAlign ? "text-right" : ""}`}>
+            <ProjectStats
+              repoName={project.package.repoName}
+              npmPackage={project.package.npmPackage}
+              isRightAlign={!isLeftAlign}
+            />
+          </div>
+        )}
+        <div className="flex flex-row items-center justify-between">
+          <div className={!isLeftAlign ? "order-2" : "order-1"}>
+            <ProjectLinks
+              link={project.link}
+              gitHubLink={project.gitHubLink}
+              downloadLink={project.downloadLink}
+              isRightalign={!isLeftAlign}
+            />
+          </div>
 
-        <div
-          className={`text-TextGray text-s ${!isLeftAlign ? "order-1" : "order-2"}`}
-        >
-          {project.isFinished ? "" : "* work in progress"}
+          <div
+            className={`text-TextGray text-s ${!isLeftAlign ? "order-1" : "order-2"}`}
+          >
+            {project.isFinished ? "" : "* work in progress"}
+          </div>
         </div>
       </div>
     </div>

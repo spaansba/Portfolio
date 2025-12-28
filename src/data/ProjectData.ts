@@ -6,6 +6,10 @@ export type Project = {
   link?: string;
   downloadLink?: string;
   gitHubLink?: string;
+  package?: {
+    repoName: string;
+    npmPackage: string;
+  };
   images: ProjectImages[];
   index: number;
 };
@@ -40,13 +44,17 @@ function addIndexToProject(projects: ProjectWithoutIndex[]): Project[] {
 export const BigProjects: Project[] = addIndexToProject([
   {
     title: "ForesightJS",
-    isFinished: false,
+    isFinished: true,
     description: [
-      "ForesightJS is a lightweight JavaScript library that predicts user intent based on mouse movements. By analyzing cursor trajectory in real-time, it anticipates which elements a user is likely to interact with, allowing developers to trigger actions before the actual hover or click occurs (for example prefetching).",
+      "Lightweight JavaScript library that predicts user intent based on mouse movements and keyboard navigation. Perfect for smart prefetching.",
     ],
     technologies: ["TypeScript"],
     link: "https://foresightJS.com/",
     gitHubLink: "https://github.com/spaansba/ForesightJS",
+    package: {
+      repoName: "spaansba/ForesightJS",
+      npmPackage: "js.foresight",
+    },
     images: [
       {
         image: "/",
@@ -97,22 +105,6 @@ export const BigProjects: Project[] = addIndexToProject([
       },
     ],
   },
-  {
-    title: "Filmiliar",
-    isFinished: true,
-    description: [
-      "Filmiliar is a hobby project I developed to learn how to work with the ChatGPT API and implement streaming responses. The application helps users discover new movies based on their selection of previously enjoyed films.",
-      "Each recommendation displays a popularity rating, main cast members, thematic elements, a brief description, and convenient links to streaming or purchase options. Filmiliar used to work with music as well with the Spotify API but sadly Spotify deprecated it.",
-    ],
-    technologies: ["React", "TypeScript", "Tailwind", "Next.js", "ChatGPT API"],
-    link: "https://www.filmiliar.nl/",
-    images: [
-      {
-        image: "/images/Filmiliar.jpg",
-        description: "Filmiliar movie recommendation interface",
-      },
-    ],
-  },
 ]);
 
 export const SmallProjects: Project[] = addIndexToProject([
@@ -146,6 +138,10 @@ export const SmallProjects: Project[] = addIndexToProject([
     technologies: ["PowerShell"],
     gitHubLink: "https://github.com/spaansba/PowerTree",
     link: "https://www.powershellgallery.com/packages/PowerTree",
+    package: {
+      repoName: "spaansba/PowerTree",
+      npmPackage: "PowerTree",
+    },
     images: [
       {
         image: "/images/Filmiliar.jpg",
@@ -178,6 +174,10 @@ export const SmallProjects: Project[] = addIndexToProject([
     technologies: ["PowerShell"],
     gitHubLink: "https://github.com/spaansba/SVGL-PowerShell",
     link: "https://www.powershellgallery.com/packages/Get-SVGL",
+    package: {
+      repoName: "spaansba/SVGL-PowerShell",
+      npmPackage: "Get-SVGL",
+    },
     images: [
       {
         image: "/images/Filmiliar.jpg",

@@ -2,6 +2,7 @@ import type { Project } from "@/data/ProjectData";
 import ImageContainer from "../../../_components/Content/ImageContainer/ImageContainer";
 import ProjectLinks from "../ProjectLinks";
 import TechnologyBadge from "../TechnologyBadge";
+import ProjectStats from "../ProjectStats";
 
 type SmallProjectCarouselItemProps = {
   project: Project;
@@ -30,6 +31,15 @@ function SmallProjectCarouselItem({ project }: SmallProjectCarouselItemProps) {
           </div>
 
           <div className="mt-4">
+            {project.package && (
+              <div className="mb-1">
+                <ProjectStats
+                  repoName={project.package.repoName}
+                  npmPackage={project.package.npmPackage}
+                  isRightAlign={false}
+                />
+              </div>
+            )}
             <ProjectLinks
               link={project.link}
               gitHubLink={project.gitHubLink}
