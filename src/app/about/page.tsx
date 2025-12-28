@@ -15,7 +15,7 @@ async function AboutPage() {
       </div>
       <div id="projects" data-observe>
         <SectionHeaderTitle
-          title="Projects."
+          title="Personal Projects."
           urlHash="#projects"
           isMobileDevice={isMobileDevice}
         />

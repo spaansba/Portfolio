@@ -7,7 +7,7 @@ type BigProjectDescriptionProps = {
 };
 
 function BigProjectDescription({ description }: BigProjectDescriptionProps) {
-  const [showButton] = useState(description.length > 1);
+  const showButton = description.length > 1;
   const [expanded, setExpanded] = useState(false);
 
   return (

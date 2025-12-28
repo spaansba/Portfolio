@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { ButtonHTMLAttributes, useRef } from "react";
 
-type FastButtonProps = {
+type FastButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;

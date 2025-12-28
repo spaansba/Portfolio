@@ -5,7 +5,7 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
     <>
       {field.state.meta.isTouched && field.state.meta.errors.length ? (
-        <em className="text-red-300">
+        <em id={`${field.name}-error`} className="text-red-300" role="alert">
           {field.state.meta.errors.map((error, i) => 
             typeof error === 'string' 
               ? error 

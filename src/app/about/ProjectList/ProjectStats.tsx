@@ -14,6 +14,20 @@ type Stats = {
   npmDownloads: number | null;
 };
 
+type PackageType = 'powershell' | 'npm';
+
+const POWERSHELL_PACKAGES = new Set(['PowerTree', 'Get-SVGL']);
+
+const getPackageType = (packageName: string): PackageType => {
+  return POWERSHELL_PACKAGES.has(packageName) ? 'powershell' : 'npm';
+};
+
+const getPackageUrl = (packageName: string, packageType: PackageType): string => {
+  return packageType === 'powershell'
+    ? `https://www.powershellgallery.com/packages/${packageName}`
+    : `https://www.npmjs.com/package/${packageName}`;
+};
+
 function ProjectStats({
   repoName,
   npmPackage,
@@ -65,13 +79,9 @@ function ProjectStats({
           <span>{stats.githubStars.toLocaleString()}</span>
         </Link>
       )}
-      {stats.npmDownloads !== null && (
+      {stats.npmDownloads !== null && npmPackage && (
         <Link
-          href={
-            npmPackage?.includes('PowerTree') || npmPackage?.includes('Get-SVGL')
-              ? `https://www.powershellgallery.com/packages/${npmPackage}`
-              : `https://www.npmjs.com/package/${npmPackage}`
-          }
+          href={getPackageUrl(npmPackage, getPackageType(npmPackage))}
           target="_blank"
           rel="noopener noreferrer"
           className="text-TextGray hover:text-fgButton flex items-center gap-1 transition-colors"
@@ -79,7 +89,7 @@ function ProjectStats({
           <Download size={14} />
           <span>
             {stats.npmDownloads.toLocaleString()}
-            {npmPackage?.includes('PowerTree') || npmPackage?.includes('Get-SVGL') ? '' : '/mo'}
+            {getPackageType(npmPackage) === 'npm' ? '/mo' : ''}
           </span>
         </Link>
       )}

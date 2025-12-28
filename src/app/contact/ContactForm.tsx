@@ -45,7 +45,6 @@ function ContactForm() {
         setErrorMessage(
           error instanceof Error ? error.message : "An unknown error occurred",
         );
-        console.error("Error sending message:", error);
       } finally {
         setIsLoading(false);
       }
@@ -93,6 +92,12 @@ function ContactForm() {
                     name={field.name}
                     value={field.state.value}
                     onChange={(e) => field.handleChange(e.target.value)}
+                    aria-invalid={field.state.meta.errors.length > 0}
+                    aria-describedby={
+                      field.state.meta.errors.length > 0
+                        ? `${field.name}-error`
+                        : undefined
+                    }
                     className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                   />
                   <FieldInfo field={field} />
@@ -116,6 +121,12 @@ function ContactForm() {
                     name={field.name}
                     value={field.state.value}
                     onChange={(e) => field.handleChange(e.target.value)}
+                    aria-invalid={field.state.meta.errors.length > 0}
+                    aria-describedby={
+                      field.state.meta.errors.length > 0
+                        ? `${field.name}-error`
+                        : undefined
+                    }
                     className="bg-PrimaryGray border-TertiaryGray text-TextGrayWhite focus:ring-fgButton focus:border-fgButton border p-2 text-sm transition-colors focus:ring-1 focus:outline-none"
                   />
                   <FieldInfo field={field} />
