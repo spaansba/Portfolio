@@ -1,23 +1,39 @@
 export type WorkPositions = {
-  jobTitle: string
-  startYear: number
-  endYear: number | string
-  extraInfo: string[]
-}
+  jobTitle: string;
+  startYear: number;
+  endYear: number | string;
+  extraInfo: string[];
+};
 
 type WorkLocation = {
-  countryCode: string
-  city: string
-}
+  countryCode: string;
+  city: string;
+};
 
 export type WorkExperience = {
-  employer: string
-  url: string
-  location: WorkLocation
-  positions: WorkPositions[]
-}
+  employer: string;
+  url: string;
+  location: WorkLocation;
+  positions: WorkPositions[];
+};
 
 export const workExperience: WorkExperience[] = [
+  {
+    employer: "23G",
+    url: "https://23g.nl/",
+    location: {
+      countryCode: "NL",
+      city: "Rotterdam",
+    },
+    positions: [
+      {
+        jobTitle: "Junior Frontend Developer",
+        startYear: 2025,
+        endYear: "present",
+        extraInfo: [],
+      },
+    ],
+  },
   {
     employer: "Amazon",
     url: "https://www.amazon.nl/",
@@ -29,7 +45,7 @@ export const workExperience: WorkExperience[] = [
       {
         jobTitle: "Subject Matter Expert",
         startYear: 2023,
-        endYear: "present",
+        endYear: 2025,
         extraInfo: [
           "Created, developed and maintained multiple big VBA projects serving over 600 internal clients from 12 different countries. Also served as the main contact point between the NL Flex team and the retail department.",
         ],
@@ -78,4 +94,4 @@ export const workExperience: WorkExperience[] = [
       },
     ],
   },
-]
+];
