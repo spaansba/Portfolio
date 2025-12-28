@@ -2,6 +2,15 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { contactFormSchema } from "@/app/contact/schema";
 
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -28,10 +37,10 @@ export async function POST(request: Request) {
       `,
       html: `
         <h2>New contact form submission</h2>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
+        <p><strong>Name:</strong> ${escapeHtml(validatedData.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(validatedData.email)}</p>
         <p><strong>Message:</strong></p>
-        <p>${validatedData.message.replace(/\n/g, "<br>")}</p>
+        <p>${escapeHtml(validatedData.message).replace(/\n/g, "<br>")}</p>
       `,
     };
 

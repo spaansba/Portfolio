@@ -16,7 +16,7 @@ function BigProjectDescription({ description }: BigProjectDescriptionProps) {
 
       {showButton && (
         <div
-          className={`transition-all ease-in-out ${expanded ? "max-h-[1000px] opacity-100 duration-500" : "max-h-0 overflow-hidden opacity-0 duration-300"}`}
+          className={`transition-all ease-in-out ${expanded ? "max-h-250 opacity-100 duration-500" : "max-h-0 overflow-hidden opacity-0 duration-300"}`}
         >
           {description.slice(1).map((paragraph, index) => (
             <p key={index} className="mt-2 text-base">

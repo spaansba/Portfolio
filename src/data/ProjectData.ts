@@ -109,27 +109,6 @@ export const BigProjects: Project[] = addIndexToProject([
 
 export const SmallProjects: Project[] = addIndexToProject([
   {
-    title: "Search Sanitizer",
-    isFinished: true,
-    description: [
-      "An Google Chrome Extension that blocks sites/images/videos/ads from showing up on your Google Search Results page. Never want to see temu again? Block it.",
-    ],
-    technologies: ["Chrome Extension", "React", "TypeScript", "Tailwind"],
-    link: "https://chromewebstore.google.com/detail/search-sanitizer/cojacdikohpefnppeaaehbkonbhenhgb",
-    images: [
-      {
-        image: "/images/SearchSanitizer/SearchSanitizer.gif",
-        description: "Maja's photography portfolio website",
-        isGif: true,
-      },
-      {
-        image: "/images/SearchSanitizer/Dashboard.png",
-        description:
-          "Dashboard showing the currently blocked URL's and their blocked stats. This is one of the places where you can configure new URL's to block",
-      },
-    ],
-  },
-  {
     title: "PowerTree",
     isFinished: true,
     description: [
@@ -182,6 +161,27 @@ export const SmallProjects: Project[] = addIndexToProject([
       {
         image: "/images/Filmiliar.jpg",
         description: "Maestro Excel add-in interface",
+      },
+    ],
+  },
+  {
+    title: "Search Sanitizer",
+    isFinished: true,
+    description: [
+      "My first ever project! A Google Chrome extension that blocks sites, images, videos, and ads from showing up on your Google Search Results page. Never want to see Temu again? Block it.",
+    ],
+    technologies: ["Chrome Extension", "React", "TypeScript", "Tailwind"],
+    link: "https://chromewebstore.google.com/detail/search-sanitizer/cojacdikohpefnppeaaehbkonbhenhgb",
+    images: [
+      {
+        image: "/images/SearchSanitizer/SearchSanitizer.gif",
+        description: "Maja's photography portfolio website",
+        isGif: true,
+      },
+      {
+        image: "/images/SearchSanitizer/Dashboard.png",
+        description:
+          "Dashboard showing the currently blocked URL's and their blocked stats. This is one of the places where you can configure new URL's to block",
       },
     ],
   },
