@@ -1,4 +1,3 @@
-"use server";
 type BigProjectTitleProps = {
   title: string;
   isLeftAlign: boolean;

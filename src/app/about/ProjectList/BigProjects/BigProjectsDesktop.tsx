@@ -1,4 +1,3 @@
-"use server";
 import type { Project } from "@/data/ProjectData";
 import Link from "next/link";
 import React from "react";

@@ -1,4 +1,3 @@
-"use server";
 import { BigProjects } from "@/data/ProjectData";
 import BigProjectsDesktop from "./BigProjectsDesktop";
 import BigProjectsMobile from "./BigProjectsMobile";
