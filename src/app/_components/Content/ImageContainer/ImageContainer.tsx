@@ -49,6 +49,10 @@ function ImageContainer({ project }: ImageContainerProps) {
       <dialog
         ref={modalRef}
         className="backdrop:bg-opacity-70 m-auto w-full max-w-5xl cursor-default rounded-lg bg-transparent p-0 backdrop:bg-black backdrop:backdrop-blur-md"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-describedby="modal-description"
       >
         <ImageModalContent project={project} closeModal={handleCloseModal} />
       </dialog>

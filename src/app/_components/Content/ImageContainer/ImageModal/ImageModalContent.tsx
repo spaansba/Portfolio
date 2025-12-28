@@ -35,6 +35,9 @@ export function ImageModalContent({
       className="mx-auto flex max-h-[95vh] w-full max-w-6xl flex-col overflow-hidden"
     >
       <ModalHeader closeModal={closeModal} projectTitle={project.title} />
+      <div id="modal-description" className="sr-only">
+        Project gallery for {project.title} with {project.images.length} images
+      </div>
 
       {/* Image/GIF slider with responsive height */}
       <div className="h-[40vh] w-full bg-black sm:h-[50vh] md:h-[60vh] lg:h-[70vh]">
@@ -60,8 +63,11 @@ export function ImageModalContent({
                     muted
                     playsInline
                     className="h-full w-full object-contain"
-                    aria-label={image.description}
-                  />
+                    aria-label={`Project demonstration video: ${image.description}`}
+                    role="img"
+                  >
+                    <p>Your browser doesn't support video playback. {image.description}</p>
+                  </video>
                 ) : (
                   <Image
                     src={image.image}
@@ -99,8 +105,8 @@ export function ImageModalContent({
 
         {/* Project description */}
         <div className="border-TertiaryGray border-t pt-2 md:pt-4">
-          <h4 className="mb-1 text-base font-medium text-white md:mb-2 md:text-lg">
-            About this project
+          <h4 id="modal-title" className="mb-1 text-base font-medium text-white md:mb-2 md:text-lg">
+            About {project.title}
           </h4>
           <p className="text-TextGrayWhite mb-2 text-sm md:mb-4 md:text-base">
             {project.description[0]}

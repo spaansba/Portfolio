@@ -8,10 +8,13 @@ function AboutHeader() {
   );
 
   return (
-    <div className="group/intro pt-4 md:px-[20px]">
+    <div className="group/intro pt-4 md:px-5">
       <div className="flex flex-row items-start gap-1 md:gap-10 lg:gap-20">
-        <div className="pt-2.5 md:max-w-[500px] md:pt-0">
-          <h3 className="text-TextGray mb-0.5 text-xs md:mb-2 md:text-sm">
+        <div className="pt-2.5 md:max-w-125 md:pt-0">
+          <h3
+            className="text-TextGray mb-0.5 text-xs md:mb-2 md:text-sm"
+            role="banner"
+          >
             Hi, my name is
           </h3>
           <h1 className="mb-0.5 text-3xl font-bold text-white md:mb-2 md:text-5xl">

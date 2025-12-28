@@ -11,28 +11,26 @@ function DesktopNavigationWrapper() {
   const pages = useNavigationPageList();
 
   return (
-    <aside className="bg-SecondaryGray z-20 h-full">
-      <nav className="flex h-full">
-        <div
-          className="bg-SecondaryGray overflow-hidden transition-all duration-400 ease-in-out"
-          style={{
-            width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH,
-          }}
-        >
-          <ul className="scrollbar-hide relative mt-6 ml-3 flex h-full flex-col gap-6 select-none">
-            {Object.entries(pages).map(([sectionTitle, sectionItems]) => (
-              <DesktopNavigationSection
-                key={sectionTitle}
-                title={sectionTitle}
-                pages={sectionItems}
-              />
-            ))}
-          </ul>
-        </div>
+    <nav className="bg-SecondaryGray z-20 flex h-full">
+      <div
+        className="bg-SecondaryGray overflow-hidden transition-all duration-400 ease-in-out"
+        style={{
+          width: isSidebarOpen ? SIDEBAR_OPEN_WIDTH : SIDEBAR_CLOSED_WIDTH,
+        }}
+      >
+        <ul className="scrollbar-hide relative mt-6 ml-3 flex h-full flex-col gap-6 select-none">
+          {Object.entries(pages).map(([sectionTitle, sectionItems]) => (
+            <DesktopNavigationSection
+              key={sectionTitle}
+              title={sectionTitle}
+              pages={sectionItems}
+            />
+          ))}
+        </ul>
+      </div>
 
-        <SidebarToggleButton />
-      </nav>
-    </aside>
+      <SidebarToggleButton />
+    </nav>
   );
 }
 

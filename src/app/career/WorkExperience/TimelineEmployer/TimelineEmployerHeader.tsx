@@ -17,7 +17,7 @@ function TimelineEmployerHeader({
       className={`flex items-center ${!isLeftAlign ? "justify-end" : ""} gap-4`}
     >
       <div className="flex flex-col gap-1">
-        <div className="text-TextGray flex items-center gap-2.5">
+        <div className="text-TextGray flex items-center justify-around gap-1.5">
           <MapPin size={16} className={`${!isLeftAlign ? "order-2" : ""}`} />
           <h3 className="text-[14px] font-semibold">
             {workExperience.location.city},{" "}

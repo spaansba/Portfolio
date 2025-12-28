@@ -15,12 +15,17 @@ async function MainWrapper({ children }: { children: React.ReactNode }) {
           </Header>
         </header>
 
-        <div className="mt-[73px] grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] overflow-hidden">
-          <div className="hidden md:block">
+        <div className="mt-18.25 grid h-[calc(100vh-73px)] grid-cols-[auto_1fr] overflow-hidden">
+          <aside className="hidden md:block" aria-label="Main navigation">
             <DesktopNavigationWrapper />
-          </div>
+          </aside>
 
-          <main id="contentwrapper" className="scrollbar-custom overflow-auto">
+          <main
+            id="contentwrapper"
+            className="scrollbar-custom overflow-auto"
+            role="main"
+            aria-label="Main content"
+          >
             {children}
             <Footer />
           </main>

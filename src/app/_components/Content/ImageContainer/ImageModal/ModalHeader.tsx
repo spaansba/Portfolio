@@ -1,6 +1,5 @@
 import FastButton from "@/app/_components/FastButton";
 import { X } from "lucide-react";
-import React from "react";
 
 type ModalHeaderProps = {
   closeModal: () => void;
@@ -14,8 +13,9 @@ function ModalHeader({ closeModal, projectTitle }: ModalHeaderProps) {
       <FastButton
         className="hover:bg-TertiaryGray rounded-full p-1 text-white transition-colors"
         onClick={closeModal}
+        aria-label="Close image gallery modal"
       >
-        <X size={24} />
+        <X size={24} aria-hidden="true" />
       </FastButton>
     </div>
   );
